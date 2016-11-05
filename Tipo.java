@@ -11,5 +11,5 @@ public class Tipo {
 	
 	protected int getConstante(){
 		return constante;
-	};
+	}
 }

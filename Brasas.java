@@ -6,5 +6,4 @@ public class Brasas extends AtaqueSimple{
 		daño = 16;
 		cantidad = 10;
 	}
-
 }
