@@ -350,5 +350,25 @@ public class PrimeraEntregaTest {
 	
 	//PUNTO 11 DE LA ENTREGA
 	
-	//FALTA ESTE
+	@Test
+	public void testAtaqueNoAgotado() {
+		Squirtle squirtle = new Squirtle();
+		Bulbasaur bulbasaur = new Bulbasaur();
+		assertEquals(true, squirtle.atacarACon(bulbasaur, "Cañon de Agua")); // Ataque nro 1
+	}
+	
+	@Test
+	public void testAtaqueAgotado() {
+		Squirtle squirtle = new Squirtle();
+		Bulbasaur bulbasaur = new Bulbasaur();
+		squirtle.atacarACon(bulbasaur, "Cañon de Agua");
+		squirtle.atacarACon(bulbasaur, "Cañon de Agua");
+		squirtle.atacarACon(bulbasaur, "Cañon de Agua");
+		squirtle.atacarACon(bulbasaur, "Cañon de Agua");
+		squirtle.atacarACon(bulbasaur, "Cañon de Agua");
+		squirtle.atacarACon(bulbasaur, "Cañon de Agua");
+		squirtle.atacarACon(bulbasaur, "Cañon de Agua");
+		squirtle.atacarACon(bulbasaur, "Cañon de Agua"); // Ataque nro 8
+		assertEquals(false, squirtle.atacarACon(bulbasaur, "Cañon de Agua")); // Ataque nro 9
+	}
 }
