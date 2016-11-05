@@ -351,24 +351,161 @@ public class PrimeraEntregaTest {
 	//PUNTO 11 DE LA ENTREGA
 	
 	@Test
-	public void testAtaqueNoAgotado() {
+	public void SquirtleAgotaAtaqueRapido(){
+		
 		Squirtle squirtle = new Squirtle();
-		Bulbasaur bulbasaur = new Bulbasaur();
-		assertEquals(true, squirtle.atacarACon(bulbasaur, "Cañon de Agua")); // Ataque nro 1
+		Squirtle squirtle2 = new Squirtle();
+		for (int x = 0; x < 16; x++){  			//ATAQUE RAPIDO TIENE UNA CANTIDAD DE 16	
+			squirtle.atacarACon(squirtle2, "Ataque Rapido");
+		}
+		assertEquals(false, squirtle.atacarACon(squirtle2, "Ataque Rapido"));
 	}
 	
 	@Test
-	public void testAtaqueAgotado() {
+	public void SquirtleAgotaBurbuja(){
+		
+		Squirtle squirtle = new Squirtle();
+		Squirtle squirtle2 = new Squirtle();
+		for (int x = 0; x < 15; x++){ 			//BURBUJA TIENE UNA CANTIDAD DE 15
+			squirtle.atacarACon(squirtle2, "Burbuja");
+		}
+		assertEquals(false, squirtle.atacarACon(squirtle2, "Burbuja"));
+	}
+	
+	@Test
+	public void SquirtleAgotaCañonDeAgua(){
+		
+		Squirtle squirtle = new Squirtle();
+		Squirtle squirtle2 = new Squirtle();
+		for (int x = 0; x < 8; x++){ 			//CAÑON DE AGUA TIENE UNA CANTIDAD DE 15
+			squirtle.atacarACon(squirtle2, "Cañon de Agua");
+		}
+		assertEquals(false, squirtle.atacarACon(squirtle2, "Cañon de Agua"));
+	}
+	
+	@Test
+	public void CharmanderAgotaBrasas(){
+		
+		Charmander charmander = new Charmander();
+		Squirtle squirtle = new Squirtle();
+		for (int x = 0; x < 10; x++){  			//BRASAS TIENE UNA CANTIDAD DE 10	
+			charmander.atacarACon(squirtle, "Brasas");
+		}
+		assertEquals(false, charmander.atacarACon(squirtle, "Brasas"));
+	}
+	
+	@Test
+	public void CharmanderAgotaAtaqueRapido(){
+		
+		Charmander charmander = new Charmander();
+		Bulbasaur bulbasaur = new Bulbasaur();
+		for (int x = 0; x < 16; x++){  			//ATAQUE RAPIDO TIENE UNA CANTIDAD DE 16	
+			charmander.atacarACon(bulbasaur, "Ataque Rapido");
+		}
+		assertEquals(false, charmander.atacarACon(bulbasaur, "Ataque Rapido"));
+	}
+	
+	@Test
+	public void BulbasaurAgotaLatigoCepa(){
+		
+		Bulbasaur bulbasaur = new Bulbasaur();
+		Squirtle squirtle = new Squirtle();
+		for (int x = 0; x < 10; x++){  			//LATIGO CEPA TIENE UNA CANTIDAD DE 10	
+			bulbasaur.atacarACon(squirtle, "Latigo Cepa");
+		}
+		assertEquals(false, bulbasaur.atacarACon(squirtle, "Latigo Cepa"));
+	}
+	
+	@Test
+	public void BulbasaurAgotaAtaqueRapido(){
+		
+		Bulbasaur bulbasaur = new Bulbasaur();
+		Squirtle squirtle = new Squirtle();
+		for (int x = 0; x < 16; x++){  			//ATAQUE RAPIDO TIENE UNA CANTIDAD DE 16	
+			bulbasaur.atacarACon(squirtle, "Ataque Rapido");
+		}
+		assertEquals(false, bulbasaur.atacarACon(squirtle, "Ataque Rapido"));
+	}
+	
+	@Test
+	public void ChanseyAgotaAtaqueRapido(){
+		
+		Chansey chansey = new Chansey();
+		Bulbasaur bulbasaur = new Bulbasaur();
+		for (int x = 0; x < 16; x++){  			//ATAQUE RAPIDO TIENE UNA CANTIDAD DE 16	
+			chansey.atacarACon(bulbasaur, "Ataque Rapido");
+		}
+		assertEquals(false, chansey.atacarACon(bulbasaur, "Ataque Rapido"));
+	}
+
+	@Test
+	public void ChanseyAgotaLatigoCepa(){
+		
+		Chansey chansey = new Chansey();
+		Squirtle squirtle = new Squirtle();
+		for (int x = 0; x < 10; x++){  			//LATIGO CEPA TIENE UNA CANTIDAD DE 10	
+			chansey.atacarACon(squirtle, "Latigo Cepa");
+		}
+		assertEquals(false, chansey.atacarACon(squirtle, "Latigo Cepa"));
+	}
+	
+	@Test
+	public void JigglypuffAgotaAtaqueRapido(){
+		
+		Jigglypuff jigglypuff = new Jigglypuff();
+		Bulbasaur bulbasaur = new Bulbasaur();
+		for (int x = 0; x < 16; x++){  			//ATAQUE RAPIDO TIENE UNA CANTIDAD DE 16	
+			jigglypuff.atacarACon(bulbasaur, "Ataque Rapido");
+		}
+		assertEquals(false, jigglypuff.atacarACon(bulbasaur, "Ataque Rapido"));
+	}	
+	
+	@Test
+	public void JigglypuffAgotaBurbuja(){
+		
+		Jigglypuff jigglypuff = new Jigglypuff();
+		Squirtle squirtle = new Squirtle();
+		for (int x = 0; x < 15; x++){ 			//BURBUJA TIENE UNA CANTIDAD DE 15
+			jigglypuff.atacarACon(squirtle, "Burbuja");
+		}
+		assertEquals(false, jigglypuff.atacarACon(squirtle, "Burbuja"));
+	}
+	
+	@Test
+	public void RattataAgotaAtaqueRapido(){
+		
+		Rattata rattata = new Rattata();
+		Jigglypuff jigglypuff = new Jigglypuff();
+		for (int x = 0; x < 16; x++){  			//ATAQUE RAPIDO TIENE UNA CANTIDAD DE 16	
+			rattata.atacarACon(jigglypuff, "Ataque Rapido");
+		}
+		assertEquals(false, rattata.atacarACon(jigglypuff, "Ataque Rapido"));
+	}	
+	
+	@Test
+	public void RattataAgotaBurbuja(){
+		
+		Rattata rattata = new Rattata();
+		Squirtle squirtle = new Squirtle();
+		for (int x = 0; x < 15; x++){ 			//BURBUJA TIENE UNA CANTIDAD DE 15
+			rattata.atacarACon(squirtle, "Burbuja");
+		}
+		assertEquals(false, rattata.atacarACon(squirtle, "Burbuja"));
+	}
+	
+	@Test
+	public void AtaqueAgotadoFinal() {
 		Squirtle squirtle = new Squirtle();
 		Bulbasaur bulbasaur = new Bulbasaur();
 		squirtle.atacarACon(bulbasaur, "Cañon de Agua");
+		assertEquals(true, squirtle.atacarACon(bulbasaur, "Cañon de Agua"));
 		squirtle.atacarACon(bulbasaur, "Cañon de Agua");
 		squirtle.atacarACon(bulbasaur, "Cañon de Agua");
 		squirtle.atacarACon(bulbasaur, "Cañon de Agua");
 		squirtle.atacarACon(bulbasaur, "Cañon de Agua");
-		squirtle.atacarACon(bulbasaur, "Cañon de Agua");
-		squirtle.atacarACon(bulbasaur, "Cañon de Agua");
+		assertEquals(true, squirtle.atacarACon(bulbasaur, "Cañon de Agua"));
 		squirtle.atacarACon(bulbasaur, "Cañon de Agua"); // Ataque nro 8
 		assertEquals(false, squirtle.atacarACon(bulbasaur, "Cañon de Agua")); // Ataque nro 9
+		assertEquals(true,squirtle.atacarACon(bulbasaur, "Ataque Rapido")); //No es cañon de agua, Squirtle puede seguir atacando
 	}
 }
