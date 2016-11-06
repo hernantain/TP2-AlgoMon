@@ -1,11 +1,14 @@
+package algomon;
 
-public class AtaqueSimple extends Ataque {
+
+
+public abstract class AtaqueSimple extends Ataque {
 	
-	int daño;
+	int daÃ±o;
 	
 	public boolean atacar(Algomon algomon){
 		if (cantidad > 0){
-			algomon.recibirAtaque((int) (daño*(tipo.conTipo(algomon.getTipo()))));
+			algomon.recibirAtaque((int) (daÃ±o*(tipo.conTipo(algomon.getTipo()))));
 			cantidad --;
 			return true;
 		}
