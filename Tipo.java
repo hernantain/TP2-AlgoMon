@@ -1,6 +1,7 @@
+package algomon;
 import java.util.HashMap;
 
-public class Tipo {
+public abstract class Tipo {
 	
 	HashMap<Integer,Double> relacionEntreTipos = new HashMap<Integer,Double>();
 	int constante;

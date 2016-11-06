@@ -1,6 +1,10 @@
+package algomon;
+
+
+
 import java.util.HashMap;
 
-public class Algomon {
+public abstract class Algomon {
 	
 	int vida;
 	HashMap<String, Ataque> ataques = new HashMap<String, Ataque>();
@@ -11,8 +15,8 @@ public class Algomon {
 		return ataques.get(ataque).atacar(otroAlgomon);
 	}
 	
-	public void recibirAtaque(int daño){
-		int vidaRestante = vida - daño;
+	public void recibirAtaque(int daÃ±o){
+		int vidaRestante = vida - daÃ±o;
 		if (vidaRestante <= 0){
 			vida = 0;
 			vivo = false;
