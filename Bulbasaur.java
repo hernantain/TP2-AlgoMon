@@ -1,3 +1,4 @@
+package modelo;
 
 public class Bulbasaur extends Algomon{
 	
@@ -8,4 +9,5 @@ public class Bulbasaur extends Algomon{
 		ataques.put("Latigo Cepa", new LatigoCepa());
 		ataques.put("Ataque Rapido", new AtaqueRapido());
 	}
+	
 }

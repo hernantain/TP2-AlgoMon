@@ -1,4 +1,4 @@
-package algomon;
+package modelo;
 
 
 
@@ -15,8 +15,8 @@ public abstract class Algomon {
 		return ataques.get(ataque).atacar(otroAlgomon);
 	}
 	
-	public void recibirAtaque(int daño){
-		int vidaRestante = vida - daño;
+	public void recibirAtaque(int danio){
+		int vidaRestante = vida - danio;
 		if (vidaRestante <= 0){
 			vida = 0;
 			vivo = false;
@@ -29,8 +29,9 @@ public abstract class Algomon {
 						//DESPUES VEMOS DE SACARLO O NO PORQUE CAPAZ SIRVE PARA LA INTERFAZ GRAFICA
 		return vida;
 	}
-
+	
 	public Tipo getTipo(){
 		return tipo;
 	}
+
 }

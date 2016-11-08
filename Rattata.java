@@ -1,3 +1,4 @@
+package modelo;
 
 public class Rattata extends Algomon {
 
@@ -7,4 +8,6 @@ public class Rattata extends Algomon {
 		ataques.put("Burbuja", new Burbuja());
 		ataques.put("Ataque Rapido", new AtaqueRapido());
 	}
+	
+	
 }

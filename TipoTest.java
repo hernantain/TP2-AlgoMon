@@ -1,6 +1,13 @@
-import static org.junit.Assert.*;
+package test;
+
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
+import modelo.TipoAgua;
+import modelo.TipoFuego;
+import modelo.TipoNormal;
+import modelo.TipoPlanta;
 
 public class TipoTest {
 

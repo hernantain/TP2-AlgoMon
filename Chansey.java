@@ -1,3 +1,4 @@
+package modelo;
 
 public class Chansey extends Algomon{
 	
@@ -8,5 +9,7 @@ public class Chansey extends Algomon{
 		ataques.put("Latigo Cepa", new LatigoCepa());
 		ataques.put("Ataque Rapido", new AtaqueRapido());
 	}
+	
+	
 
 }

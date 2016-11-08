@@ -1,6 +1,15 @@
-import static org.junit.Assert.*;
+package test;
+
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
+import modelo.Bulbasaur;
+import modelo.Chansey;
+import modelo.Charmander;
+import modelo.Jigglypuff;
+import modelo.Rattata;
+import modelo.Squirtle;
 
 public class PrimeraEntregaTest {
 

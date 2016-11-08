@@ -1,3 +1,4 @@
+package modelo;
 
 public class Charmander extends Algomon{
 	
@@ -8,5 +9,7 @@ public class Charmander extends Algomon{
 		// Acá falta el ataque Fogonazo que todavía no es necesario
 		ataques.put("Ataque Rapido", new AtaqueRapido());
 	}
+	
+	
 
 }
