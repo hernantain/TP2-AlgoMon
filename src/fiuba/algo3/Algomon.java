@@ -1,7 +1,5 @@
 package modelo;
 
-//Milito hay uno solo
-
 import java.util.HashMap;
 
 public abstract class Algomon {
