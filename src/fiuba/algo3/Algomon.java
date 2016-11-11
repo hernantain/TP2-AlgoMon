@@ -1,19 +1,22 @@
 package modelo;
 
+
+
 import java.util.HashMap;
 
 public abstract class Algomon {
 	
-	int vida;
-	HashMap<String, Ataque> ataques = new HashMap<String, Ataque>();
-	boolean vivo = true;
-	Tipo tipo;
+	
+	protected int vida;
+	protected HashMap<String, Ataque> ataques = new HashMap<String, Ataque>();
+	protected boolean vivo = true;
+	protected Tipo tipo;
 	
 	public boolean atacarACon(Algomon otroAlgomon, String ataque){
 		return ataques.get(ataque).atacar(otroAlgomon);
 	}
 	
-	public void recibirAtaque(int danio){
+	protected void recibirAtaque(int danio){
 		int vidaRestante = vida - danio;
 		if (vidaRestante <= 0){
 			vida = 0;

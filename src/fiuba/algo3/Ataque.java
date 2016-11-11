@@ -3,8 +3,9 @@ package modelo;
 
 public abstract class Ataque {
 
-	int cantidad;
-	Tipo tipo;
-	
-	public abstract boolean atacar(Algomon algomon);
+	protected int cantidad;
+	protected Tipo tipo;
+	protected int danio;
+
+	protected abstract boolean atacar(Algomon algomon);
 }

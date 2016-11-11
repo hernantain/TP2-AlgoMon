@@ -4,7 +4,6 @@ package modelo;
 
 public abstract class AtaqueSimple extends Ataque {
 	
-	int danio;
 	
 	public boolean atacar(Algomon algomon){
 		if (cantidad > 0){
