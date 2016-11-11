@@ -1,16 +1,15 @@
 package modelo;
 
-
-
 import java.util.HashMap;
 
 public abstract class Algomon {
 	
-	
+	protected int vidaMax;
 	protected int vida;
 	protected HashMap<String, Ataque> ataques = new HashMap<String, Ataque>();
 	protected boolean vivo = true;
 	protected Tipo tipo;
+	protected Estado estado = new EstadoNormal();
 	
 	public boolean atacarACon(Algomon otroAlgomon, String ataque){
 		return ataques.get(ataque).atacar(otroAlgomon);
@@ -33,6 +32,14 @@ public abstract class Algomon {
 	
 	public Tipo getTipo(){
 		return tipo;
+	}
+	
+	public void cambiarEstado(Estado nuevoEstado){
+		estado = nuevoEstado;
+	}
+
+	public int getVidaMax() {
+		return vidaMax;
 	}
 
 }
