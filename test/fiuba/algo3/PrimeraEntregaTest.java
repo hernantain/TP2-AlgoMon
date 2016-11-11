@@ -25,7 +25,7 @@ public class PrimeraEntregaTest {
 	}
 	
 	@Test
-	public void testSquirtleAtacaConCañonDeAguaACharmander() {
+	public void testSquirtleAtacaConCanionDeAguaACharmander() {
 		Squirtle squirtle = new Squirtle();
 		Charmander charmander = new Charmander();
 		squirtle.atacarACon(charmander, "Canion de Agua");
@@ -45,7 +45,7 @@ public class PrimeraEntregaTest {
 	}
 	
 	@Test
-	public void testSquirtleAtacaConCañonDeAguaABulbasaur() {
+	public void testSquirtleAtacaConCanionDeAguaABulbasaur() {
 		Squirtle squirtle = new Squirtle();
 		Bulbasaur bulbasaur = new Bulbasaur();
 		squirtle.atacarACon(bulbasaur, "Canion de Agua");
@@ -65,7 +65,7 @@ public class PrimeraEntregaTest {
 	}
 	
 	@Test
-	public void testSquirtleAtacaConCañonDeAguaAChansey() {
+	public void testSquirtleAtacaConCanionDeAguaAChansey() {
 		Squirtle squirtle = new Squirtle();
 		Chansey chansey = new Chansey();
 		squirtle.atacarACon(chansey, "Canion de Agua");
@@ -83,7 +83,7 @@ public class PrimeraEntregaTest {
 	}
 	
 	@Test
-	public void testSquirtleAtacaConCañonDeAguaARattata() {
+	public void testSquirtleAtacaConCanionDeAguaARattata() {
 		Squirtle squirtle = new Squirtle();
 		Rattata rattata = new Rattata();
 		squirtle.atacarACon(rattata, "Canion de Agua");
@@ -101,7 +101,7 @@ public class PrimeraEntregaTest {
 	}
 	
 	@Test
-	public void testSquirtleAtacaConCañonDeAguaAJigglypuff() {
+	public void testSquirtleAtacaConCanionDeAguaAJigglypuff() {
 		Squirtle squirtle = new Squirtle();
 		Jigglypuff jigglypuff = new Jigglypuff();
 		squirtle.atacarACon(jigglypuff, "Canion de Agua");
@@ -382,11 +382,11 @@ public class PrimeraEntregaTest {
 	}
 	
 	@Test
-	public void SquirtleAgotaCañonDeAgua(){
+	public void SquirtleAgotaCanionDeAgua(){
 		
 		Squirtle squirtle = new Squirtle();
 		Squirtle squirtle2 = new Squirtle();
-		for (int x = 0; x < 8; x++){ 			//CAÑON DE AGUA TIENE UNA CANTIDAD DE 15
+		for (int x = 0; x < 8; x++){ 			//CANION DE AGUA TIENE UNA CANTIDAD DE 15
 			squirtle.atacarACon(squirtle2, "Canion de Agua");
 		}
 		assertEquals(false, squirtle.atacarACon(squirtle2, "Canion de Agua"));
@@ -513,8 +513,8 @@ public class PrimeraEntregaTest {
 		squirtle.atacarACon(bulbasaur, "Canion de Agua");
 		squirtle.atacarACon(bulbasaur, "Canion de Agua");
 		assertEquals(true, squirtle.atacarACon(bulbasaur, "Canion de Agua"));
-		squirtle.atacarACon(bulbasaur, "Canion de Agua"); // Ataque nro 8
-		assertEquals(false, squirtle.atacarACon(bulbasaur, "Canion de Agua")); // Ataque nro 9
-		assertEquals(true,squirtle.atacarACon(bulbasaur, "Ataque Rapido")); //No es cañon de agua, Squirtle puede seguir atacando
+		squirtle.atacarACon(bulbasaur, "Canion de Agua"); // ATAQUE NRO 8
+		assertEquals(false, squirtle.atacarACon(bulbasaur, "Canion de Agua")); // ATAQUE NRO 9
+		assertEquals(true,squirtle.atacarACon(bulbasaur, "Ataque Rapido")); //NO ES CANION DE AGUA, PUEDE SEGUIR ATACANDO
 	}
 }
