@@ -3,11 +3,11 @@ package modelo;
 public class TipoPlanta extends Tipo {
 	
 	public TipoPlanta(){
-		constante = 3;
-		relacionEntreTipos.put(1, 0.5);
-		relacionEntreTipos.put(2, 2.0);
-		relacionEntreTipos.put(3, 0.5);
-		relacionEntreTipos.put(4, 1.0);
+		id = "Tipo Planta";
+		relacionEntreTipos.put("Tipo Fuego", 0.5);
+		relacionEntreTipos.put("Tipo Agua", 2.0);
+		relacionEntreTipos.put("Tipo Planta", 0.5);
+		relacionEntreTipos.put("Tipo Normal", 1.0);
 	}
 
 }
