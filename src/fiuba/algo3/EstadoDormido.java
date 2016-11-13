@@ -8,7 +8,7 @@ public class EstadoDormido extends Estado {
 		miAlgomon = algomon;
 	}
 	
-	public void pasoTurno(){
+	private void pasoTurno(){
 		if (tiempoDormido == 0){
 			miAlgomon.cambiarEstado(new EstadoNormal());  
 			return;
