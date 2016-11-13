@@ -7,7 +7,7 @@ public abstract class Tipo {
 	protected String id;
 	
 	public double conTipo(Tipo tipo) {
-		return relacionEntreTipos.get(tipo.getIdConstante());
+		return relacionEntreTipos.get(tipo.getId());
 	}
 	
 	protected String getId(){
