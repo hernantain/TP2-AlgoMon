@@ -3,14 +3,14 @@ import java.util.HashMap;
 
 public abstract class Tipo {
 	
-	protected HashMap<String,Double> relacionEntreTipos = new HashMap<String,Double>();
-	protected String id;
+	HashMap<String,Double> relacionEntreTipos = new HashMap<String,Double>();
+	String id;
 	
 	public double conTipo(Tipo tipo) {
-		return relacionEntreTipos.get(tipo.getId());
+		return relacionEntreTipos.get(tipo.getConstante());
 	}
 	
-	protected String getId(){
+	protected String getConstante(){
 		return id;
 	}
 }

@@ -7,5 +7,5 @@ public abstract class Ataque {
 	protected Tipo tipo;
 	protected int danio;
 
-	public abstract boolean atacar(Algomon algomon);
+	protected abstract boolean atacar(Algomon algomon);
 }

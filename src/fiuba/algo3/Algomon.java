@@ -30,6 +30,15 @@ public abstract class Algomon {
 		vida = vidaRestante;
 	}
 	
+	public void curarse(int cantidad_a_curarse) {
+		int vida_resultante = vida + cantidad_a_curarse;
+		if (vida_resultante >= vidaMax) {
+			vida = vidaMax;
+		} else {
+			vida = vida_resultante;
+		}
+	}
+	
 	public double vida(){//ESTE METODO LO CREE PARA LOS TEST BASICAMENTE
 						//DESPUES VEMOS DE SACARLO O NO PORQUE CAPAZ SIRVE PARA LA INTERFAZ GRAFICA
 		return vida;
