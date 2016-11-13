@@ -30,4 +30,12 @@ public class Turno {
 	public Jugador jugadorActivo(){
 		return jugadorActivo;
 	}
+	
+	public Jugador jugadorNoActivo(){
+		if (jugadorActivo == jugador1) {
+			return jugador2;
+		} else {
+			return jugador1;
+		}
+	}
 }
