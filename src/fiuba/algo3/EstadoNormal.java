@@ -3,13 +3,9 @@ package modelo;
 public class EstadoNormal extends Estado {
 
 	@Override
-	public void activarEfectoEspecial() {
+	public void consecuencia() {
 		return;
 	}
 
-	@Override
-	public void pasoTurno() {
-		return;
-	}
 
 }

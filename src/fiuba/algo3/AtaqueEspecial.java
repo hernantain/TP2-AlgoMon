@@ -1,6 +1,6 @@
 package modelo;
 
-public abstract class AtaqueComplejo extends Ataque {
+public abstract class AtaqueEspecial extends Ataque {
 	
 	
 	public boolean atacar(Algomon algomon) {
@@ -8,9 +8,9 @@ public abstract class AtaqueComplejo extends Ataque {
 			return false;
 		}
 		algomon.recibirAtaque((int) (danio*(tipo.conTipo(algomon.getTipo()))));
-		this.efectoComplejo(algomon);
+		this.efectoSecundario(algomon);
 		return true;
 	}
 	
-	protected abstract void efectoComplejo(Algomon algomonAfectado);
+	protected abstract void efectoSecundario(Algomon algomonAfectado);
 }

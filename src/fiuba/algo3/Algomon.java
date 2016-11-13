@@ -10,8 +10,13 @@ public abstract class Algomon {
 	protected boolean vivo = true;
 	protected Tipo tipo;
 	protected Estado estado = new EstadoNormal();
-	
+
 	public boolean atacarACon(Algomon otroAlgomon, String ataque){
+		try {
+			estado.consecuencia(); 				//Esta implementado en cada estado. 
+		} catch (EstadoDormidoExcepcion e){		//En el caso de dormido, no ataca y en quemado, se reduce el 10% de su vida original
+			return false;
+		}
 		return ataques.get(ataque).atacar(otroAlgomon);
 	}
 	

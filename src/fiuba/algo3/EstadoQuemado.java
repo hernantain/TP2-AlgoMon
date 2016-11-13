@@ -9,13 +9,9 @@ public class EstadoQuemado extends Estado {
 	}
 	
 	@Override
-	public void activarEfectoEspecial() {
+	public void consecuencia() {
 		miAlgomon.recibirAtaque(miAlgomon.getVidaMax()/10);
 	}
 
-	@Override
-	public void pasoTurno() {
-		return;
-	}
 
 }
