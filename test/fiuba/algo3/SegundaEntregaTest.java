@@ -91,10 +91,10 @@ public class SegundaEntregaTest {
 			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Brasas", turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
-			// Charmander se despertó y ahora puede atacar.
+			// Charmander se desperto y ahora puede atacar.
 			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Brasas", turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
-			// Jigglypuff recibió el ataque rápido de Charmander.
+			// Jigglypuff recibio el ataque rapido de Charmander.
 			assertEquals(114.0, turno.jugadorActivo().getAlgomonActivo().vida(), 0.001D);
 		}
 		
@@ -179,10 +179,10 @@ public class SegundaEntregaTest {
 			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
-			// Rattata se despertó y ahora puede atacar.
+			// Rattata se desperto y ahora puede atacar.
 			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
-			// Chansey recibió el ataque rápido de Rattata.
+			// Chansey recibio el ataque rapido de Rattata.
 			assertEquals(120.0, turno.jugadorActivo().getAlgomonActivo().vida(), 0.001D);
 		}
 		
@@ -311,7 +311,7 @@ public class SegundaEntregaTest {
 			//Como Jigglypuff realizo una accion(ataco), fogonazo activo su efecto secundario y le saco 13 de vida (10% de su vida max)
 			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
-			//Rattata ataca con Ataque Rapido infringiendole 10 puntos de daño adicionales a Jigglypuff.
+			//Rattata ataca con Ataque Rapido infringiendole 10 puntos de danio adicionales a Jigglypuff.
 			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			//Como Jigglypuff realizo una accion(ataco), fogonazo activo su efecto secundario y le saco 13 de vida (10% de su vida max)
