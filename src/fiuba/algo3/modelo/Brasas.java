@@ -4,7 +4,7 @@ public class Brasas extends AtaqueSimple{
 	
 	public Brasas(){
 		tipo = new TipoFuego();
-		danio = 16;
+		potencia = new Potencia(16);
 		cantidad = 10;
 	}
 }

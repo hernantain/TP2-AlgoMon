@@ -3,7 +3,7 @@ package modelo;
 public class Fogonazo extends AtaqueEspecial {
 
 	public Fogonazo() {
-		danio = 2;
+		potencia = new Potencia(2);
 		cantidad = 4;
 		tipo = new TipoFuego();
 	}

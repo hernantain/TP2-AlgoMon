@@ -4,7 +4,7 @@ public class LatigoCepa extends AtaqueSimple{
 	
 	public LatigoCepa(){
 		tipo = new TipoPlanta();
-		danio = 15;
+		potencia = new Potencia(15);
 		cantidad = 10;
 	}
 

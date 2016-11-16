@@ -21,20 +21,20 @@ public abstract class Algomon {
 				return ataques.get(i).atacar(otroAlgomon);
 			}
 		}
-		return false;
+		throw new NoTieneElAtaqueExcepcion();
 	}
 	
 	protected void recibirAtaque(int danio){
-		this.vida.recibirDanio(danio);
+		vida.disminuir(danio);
 	}
 	
 	public void curarse(int cantidadACurarse) {
-		this.vida.recibirCuracion(cantidadACurarse);
+		vida.aumentar(cantidadACurarse);
 	}
 	
 	public double vida(){//ESTE METODO LO CREE PARA LOS TEST BASICAMENTE
 						//DESPUES VEMOS DE SACARLO O NO PORQUE CAPAZ SIRVE PARA LA INTERFAZ GRAFICA
-		return vida.getActual();
+		return vida.actual();
 	}
 	
 	public Tipo getTipo(){
@@ -46,7 +46,7 @@ public abstract class Algomon {
 	}
 
 	public int getVidaMax() {
-		return vida.getMaxima();
+		return vida.maxima();
 	}
 
 }

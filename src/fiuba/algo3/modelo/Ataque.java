@@ -5,7 +5,7 @@ public abstract class Ataque {
 
 	protected int cantidad;
 	protected Tipo tipo;
-	protected int danio;
+	protected Potencia potencia;
 
 	public abstract boolean atacar(Algomon algomon);
 }

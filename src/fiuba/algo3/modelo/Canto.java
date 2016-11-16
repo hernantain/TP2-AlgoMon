@@ -3,7 +3,7 @@ package modelo;
 public class Canto extends AtaqueEspecial{
 
 	public Canto(){
-		danio = 0;
+		potencia = new Potencia(0);
 		cantidad = 6;
 		tipo = new TipoNormal();
 	}

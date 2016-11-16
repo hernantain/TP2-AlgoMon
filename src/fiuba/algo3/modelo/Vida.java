@@ -11,7 +11,7 @@ public class Vida {
 		this.debilitado = false;
 	}
 
-	public void recibirDanio(int danio) {
+	public void disminuir(int danio) {
 		int vidaRestante = vidaActual - danio;
 		if (vidaRestante <= 0){
 			vidaActual = 0;
@@ -20,7 +20,7 @@ public class Vida {
 		vidaActual = vidaRestante;		
 	}
 
-	public void recibirCuracion(int cantidadACurarse) {
+	public void aumentar(int cantidadACurarse) {
 		int vidaResultante = vidaActual + cantidadACurarse;
 		if (vidaResultante >= vidaMaxima) {
 			vidaActual = vidaMaxima;
@@ -29,11 +29,11 @@ public class Vida {
 		}		
 	}
 	
-	public int getActual() {
+	public int actual() {
 		return vidaActual;
 	}
 
-	public int getMaxima() {
+	public int maxima() {
 		return vidaMaxima;
 	}
 	

@@ -4,7 +4,7 @@ public class CanionDeAgua extends AtaqueSimple {
 
 	public CanionDeAgua(){
 		tipo = new TipoAgua();
-		danio = 20;
+		potencia = new Potencia(20);
 		cantidad = 8;
 	}
 }

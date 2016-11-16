@@ -7,7 +7,7 @@ public abstract class AtaqueEspecial extends Ataque {
 		if (cantidad == 0){
 			return false;
 		}
-		algomon.recibirAtaque((int) (danio*(tipo.conTipo(algomon.getTipo()))));
+		algomon.recibirAtaque(potencia.calcularPotencia(tipo, algomon.getTipo()));
 		this.efectoSecundario(algomon);
 		return true;
 	}
