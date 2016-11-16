@@ -1,16 +1,10 @@
 package modelo;
-import java.util.HashMap;
 
 public abstract class Tipo {
 	
-	protected HashMap<String,Double> relacionEntreTipos = new HashMap<String,Double>();
-	protected String id;
-	
-	public double conTipo(Tipo tipo) {
-		return relacionEntreTipos.get(tipo.getId());
-	}
-	
-	protected String getId(){
-		return id;
-	}
+	public abstract double vs(Tipo tipo);
+	public abstract double vs(TipoAgua tipo);
+	public abstract double vs(TipoFuego tipo);
+	public abstract double vs(TipoNormal tipo);
+	public abstract double vs(TipoPlanta tipo);
 }

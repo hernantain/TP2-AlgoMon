@@ -9,7 +9,7 @@ public class Potencia {
 	}
 	
 	public int calcularPotencia(Tipo tipoAtaque, Tipo tipoAlgomon){
-		int potenciaFinal = (int)(potenciaBase*(tipoAtaque.conTipo(tipoAlgomon)));
+		int potenciaFinal = (int)(potenciaBase*(tipoAtaque.vs(tipoAlgomon)));
 		return potenciaFinal;
 	}
 

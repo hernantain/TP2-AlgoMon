@@ -1,13 +1,32 @@
 package modelo;
 
 public class TipoPlanta extends Tipo {
-	
-	public TipoPlanta(){
-		id = "Tipo Planta";
-		relacionEntreTipos.put("Tipo Fuego", 0.5);
-		relacionEntreTipos.put("Tipo Agua", 2.0);
-		relacionEntreTipos.put("Tipo Planta", 0.5);
-		relacionEntreTipos.put("Tipo Normal", 1.0);
+
+	@Override
+	public double vs(Tipo tipo) {
+		return tipo.vs(this);
 	}
+
+	@Override
+	public double vs(TipoAgua tipo) {
+		return 0.5;
+	}
+
+	@Override
+	public double vs(TipoFuego tipo) {
+		return 2.0;
+	}
+
+	@Override
+	public double vs(TipoNormal tipo) {
+		return 1.0;
+	}
+
+	@Override
+	public double vs(TipoPlanta tipo) {
+		return 0.5;
+	}
+	
+
 
 }
