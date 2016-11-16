@@ -4,9 +4,9 @@ public class Atacar extends AccionDeJugador {
 	
 	protected Algomon algomonDeJugador;
 	protected Algomon algomonDelContrincante;
-	protected String ataque;
+	protected Ataque ataque;
 
-	public Atacar(Algomon miAlgomon, String unAtaque, Algomon otroAlgomon){
+	public Atacar(Algomon miAlgomon, Ataque unAtaque, Algomon otroAlgomon){
 		algomonDeJugador = miAlgomon;
 		algomonDelContrincante = otroAlgomon;
 		ataque = unAtaque;

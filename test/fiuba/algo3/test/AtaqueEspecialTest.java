@@ -18,21 +18,21 @@ public class AtaqueEspecialTest {
 		
 		//La primera linea corresponde al J1 y a Jigglypuff, la segunda al cambiar de jugador, pasa a Squirtle.
 		//Cada vez que se llama a 'jugar', pasa el turno y se cambia de jugador
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Canto", turno.jugadorActivo().getOponente().getAlgomonActivo()));
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Burbuja", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Canto(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Burbuja(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Burbuja", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Burbuja(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Burbuja", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Burbuja(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
 		//Como Squirtle estaba dormido,no le pudo sacar vida a Jigglypuff y su vida sigue siendo la maxima
 		assertEquals(turno.jugadorActivo().getAlgomonActivo().getVidaMax(), turno.jugadorActivo().getAlgomonActivo().vida(), 0.001D);
 	}
 	
 	@Test
-	public void tes02() {
+	public void test02() {
 		Jugador jugador1 = new Jugador();
 		Jugador jugador2 = new Jugador();
 		jugador1.setAlgomon(new Jigglypuff());
@@ -40,17 +40,19 @@ public class AtaqueEspecialTest {
 		Turno turno = new Turno(jugador1, jugador2);
 		
 		
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Canto", turno.jugadorActivo().getOponente().getAlgomonActivo()));
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Burbuja", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Canto(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Burbuja(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Burbuja", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Burbuja(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Burbuja", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Burbuja(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Burbuja", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		assertEquals(120, turno.jugadorActivo().getAlgomonActivo().vida(), 0.001D);
+
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Burbuja(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
 		//Una vez que pasaron los 3 turnos, squirtle pudo atacar y le saco vida a Jigglypuff
 		assertEquals(120, turno.jugadorActivo().getAlgomonActivo().vida(), 0.001D);
@@ -58,7 +60,7 @@ public class AtaqueEspecialTest {
 	}
 	
 	@Test
-	public void tes03() {
+	public void test03() {
 		Jugador jugador1 = new Jugador();
 		Jugador jugador2 = new Jugador();
 		jugador1.setAlgomon(new Charmander());
@@ -67,13 +69,13 @@ public class AtaqueEspecialTest {
 		
 		//Fogonazo activa su efecto especial de sacar el 10% cuando el Algomon afectado realiza una accion(atacar o recibir elemento)
 		//Tambien saca 1 de vida pq su danio es 2 y como es tipo fuego con agua saca la mitad.
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Fogonazo", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Fogonazo(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
 		//Como realizo una accion(ataco), fogonazo activo su efecto secundario y le saco 15 de vida (10% de su vida max)
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Burbuja", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Burbuja(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
 		//Ataque Rapido tiene un danio de 10
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
 		
 		//Total: 1 + 15 + 10 = 26, 150 - 26 = 124

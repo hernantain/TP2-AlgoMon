@@ -18,9 +18,9 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Charmander());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Canto", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Canto(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			// Charmander se encuentra dormido y no puede atacar.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Brasas", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Brasas(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			// Jigglypuff conserva toda la vida ya que Charmander no lo pudo atacar por encontrarse dormido.
 			assertEquals(turno.jugadorActivo().getAlgomonActivo().getVidaMax(), turno.jugadorActivo().getAlgomonActivo().vida(), 0.001D);
@@ -34,13 +34,13 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Charmander());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Canto", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Canto(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			// Charmander se encuentra dormido y no puede atacar.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Brasas", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Brasas(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			// Charmander se encuentra dormido y no puede atacar.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Brasas", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Brasas(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			// Jigglypuff conserva toda la vida ya que Charmander no lo pudo atacar por encontrarse dormido.
 			assertEquals(turno.jugadorActivo().getAlgomonActivo().getVidaMax(), turno.jugadorActivo().getAlgomonActivo().vida(), 0.001D);
@@ -54,17 +54,17 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Charmander());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Canto", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Canto(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			// Charmander se encuentra dormido y no puede atacar.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Brasas", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Brasas(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			// Charmander se encuentra dormido y no puede atacar.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Brasas", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Brasas(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			// Charmander se encuentra dormido y no puede atacar.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Brasas", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Brasas(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			// Jigglypuff conserva toda la vida ya que Charmander no lo pudo atacar por encontrarse dormido.
 			assertEquals(turno.jugadorActivo().getAlgomonActivo().getVidaMax(), turno.jugadorActivo().getAlgomonActivo().vida(), 0.001D);
@@ -78,21 +78,21 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Charmander());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Canto", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Canto(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			// Charmander se encuentra dormido y no puede atacar.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Brasas", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Brasas(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			// Charmander se encuentra dormido y no puede atacar.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Brasas", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Brasas(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			// Charmander se encuentra dormido y no puede atacar.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Brasas", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Brasas(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			// Charmander se desperto y ahora puede atacar.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Brasas", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Brasas(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			// Jigglypuff recibio el ataque rapido de Charmander.
 			assertEquals(114.0, turno.jugadorActivo().getAlgomonActivo().vida(), 0.001D);
@@ -106,9 +106,9 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Rattata());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Canto", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Canto(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			// Rattata se encuentra dormido y no puede atacar.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			// Chansey conserva toda la vida ya que Rattata no lo pudo atacar por encontrarse dormido.
 			assertEquals(turno.jugadorActivo().getAlgomonActivo().getVidaMax(), turno.jugadorActivo().getAlgomonActivo().vida(), 0.001D);
@@ -122,13 +122,13 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Rattata());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Canto", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Canto(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			// Rattata se encuentra dormido y no puede atacar.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			// Rattata se encuentra dormido y no puede atacar.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			// Chansey conserva toda la vida ya que Rattata no lo pudo atacar por encontrarse dormido.
 			assertEquals(turno.jugadorActivo().getAlgomonActivo().getVidaMax(), turno.jugadorActivo().getAlgomonActivo().vida(), 0.001D);
@@ -142,17 +142,17 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Rattata());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Canto", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Canto(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			// Rattata se encuentra dormido y no puede atacar.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			// Rattata se encuentra dormido y no puede atacar.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			// Rattata se encuentra dormido y no puede atacar.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			// Chansey conserva toda la vida ya que Rattata no lo pudo atacar por encontrarse dormido.
 			assertEquals(turno.jugadorActivo().getAlgomonActivo().getVidaMax(), turno.jugadorActivo().getAlgomonActivo().vida(), 0.001D);
@@ -166,21 +166,21 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Rattata());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Canto", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Canto(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			// Rattata se encuentra dormido y no puede atacar.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			// Rattata se encuentra dormido y no puede atacar.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			// Rattata se encuentra dormido y no puede atacar.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			// Rattata se desperto y ahora puede atacar.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			// Chansey recibio el ataque rapido de Rattata.
 			assertEquals(120.0, turno.jugadorActivo().getAlgomonActivo().vida(), 0.001D);
@@ -196,7 +196,7 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Charmander());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar bulbasaurAtacaConChupavidasACharmander = new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Chupavidas", turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasACharmander = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			turno.jugar(bulbasaurAtacaConChupavidasACharmander);
 			
 			//vidaMax de Charmander (170) - danio de chupavidas (15 * 0,5 = 7).
@@ -212,7 +212,7 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Charmander());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar bulbasaurAtacaConChupavidasACharmander = new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Chupavidas", turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasACharmander = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			turno.jugar(bulbasaurAtacaConChupavidasACharmander);
 
 			//vidaMax de Bulbasaur (140) se mantiene.
@@ -228,11 +228,11 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Bulbasaur());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar charmanderAtacaConBrasasABulbasaur = new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Brasas", turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar charmanderAtacaConBrasasABulbasaur = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Brasas(), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			//vida de Bulbasaur (140) - danio de Brasas (16 * 2) = 108.
 			turno.jugar(charmanderAtacaConBrasasABulbasaur);
 
-			Atacar bulbasaurAtacaConChupavidasACharmander = new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Chupavidas", turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasACharmander = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			//danio hecho a Charmander = 15 * 0.5 = 7.
 			turno.jugar(bulbasaurAtacaConChupavidasACharmander);
 
@@ -250,7 +250,7 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Squirtle());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar bulbasaurAtacaConChupavidasASquirtle = new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Chupavidas", turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasASquirtle = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			turno.jugar(bulbasaurAtacaConChupavidasASquirtle);
 			
 			//vidaMax de Squirtle (150) - danio de chupavidas (15 * 2 = 30).
@@ -266,7 +266,7 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Squirtle());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar bulbasaurAtacaConChupavidasASquirtle = new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Chupavidas", turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasASquirtle = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			turno.jugar(bulbasaurAtacaConChupavidasASquirtle);
 
 			//vidaMax de Bulbasaur (140) se mantiene.
@@ -282,11 +282,11 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Bulbasaur());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar squirtleAtacaConAtaqueRapidoABulbasaur = new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar squirtleAtacaConAtaqueRapidoABulbasaur = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			//vida de Bulbasaur (140) - danio de AtaqueRapido (10 * 1.0) = 140.
 			turno.jugar(squirtleAtacaConAtaqueRapidoABulbasaur);
 
-			Atacar bulbasaurAtacaConChupavidasASquirtle = new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Chupavidas", turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasASquirtle = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			//danio hecho a Squirtle = 15 * 2 = 30.
 			turno.jugar(bulbasaurAtacaConChupavidasASquirtle);
 
@@ -302,11 +302,11 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Bulbasaur());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar squirtleAtacaConBurbujaABulbasaur = new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Burbuja", turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar squirtleAtacaConBurbujaABulbasaur = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Burbuja(), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			//vida de Bulbasaur (140) - danio de Burbuja (10 * 0.5) = 135.
 			turno.jugar(squirtleAtacaConBurbujaABulbasaur);
 
-			Atacar bulbasaurAtacaConChupavidasASquirtle = new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Chupavidas", turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasASquirtle = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			//danio hecho a Squirtle = 15 * 2 = 30.
 			turno.jugar(bulbasaurAtacaConChupavidasASquirtle);
 
@@ -324,7 +324,7 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Chansey());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar bulbasaurAtacaConChupavidasAChansey = new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Chupavidas", turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasAChansey = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			turno.jugar(bulbasaurAtacaConChupavidasAChansey);
 			
 			//vidaMax de Chansey (130) - danio de chupavidas (15 * 1.0 = 15).
@@ -340,7 +340,7 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Chansey());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar bulbasaurAtacaConChupavidasAChansey = new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Chupavidas", turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasAChansey = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			turno.jugar(bulbasaurAtacaConChupavidasAChansey);
 
 			//vidaMax de Bulbasaur (140) se mantiene.
@@ -356,11 +356,11 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Bulbasaur());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar chanseyAtacaConLatigoCepaABulbasaur = new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Latigo Cepa", turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar chanseyAtacaConLatigoCepaABulbasaur = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new LatigoCepa(), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			//vida de Bulbasaur (140) - danio de Latigo Cepa (15 * 0.5) = 133.
 			turno.jugar(chanseyAtacaConLatigoCepaABulbasaur);
 
-			Atacar bulbasaurAtacaConChupavidasAChansey = new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Chupavidas", turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasAChansey = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			//danio hecho a Chansey = 15 * 1 = 15.
 			turno.jugar(bulbasaurAtacaConChupavidasAChansey);
 
@@ -376,7 +376,7 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Jigglypuff());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar bulbasaurAtacaConChupavidasAJigglypuff = new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Chupavidas", turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasAJigglypuff = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			turno.jugar(bulbasaurAtacaConChupavidasAJigglypuff);
 			
 			//vidaMax de Jigglypuff (130) - danio de chupavidas (15 * 1.0 = 15).
@@ -392,7 +392,7 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Jigglypuff());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar bulbasaurAtacaConChupavidasAJigglypuff = new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Chupavidas", turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasAJigglypuff = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			turno.jugar(bulbasaurAtacaConChupavidasAJigglypuff);
 
 			//vidaMax de Bulbasaur (140) se mantiene.
@@ -408,11 +408,11 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Bulbasaur());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar jigglypuffAtacaConAtaqueRapidoABulbasaur = new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar jigglypuffAtacaConAtaqueRapidoABulbasaur = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			//vida de Bulbasaur (140) - danio de Ataque Rapido (10 * 1.0) = 130.
 			turno.jugar(jigglypuffAtacaConAtaqueRapidoABulbasaur);
 
-			Atacar bulbasaurAtacaConChupavidasAJigglypuff = new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Chupavidas", turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasAJigglypuff = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			//danio hecho a Jiglypuff = 15 * 1.0 = 15.
 			turno.jugar(bulbasaurAtacaConChupavidasAJigglypuff);
 
@@ -428,7 +428,7 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Rattata());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar bulbasaurAtacaConChupavidasARattata = new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Chupavidas", turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasARattata = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			turno.jugar(bulbasaurAtacaConChupavidasARattata);
 			
 			//vidaMax de Rattata (170) - danio de chupavidas (15 * 1.0 = 15).
@@ -444,7 +444,7 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Rattata());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar bulbasaurAtacaConChupavidasARattata = new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Chupavidas", turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasARattata = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			turno.jugar(bulbasaurAtacaConChupavidasARattata);
 
 			//vidaMax de Bulbasaur (140) se mantiene.
@@ -460,11 +460,11 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Bulbasaur());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar rattataAtacaConAtaqueRapidoABulbasaur = new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar rattataAtacaConAtaqueRapidoABulbasaur = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			//vida de Bulbasaur (140) - danio de AtaqueRapido (10 * 1.0) = 130.
 			turno.jugar(rattataAtacaConAtaqueRapidoABulbasaur);
 
-			Atacar bulbasaurAtacaConChupavidasARattata = new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Chupavidas", turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasARattata = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			//danio hecho a Rattata = 15 * 1.0 = 15.
 			turno.jugar(bulbasaurAtacaConChupavidasARattata);
 
@@ -483,10 +483,10 @@ public class SegundaEntregaTest {
 			Turno turno = new Turno(jugador1, jugador2);
 			
 			//Fogonazo le causa a Rattata un danio de 2 puntos por ser un Algomon de tipo normal.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Fogonazo", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Fogonazo(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			//Como Rattata realizo una accion(ataco), fogonazo activo su efecto secundario y le saco 17 de vida (10% de su vida max)
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			//Total: 2 + 17 = 19, 170 - 19 = 151
 			assertEquals(151.0, turno.jugadorNoActivo().getAlgomonActivo().vida(),0.001D);
@@ -501,10 +501,10 @@ public class SegundaEntregaTest {
 			Turno turno = new Turno(jugador1, jugador2);
 			
 			//Fogonazo le causa a Bulbasaur un danio de 4 puntos por ser un Algomon de tipo planta.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Fogonazo", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Fogonazo(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			//Como Bulbasaur realizo una accion(ataco), fogonazo activo su efecto secundario y le saco 14 de vida (10% de su vida max)
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			//Total: 4 + 14 = 18, 140 - 18 = 122
 			assertEquals(122.0, turno.jugadorNoActivo().getAlgomonActivo().vida(),0.001D);
@@ -519,10 +519,10 @@ public class SegundaEntregaTest {
 			Turno turno = new Turno(jugador1, jugador2);
 			
 			//Fogonazo le causa a Squirtle un danio de 1 punto por ser un Algomon de tipo agua.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Fogonazo", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Fogonazo(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			//Como Squirtle realizo una accion(ataco), fogonazo activo su efecto secundario y le saco 15 de vida (10% de su vida max)
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			//Total: 1 + 15 = 16, 150 - 16 = 134
 			assertEquals(134.0, turno.jugadorNoActivo().getAlgomonActivo().vida(),0.001D);
@@ -537,10 +537,10 @@ public class SegundaEntregaTest {
 			Turno turno = new Turno(jugador1, jugador2);
 			
 			//Fogonazo le causa a Charmander un danio de 1 punto por ser un Algomon de tipo fuego.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Fogonazo", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Fogonazo(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			//Como Charmander realizo una accion(ataco), fogonazo activo su efecto secundario y le saco 17 de vida (10% de su vida max)
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			//Total: 1 + 17 = 18, 170 - 18 = 152
 			assertEquals(152.0, turno.jugadorNoActivo().getAlgomonActivo().vida(),0.001D);
@@ -555,10 +555,10 @@ public class SegundaEntregaTest {
 			Turno turno = new Turno(jugador1, jugador2);
 			
 			//Fogonazo le causa a Chansey un danio de 2 puntos por ser un Algomon de tipo normal.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Fogonazo", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Fogonazo(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			//Como Chansey realizo una accion(ataco), fogonazo activo su efecto secundario y le saco 13 de vida (10% de su vida max)
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			//Total: 2 + 13 = 15, 130 - 15 = 115
 			assertEquals(115.0, turno.jugadorNoActivo().getAlgomonActivo().vida(),0.001D);
@@ -573,10 +573,10 @@ public class SegundaEntregaTest {
 			Turno turno = new Turno(jugador1, jugador2);
 			
 			//Fogonazo le causa a Jigglypuff un danio de 2 puntos por ser un Algomon de tipo normal.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Fogonazo", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Fogonazo(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			//Como Jigglypuff realizo una accion(ataco), fogonazo activo su efecto secundario y le saco 13 de vida (10% de su vida max)
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			//Total: 2 + 13 = 15, 130 - 15 = 115
 			assertEquals(115.0, turno.jugadorNoActivo().getAlgomonActivo().vida(),0.001D);
@@ -591,16 +591,16 @@ public class SegundaEntregaTest {
 			Turno turno = new Turno(jugador1, jugador2);
 			
 			//Fogonazo le causa a Jigglypuff un danio de 2 puntos por ser un Algomon de tipo normal.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Fogonazo", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Fogonazo(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			//Como Jigglypuff realizo una accion(ataco), fogonazo activo su efecto secundario y le saco 13 de vida (10% de su vida max)
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			//Rattata ataca con Ataque Rapido infringiendole 10 puntos de danio adicionales a Jigglypuff.
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			//Como Jigglypuff realizo una accion(ataco), fogonazo activo su efecto secundario y le saco 13 de vida (10% de su vida max)
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), "Ataque Rapido", turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 			
 			//Total: 2 + 13 + 10 + 13 = 38, 130 - 38 = 92
 			assertEquals(92.0, turno.jugadorNoActivo().getAlgomonActivo().vida(),0.001D);

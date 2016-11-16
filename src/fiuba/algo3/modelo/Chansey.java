@@ -5,9 +5,9 @@ public class Chansey extends Algomon{
 	public Chansey(){
 		tipo = new TipoNormal();
 		vida  = new Vida(130);
-		ataques.put("Canto", new Canto());
-		ataques.put("Latigo Cepa", new LatigoCepa());
-		ataques.put("Ataque Rapido", new AtaqueRapido());
+		ataques.add(new Canto());
+		ataques.add(new LatigoCepa());
+		ataques.add(new AtaqueRapido());
 	}
 	
 	
