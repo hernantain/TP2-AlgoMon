@@ -17,7 +17,7 @@ public class QuemarDecoratorTest {
 		Turno turno = new Turno(jugador1, jugador2);
 		
 		//Fogonazo le causa a Rattata un danio de 2 puntos por ser un Algomon de tipo normal.
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new QuemarDecorator(new Fogonazo()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoQuemar(new Fogonazo()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
 		//Como Rattata realizo una accion(ataco), fogonazo activo su efecto secundario y le saco 17 de vida (10% de su vida max)
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
@@ -35,7 +35,7 @@ public class QuemarDecoratorTest {
 		Turno turno = new Turno(jugador1, jugador2);
 		
 		//Fogonazo le causa a Bulbasaur un danio de 4 puntos por ser un Algomon de tipo planta.
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new QuemarDecorator(new Fogonazo()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoQuemar(new Fogonazo()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
 		//Como Bulbasaur realizo una accion(ataco), fogonazo activo su efecto secundario y le saco 14 de vida (10% de su vida max)
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
@@ -53,7 +53,7 @@ public class QuemarDecoratorTest {
 		Turno turno = new Turno(jugador1, jugador2);
 		
 		//Fogonazo le causa a Squirtle un danio de 1 punto por ser un Algomon de tipo agua.
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new QuemarDecorator(new Fogonazo()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoQuemar(new Fogonazo()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
 		//Como Squirtle realizo una accion(ataco), fogonazo activo su efecto secundario y le saco 15 de vida (10% de su vida max)
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
@@ -71,7 +71,7 @@ public class QuemarDecoratorTest {
 		Turno turno = new Turno(jugador1, jugador2);
 		
 		//Fogonazo le causa a Charmander un danio de 1 punto por ser un Algomon de tipo fuego.
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new QuemarDecorator(new Fogonazo()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoQuemar(new Fogonazo()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
 		//Como Charmander realizo una accion(ataco), fogonazo activo su efecto secundario y le saco 17 de vida (10% de su vida max)
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
@@ -89,7 +89,7 @@ public class QuemarDecoratorTest {
 		Turno turno = new Turno(jugador1, jugador2);
 		
 		//Fogonazo le causa a Chansey un danio de 2 puntos por ser un Algomon de tipo normal.
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new QuemarDecorator(new Fogonazo()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoQuemar(new Fogonazo()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
 		//Como Chansey realizo una accion(ataco), fogonazo activo su efecto secundario y le saco 13 de vida (10% de su vida max)
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
@@ -107,7 +107,7 @@ public class QuemarDecoratorTest {
 		Turno turno = new Turno(jugador1, jugador2);
 		
 		//Fogonazo le causa a Jigglypuff un danio de 2 puntos por ser un Algomon de tipo normal.
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new QuemarDecorator(new Fogonazo()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoQuemar(new Fogonazo()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
 		//Como Jigglypuff realizo una accion(ataco), fogonazo activo su efecto secundario y le saco 13 de vida (10% de su vida max)
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
@@ -125,7 +125,7 @@ public class QuemarDecoratorTest {
 		Turno turno = new Turno(jugador1, jugador2);
 		
 		//Fogonazo le causa a Jigglypuff un danio de 2 puntos por ser un Algomon de tipo normal.
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new QuemarDecorator(new Fogonazo()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoQuemar(new Fogonazo()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
 		//Como Jigglypuff realizo una accion(ataco), fogonazo activo su efecto secundario y le saco 13 de vida (10% de su vida max)
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));

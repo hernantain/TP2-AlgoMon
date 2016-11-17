@@ -15,7 +15,7 @@ public class DormirDecoratorTest {
 		jugador2.setAlgomon(new Squirtle());
 		Turno turno = new Turno(jugador1, jugador2);
 		
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new DormirDecorator(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoDormir(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		// Squirtle se encuentra dormido y no puede atacar.
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
@@ -31,7 +31,7 @@ public class DormirDecoratorTest {
 		jugador2.setAlgomon(new Squirtle());
 		Turno turno = new Turno(jugador1, jugador2);
 		
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new DormirDecorator(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoDormir(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		// Squirtle se encuentra dormido y no puede atacar.
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
@@ -51,7 +51,7 @@ public class DormirDecoratorTest {
 		jugador2.setAlgomon(new Squirtle());
 		Turno turno = new Turno(jugador1, jugador2);
 		
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new DormirDecorator(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoDormir(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		// Squirtle se encuentra dormido y no puede atacar.
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
@@ -75,7 +75,7 @@ public class DormirDecoratorTest {
 		jugador2.setAlgomon(new Squirtle());
 		Turno turno = new Turno(jugador1, jugador2);
 		
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new DormirDecorator(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoDormir(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		// Squirtle se encuentra dormido y no puede atacar.
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
@@ -103,7 +103,7 @@ public class DormirDecoratorTest {
 		jugador2.setAlgomon(new Squirtle());
 		Turno turno = new Turno(jugador1, jugador2);
 		
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new DormirDecorator(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoDormir(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		// Squirtle se encuentra dormido y no puede atacar.
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
@@ -119,7 +119,7 @@ public class DormirDecoratorTest {
 		jugador2.setAlgomon(new Squirtle());
 		Turno turno = new Turno(jugador1, jugador2);
 		
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new DormirDecorator(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoDormir(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		// Squirtle se encuentra dormido y no puede atacar.
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
@@ -139,7 +139,7 @@ public class DormirDecoratorTest {
 		jugador2.setAlgomon(new Squirtle());
 		Turno turno = new Turno(jugador1, jugador2);
 		
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new DormirDecorator(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoDormir(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		// Squirtle se encuentra dormido y no puede atacar.
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
@@ -163,7 +163,7 @@ public class DormirDecoratorTest {
 		jugador2.setAlgomon(new Squirtle());
 		Turno turno = new Turno(jugador1, jugador2);
 		
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new DormirDecorator(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoDormir(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		// Squirtle se encuentra dormido y no puede atacar.
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
