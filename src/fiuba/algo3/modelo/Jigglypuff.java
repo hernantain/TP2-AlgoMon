@@ -7,7 +7,7 @@ public class Jigglypuff extends Algomon {
 		vida = new Vida(130);
 		ataques.add(new Burbuja());
 		ataques.add(new AtaqueRapido());
-		ataques.add(new Canto());
+		ataques.add(new DormirDecorator(new Canto()));
 	}
 	
 	

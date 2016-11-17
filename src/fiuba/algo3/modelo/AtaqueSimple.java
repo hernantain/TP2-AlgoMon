@@ -1,7 +1,9 @@
 package modelo;
 
-public abstract class AtaqueSimple extends Ataque {
-	
+public class AtaqueSimple implements Ataque {
+	protected int cantidad;
+	protected Tipo tipo;
+	protected Potencia potencia;
 	
 	public boolean atacar(Algomon algomon){
 		if (cantidad > 0){

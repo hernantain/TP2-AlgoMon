@@ -7,7 +7,7 @@ public class Rattata extends Algomon {
 		vida = new Vida(170);
 		ataques.add(new Burbuja());
 		ataques.add(new AtaqueRapido());
-		ataques.add(new Fogonazo());
+		ataques.add(new QuemarDecorator(new Fogonazo()));
 	}
 	
 }

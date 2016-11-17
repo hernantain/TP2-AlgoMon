@@ -1,11 +1,8 @@
 package modelo;
 
 
-public abstract class Ataque {
+public interface Ataque {
 
-	protected int cantidad;
-	protected Tipo tipo;
-	protected Potencia potencia;
-
-	public abstract boolean atacar(Algomon algomon);
+	public boolean atacar(Algomon algomon);
+	
 }
