@@ -45,7 +45,7 @@ public class TurnoTest {
 		jugador2.setAlgomon(new Charmander());
 		Turno turno = new Turno(jugador1, jugador2);
 		
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Canto(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoDormir(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Brasas(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
 		assertEquals(jugador1, turno.jugadorActivo());
@@ -59,7 +59,7 @@ public class TurnoTest {
 		jugador2.setAlgomon(new Charmander());
 		Turno turno = new Turno(jugador1, jugador2);
 		
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Canto(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoDormir(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
 		assertEquals(jugador2, turno.jugadorActivo());
 	}

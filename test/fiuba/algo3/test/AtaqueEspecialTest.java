@@ -18,7 +18,7 @@ public class AtaqueEspecialTest {
 		
 		//La primera linea corresponde al J1 y a Jigglypuff, la segunda al cambiar de jugador, pasa a Squirtle.
 		//Cada vez que se llama a 'jugar', pasa el turno y se cambia de jugador
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new DormirDecorator(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoDormir(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Burbuja(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
@@ -40,7 +40,7 @@ public class AtaqueEspecialTest {
 		Turno turno = new Turno(jugador1, jugador2);
 		
 		
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new DormirDecorator(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoDormir(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Burbuja(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
@@ -69,7 +69,7 @@ public class AtaqueEspecialTest {
 		
 		//Fogonazo activa su efecto especial de sacar el 10% cuando el Algomon afectado realiza una accion(atacar o recibir elemento)
 		//Tambien saca 1 de vida pq su danio es 2 y como es tipo fuego con agua saca la mitad.
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new QuemarDecorator(new Fogonazo()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoQuemar(new Fogonazo()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
 		//Como realizo una accion(ataco), fogonazo activo su efecto secundario y le saco 15 de vida (10% de su vida max)
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Burbuja(), turno.jugadorActivo().getOponente().getAlgomonActivo()));

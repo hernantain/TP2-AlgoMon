@@ -1,6 +1,6 @@
 package modelo;
 
-public class Chupavidas extends AtaqueEspecial {
+public class Chupavidas extends AtaqueSimple {//PREGUNTAR COMO PASARLE EL ALGOMON SIN CAMBIAR EL DECORATOR
 	private Algomon algomonAtacante;
 	
 	public Chupavidas(Algomon algomonAtacante) {
@@ -10,10 +10,11 @@ public class Chupavidas extends AtaqueEspecial {
 		this.algomonAtacante = algomonAtacante;
 	}
 	
-	protected void efectoSecundario(Algomon algomonAtacado) {
+	public boolean atacar(Algomon algomonAtacado) {
 		int danio_realizado = potencia.calcularPotencia(tipo, algomonAtacado.getTipo());
 		int cantidad_a_curarse = danio_realizado * 30 / 100;
 		algomonAtacante.curarse(cantidad_a_curarse);
+		return super.atacar(algomonAtacado);
 	}
 
 }
