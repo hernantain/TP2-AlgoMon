@@ -1,11 +1,18 @@
 package modelo;
 
 public class UsarElemento extends AccionDeJugador {
+	
+	protected Jugador jugadorActivo;
+	protected Elemento elementoDelJugador;
+	
+	public UsarElemento(Jugador jugador, Elemento elemento) {
+		jugadorActivo = jugador;
+		elementoDelJugador = elemento;
+	}
 
 	@Override
 	public boolean accionar() {
-		// TODO Auto-generated method stub
-		return false;
+		return jugadorActivo.usarElemento(elementoDelJugador);
 	}
 
 }

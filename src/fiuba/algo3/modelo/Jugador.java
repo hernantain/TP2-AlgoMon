@@ -1,10 +1,12 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Jugador {
 
 	private ArrayList<Algomon> algomones = new ArrayList<Algomon>();	//Lista de los algomones 
+	private HashMap<Elemento, Integer> elementos;
 	private Algomon algomonActivo;	 
 	private Jugador oponente;
 	
@@ -30,5 +32,13 @@ public class Jugador {
 
 	public Jugador getOponente() {
 		return oponente; 
+	}
+	
+	public boolean usarElemento(Elemento elemento) {
+		// aca se itera por las claves del diccionario, comparando las clases de elementos y si sus valores son > a cero
+		elemento.aplicarA(algomonActivo);
+		// se modifica el valor del elemento
+		return true;
+		// de lo contrario, por fuera del for se devuelve false
 	}
 }

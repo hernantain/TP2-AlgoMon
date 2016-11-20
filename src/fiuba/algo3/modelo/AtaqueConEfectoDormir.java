@@ -6,8 +6,11 @@ public class AtaqueConEfectoDormir extends AtaqueEspecial{
 	}
 	
 	public boolean atacar(Algomon algomon) {
-		efectoSecundario(algomon);
-		return super.atacar(algomon);
+		if (super.atacar(algomon)) {
+			efectoSecundario(algomon);
+			return true;
+		}
+		return false;
 	}
 
 	public void efectoSecundario(Algomon algomonAfectado) {
