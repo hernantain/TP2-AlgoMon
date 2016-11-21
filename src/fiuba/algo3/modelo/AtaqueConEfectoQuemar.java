@@ -17,4 +17,8 @@ public class AtaqueConEfectoQuemar extends AtaqueEspecial{
 		algomonAfectado.cambiarEstado(new EstadoQuemado(algomonAfectado));
 	}
 
+	public void aumentarCantidadDeAtaque(int cantidadAAumentar) {
+		ataqueADecorar.aumentarCantidadDeAtaque(cantidadAAumentar);
+	}
+
 }

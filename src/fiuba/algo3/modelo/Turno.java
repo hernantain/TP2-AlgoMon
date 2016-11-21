@@ -14,9 +14,11 @@ public class Turno {
 		jugador2.setOponente(jugador1);
 	}
 	
-	public void jugar(AccionDeJugador accion){ //Al jugador que le corresponde jugar se le pasa la accion correspondiente
-		jugadorActivo.realizarAccion(accion);  //Por ahora solo atacamos...
+	public boolean jugar(AccionDeJugador accion){ //Al jugador que le corresponde jugar se le pasa la accion correspondiente
+		boolean resultado = jugadorActivo.realizarAccion(accion); 
+
 		cambiarJugador();					   //Cada vez que se realiza una accion, cambia el jugador activo.
+		return resultado;
 	}
 	
 	public void cambiarJugador(){

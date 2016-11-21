@@ -49,10 +49,11 @@ public abstract class Algomon {
 		return vida.maxima();
 	}
 	
-	public void aumentarLaCantidadDeAtaques(int cantidadAAumentar) {
+	public void aumentarCantidadDeAtaques(int cantidadAAumentar) {
 		for(int i=0; i < ataques.size(); i++) {
 			ataques.get(i).aumentarCantidadDeAtaque(cantidadAAumentar);
 		}
 	}
+
 
 }

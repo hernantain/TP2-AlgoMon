@@ -10,7 +10,6 @@ public class UsarElemento extends AccionDeJugador {
 		elementoDelJugador = elemento;
 	}
 
-	@Override
 	public boolean accionar() {
 		return jugadorActivo.usarElemento(elementoDelJugador);
 	}

@@ -6,39 +6,58 @@ import java.util.HashMap;
 public class Jugador {
 
 	private ArrayList<Algomon> algomones = new ArrayList<Algomon>();	//Lista de los algomones 
-	private HashMap<Elemento, Integer> elementos;
+	private HashMap<Elemento, Integer> elementos = new HashMap<Elemento, Integer>();
 	private Algomon algomonActivo;	 
 	private Jugador oponente;
 	
+	public Jugador() {
+		this.setElementosIniciales();
+	}
+	
+	private void setElementosIniciales() {
+		elementos.put(new Pocion(), 4);
+		elementos.put(new SuperPocion(), 2);
+		elementos.put(new Vitamina(), 5);
+		elementos.put(new Restaurador(), 3);
+	}
+
 	public void setAlgomon(Algomon unAlgomon){
 		algomones.add(unAlgomon);
+		if (algomones.size() == 1) {
+			setAlgomonActivo(unAlgomon);
+		}
 	}
 	
 	public void setOponente(Jugador contrincante){
 		oponente = contrincante;
 	}
 	
-	public void setAlgomonActivo(){				//Por el momento no la usamos, pero mas adelante, cuando querramos cambiar el algomon 
-												// en juego, la vamos a usar.
+	public void setAlgomonActivo(Algomon unAlgomon){				//Por el momento no la usamos, pero mas adelante, cuando querramos cambiar el algomon 
+		algomonActivo = unAlgomon;
 	}
 	
 	public Algomon getAlgomonActivo(){
-		return algomones.get(0);			//Por el momento solo hacemos las pruebas con un algomon
+		return algomonActivo;			//Por el momento solo hacemos las pruebas con un algomon
 	}										//y nos devuelve el unico en la lista
 	
-	public void realizarAccion(AccionDeJugador accion){
-		accion.accionar();					//Se pasa la accion(atacar,cambiar o usar elemento)a realizar y se ejecuta el metodo accionar
+	public boolean realizarAccion(AccionDeJugador accion){
+		return accion.accionar();			//Se pasa la accion(atacar,cambiar o usar elemento)a realizar y se ejecuta el metodo accionar
 	}
 
 	public Jugador getOponente() {
 		return oponente; 
 	}
 	
-	public boolean usarElemento(Elemento elemento) {
-		// aca se itera por las claves del diccionario, comparando las clases de elementos y si sus valores son > a cero
-		elemento.aplicarA(algomonActivo);
-		// se modifica el valor del elemento
-		return true;
-		// de lo contrario, por fuera del for se devuelve false
+	public boolean usarElemento(Elemento elementoRecibido) {
+
+		for(Elemento elementoAlmacenado : elementos.keySet()) {
+			if (elementoAlmacenado.getClass().equals(elementoRecibido.getClass())) {
+				elementoAlmacenado.aplicarA(algomonActivo);
+				int cantidad = elementos.get(elementoAlmacenado);
+				elementos.put(elementoAlmacenado, cantidad-1);
+				return true;
+			}
+		}
+		return false;
 	}
 }

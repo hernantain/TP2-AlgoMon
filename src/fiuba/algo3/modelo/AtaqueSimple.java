@@ -14,4 +14,9 @@ public class AtaqueSimple implements Ataque {
 		return false;
 	}
 
+	public void aumentarCantidadDeAtaque(int cantidadAAumentar) {
+		cantidad = cantidad + cantidadAAumentar;
+	}
+	
+	
 }
