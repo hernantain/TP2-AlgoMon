@@ -1,6 +1,14 @@
 package test;
 
-import  org.junit.Assert.*;
+import Acciones.Atacar;
+import Acciones.UsarElemento;
+import Algomones.Charmander;
+import Algomones.Jigglypuff;
+import Ataques.AtaqueConEfectoDormir;
+import Ataques.AtaqueRapido;
+import Ataques.Canto;
+import Elementos.Pocion;
+import Elementos.Vitamina;
 
 import static org.junit.Assert.*;
 

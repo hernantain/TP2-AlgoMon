@@ -4,6 +4,22 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import Acciones.Atacar;
+import Algomones.Bulbasaur;
+import Algomones.Chansey;
+import Algomones.Charmander;
+import Algomones.Jigglypuff;
+import Algomones.Rattata;
+import Algomones.Squirtle;
+import Ataques.AtaqueConEfectoDormir;
+import Ataques.AtaqueConEfectoQuemar;
+import Ataques.AtaqueRapido;
+import Ataques.Brasas;
+import Ataques.Burbuja;
+import Ataques.Canto;
+import Ataques.Chupavidas;
+import Ataques.Fogonazo;
+import Ataques.LatigoCepa;
 import modelo.*;
 
 public class SegundaEntregaTest {

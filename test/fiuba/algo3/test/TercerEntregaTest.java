@@ -5,6 +5,23 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import Acciones.Atacar;
+import Acciones.CambiarAlgomonActivo;
+import Acciones.UsarElemento;
+import Algomones.Bulbasaur;
+import Algomones.Chansey;
+import Algomones.Charmander;
+import Algomones.Jigglypuff;
+import Algomones.Rattata;
+import Algomones.Squirtle;
+import Ataques.AtaqueConEfectoDormir;
+import Ataques.AtaqueRapido;
+import Ataques.Canto;
+import Ataques.LatigoCepa;
+import Elementos.Pocion;
+import Elementos.Restaurador;
+import Elementos.SuperPocion;
+import Elementos.Vitamina;
 import modelo.*;
 
 public class TercerEntregaTest {

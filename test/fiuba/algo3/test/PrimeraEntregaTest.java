@@ -4,7 +4,9 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import modelo.*;
+import Algomones.*;
+import Ataques.AtaqueRapido;
+import Ataques.*;
 
 public class PrimeraEntregaTest {
 

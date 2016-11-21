@@ -4,6 +4,12 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import Acciones.Atacar;
+import Algomones.Charmander;
+import Algomones.Jigglypuff;
+import Ataques.AtaqueConEfectoDormir;
+import Ataques.Brasas;
+import Ataques.Canto;
 import modelo.*;
 
 public class TurnoTest {

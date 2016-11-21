@@ -4,6 +4,16 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import Acciones.Atacar;
+import Algomones.Charmander;
+import Algomones.Jigglypuff;
+import Algomones.Squirtle;
+import Ataques.AtaqueConEfectoDormir;
+import Ataques.AtaqueConEfectoQuemar;
+import Ataques.AtaqueRapido;
+import Ataques.Burbuja;
+import Ataques.Canto;
+import Ataques.Fogonazo;
 import modelo.*;
 
 public class AtaqueEspecialTest {

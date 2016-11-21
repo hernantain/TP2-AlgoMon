@@ -3,6 +3,14 @@ package modelo;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import Acciones.AccionDeJugador;
+import Algomones.Algomon;
+import Elementos.Elemento;
+import Elementos.Pocion;
+import Elementos.Restaurador;
+import Elementos.SuperPocion;
+import Elementos.Vitamina;
+
 public class Jugador {
 
 	private ArrayList<Algomon> algomones = new ArrayList<Algomon>();	//Lista de los algomones 

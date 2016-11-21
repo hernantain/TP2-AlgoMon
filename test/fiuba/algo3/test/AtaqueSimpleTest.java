@@ -4,14 +4,14 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import modelo.AtaqueRapido;
-import modelo.Brasas;
-import modelo.Bulbasaur;
-import modelo.Burbuja;
-import modelo.Charmander;
-import modelo.LatigoCepa;
-import modelo.Rattata;
-import modelo.Squirtle;
+import Algomones.Bulbasaur;
+import Algomones.Charmander;
+import Algomones.Rattata;
+import Algomones.Squirtle;
+import Ataques.AtaqueRapido;
+import Ataques.Brasas;
+import Ataques.Burbuja;
+import Ataques.LatigoCepa;
 
 public class AtaqueSimpleTest {
 

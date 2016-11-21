@@ -1,5 +1,7 @@
 package modelo;
 
+import Acciones.AccionDeJugador;
+
 public class Turno {
 
 	private Jugador jugadorActivo;  //Es el jugador que le corresponde jugar
