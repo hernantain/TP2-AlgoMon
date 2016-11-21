@@ -20,8 +20,8 @@ public class ElementosTest {
 	
 	@Test
 	public void test01SeLeAplicaUnaPocionAJigglypuff() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("j1");
+		Jugador jugador2 = new Jugador("j2");
 		jugador1.setAlgomon(new Jigglypuff());
 		jugador2.setAlgomon(new Charmander());
 		Turno turno = new Turno(jugador1, jugador2);
@@ -41,8 +41,8 @@ public class ElementosTest {
 	
 	@Test
 	public void testSeleAplicaUnaVitaminaAJigglypuff() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("j1");
+		Jugador jugador2 = new Jugador("j2");
 		jugador1.setAlgomon(new Jigglypuff());
 		jugador2.setAlgomon(new Charmander());
 		Turno turno = new Turno(jugador1, jugador2);

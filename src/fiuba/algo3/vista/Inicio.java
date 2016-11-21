@@ -60,7 +60,7 @@ public class Inicio extends Application {
 		root.getChildren().addAll(mensaje,botonJugar,botonSalir);
 		
 		
-		root.setStyle("-fx-background-image: url('file:src/vista/fondo.jpg');"
+		root.setStyle("-fx-background-image: url('file:src/fiuba/algo3/vista/fondo.jpg');"
 					+ "-fx-background-position: 50% 50%;"
 					+ "-fx-background-size: cover;"
 					+ "-fx-border-color: red");

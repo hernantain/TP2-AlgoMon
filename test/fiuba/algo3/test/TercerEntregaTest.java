@@ -31,8 +31,8 @@ public class TercerEntregaTest {
 	
 	@Test
 	public void iniciarPartidaElegirAlgomonesYAtacar() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("j1");
+		Jugador jugador2 = new Jugador("j2");
 		
 		Jigglypuff jigglypuff = new Jigglypuff();
 		Charmander charmander = new Charmander();
@@ -66,8 +66,8 @@ public class TercerEntregaTest {
 	
 	@Test
 	public void elPrimerAlgomonElegidoEsElActivo() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("j1");
+		Jugador jugador2 = new Jugador("12");
 		
 		Jigglypuff jigglypuff = new Jigglypuff();
 		Charmander charmander = new Charmander();
@@ -85,8 +85,8 @@ public class TercerEntregaTest {
 	
 	@Test
 	public void cambiarAlgomonActivo() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("j1");
+		Jugador jugador2 = new Jugador("j2");
 		
 		Jigglypuff jigglypuff = new Jigglypuff();
 		Charmander charmander = new Charmander();
@@ -108,8 +108,8 @@ public class TercerEntregaTest {
 	
 	@Test 
 	public void cambiarAlgomonActivoMultiplesVeces() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("j1");
+		Jugador jugador2 = new Jugador("j2");
 		
 		Jigglypuff jigglypuff = new Jigglypuff();
 		Charmander charmander = new Charmander();
@@ -144,8 +144,8 @@ public class TercerEntregaTest {
 	
 	@Test
 	public void jugadoresAplicanPociones() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("j1");
+		Jugador jugador2 = new Jugador("j2");
 		jugador1.setAlgomon(new Jigglypuff());
 		jugador2.setAlgomon(new Charmander());
 		Turno turno = new Turno(jugador1, jugador2);
@@ -172,8 +172,8 @@ public class TercerEntregaTest {
 	
 	@Test
 	public void jugadoresAplicanSuperPociones() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("j1");
+		Jugador jugador2 = new Jugador("j2");
 		jugador1.setAlgomon(new Jigglypuff());
 		jugador2.setAlgomon(new Charmander());
 		Turno turno = new Turno(jugador1, jugador2);
@@ -208,8 +208,8 @@ public class TercerEntregaTest {
 	
 	@Test
 	public void JugadoresAplicanRestauradores() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("j1");
+		Jugador jugador2 = new Jugador("j2");
 		jugador1.setAlgomon(new Jigglypuff());
 		jugador2.setAlgomon(new Chansey());
 		Turno turno = new Turno(jugador1, jugador2);
@@ -232,8 +232,8 @@ public class TercerEntregaTest {
 	
 	@Test
 	public void jugadoresAplicanVitamina() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("j1");
+		Jugador jugador2 = new Jugador("j2");
 		jugador1.setAlgomon(new Jigglypuff());
 		jugador2.setAlgomon(new Charmander());
 		Turno turno = new Turno(jugador1, jugador2);
