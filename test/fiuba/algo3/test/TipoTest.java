@@ -4,11 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import Tipos.Tipo;
-import Tipos.TipoAgua;
-import Tipos.TipoFuego;
-import Tipos.TipoNormal;
-import Tipos.TipoPlanta;
+import Tipos.*;
 
 public class TipoTest {
 

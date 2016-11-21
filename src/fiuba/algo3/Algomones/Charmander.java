@@ -9,6 +9,7 @@ import Tipos.TipoFuego;
 public class Charmander extends Algomon{
 	
 	public Charmander(){
+		nombre = "Charmander";
 		tipo = new TipoFuego();
 		vida = new Vida(170);
 		ataques.add(new Brasas());

@@ -4,10 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import Algomones.*;
-import Ataques.AtaqueRapido;
 import Ataques.*;
-
+import Algomones.*;
 public class PrimeraEntregaTest {
 
 	//PUNTO 1 DE LA ENTREGA

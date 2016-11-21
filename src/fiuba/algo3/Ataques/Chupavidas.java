@@ -7,6 +7,7 @@ public class Chupavidas extends AtaqueSimple {//PREGUNTAR COMO PASARLE EL ALGOMO
 	private Algomon algomonAtacante;
 	
 	public Chupavidas(Algomon algomonAtacante) {
+		nombre = "Chupavidas";
 		potencia = new Potencia(15);
 		cantidad = 8;
 		tipo = new TipoPlanta();

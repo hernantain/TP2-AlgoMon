@@ -4,16 +4,16 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import modelo.*;
+import Ataques.*;
 import Acciones.*;
 import Algomones.*;
-import Ataques.*;
-import modelo.*;
 
 public class DormirDecoratorTest {
 	@Test
 	public void test01JigglypuffAtacaConCantoYElOponenteNoPuedeAtacarPrimerTurno() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		jugador1.setAlgomon(new Jigglypuff());
 		jugador2.setAlgomon(new Squirtle());
 		Turno turno = new Turno(jugador1, jugador2);
@@ -28,8 +28,8 @@ public class DormirDecoratorTest {
 	
 	@Test
 	public void test02JigglypuffAtacaConCantoYElOponenteNoPuedeAtacarSegundoTurno() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		jugador1.setAlgomon(new Jigglypuff());
 		jugador2.setAlgomon(new Squirtle());
 		Turno turno = new Turno(jugador1, jugador2);
@@ -48,8 +48,8 @@ public class DormirDecoratorTest {
 	
 	@Test
 	public void test03JigglypuffAtacaConCantoYElOponenteNoPuedeAtacarTercerTurno() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		jugador1.setAlgomon(new Jigglypuff());
 		jugador2.setAlgomon(new Squirtle());
 		Turno turno = new Turno(jugador1, jugador2);
@@ -72,8 +72,8 @@ public class DormirDecoratorTest {
 	
 	@Test
 	public void test04JigglypuffAtacaConCantoYElOponentePuedeAtacarCuartoTurno() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		jugador1.setAlgomon(new Jigglypuff());
 		jugador2.setAlgomon(new Squirtle());
 		Turno turno = new Turno(jugador1, jugador2);
@@ -100,8 +100,8 @@ public class DormirDecoratorTest {
 	
 	@Test
 	public void test05ChanseyAtacaConCantoYElOponenteNoPuedeAtacarPrimerTurno() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		jugador1.setAlgomon(new Chansey());
 		jugador2.setAlgomon(new Squirtle());
 		Turno turno = new Turno(jugador1, jugador2);
@@ -116,8 +116,8 @@ public class DormirDecoratorTest {
 	
 	@Test
 	public void test06ChanseyAtacaConCantoYElOponenteNoPuedeAtacarSegundoTurno() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		jugador1.setAlgomon(new Chansey());
 		jugador2.setAlgomon(new Squirtle());
 		Turno turno = new Turno(jugador1, jugador2);
@@ -136,8 +136,8 @@ public class DormirDecoratorTest {
 	
 	@Test
 	public void test07ChanseyAtacaConCantoYElOponenteNoPuedeAtacarTercerTurno() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		jugador1.setAlgomon(new Chansey());
 		jugador2.setAlgomon(new Squirtle());
 		Turno turno = new Turno(jugador1, jugador2);
@@ -160,8 +160,8 @@ public class DormirDecoratorTest {
 	
 	@Test
 	public void test08ChanseyAtacaConCantoYElOponentePuedeAtacarCuartoTurno() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		jugador1.setAlgomon(new Chansey());
 		jugador2.setAlgomon(new Squirtle());
 		Turno turno = new Turno(jugador1, jugador2);

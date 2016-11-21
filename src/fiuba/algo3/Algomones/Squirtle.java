@@ -8,6 +8,7 @@ import Tipos.TipoAgua;
 public class Squirtle extends Algomon {
 
 	public Squirtle(){
+		nombre = "Squirtle";
 		tipo = new TipoAgua();
 		vida = new Vida(150);
 		ataques.add(new Burbuja());

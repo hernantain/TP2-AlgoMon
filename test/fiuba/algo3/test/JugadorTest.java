@@ -4,14 +4,14 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import Algomones.Charmander;
 import modelo.*;
+import Algomones.*;
 
 public class JugadorTest {
 
 	@Test
 	public void test01JugadorAgregaAlgomon() {
-		Jugador jugador1 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
 		Charmander charmander = new Charmander();
 		jugador1.setAlgomon(charmander);
 		
@@ -21,8 +21,8 @@ public class JugadorTest {
 	
 	@Test
 	public void test02JugadorEstableceOponenete() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		jugador1.setOponente(jugador2);
 		
 		assertEquals(jugador2, jugador1.getOponente());

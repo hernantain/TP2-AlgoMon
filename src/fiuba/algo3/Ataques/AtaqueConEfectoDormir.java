@@ -23,4 +23,9 @@ public class AtaqueConEfectoDormir extends AtaqueEspecial{
 	public void aumentarCantidadDeAtaque(int cantidadAAumentar) {
 		ataqueADecorar.aumentarCantidadDeAtaque(cantidadAAumentar);
 	}
+	
+	public String nombre() {
+		return ataqueADecorar.nombre();
+	}
+
 }

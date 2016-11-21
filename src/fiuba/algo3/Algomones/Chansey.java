@@ -9,6 +9,7 @@ import Tipos.TipoNormal;
 public class Chansey extends Algomon{
 	
 	public Chansey(){
+		nombre = "Chansey";
 		tipo = new TipoNormal();
 		vida  = new Vida(130);
 		ataques.add(new AtaqueConEfectoDormir(new Canto()));

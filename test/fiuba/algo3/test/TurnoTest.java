@@ -4,20 +4,17 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import Acciones.Atacar;
-import Algomones.Charmander;
-import Algomones.Jigglypuff;
-import Ataques.AtaqueConEfectoDormir;
-import Ataques.Brasas;
-import Ataques.Canto;
 import modelo.*;
+import Ataques.*;
+import Acciones.*;
+import Algomones.*;
 
 public class TurnoTest {
 
 	@Test
 	public void test01TurnoPrimerJugadorAntesDeEmpezar() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		Turno turno = new Turno(jugador1, jugador2);
 		
 		assertEquals(jugador1, turno.jugadorActivo());
@@ -25,8 +22,8 @@ public class TurnoTest {
 	
 	@Test
 	public void test02NoTurnoSegundoJugadorAntesDeEmpezar() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		Turno turno = new Turno(jugador1, jugador2);
 		
 		assertEquals(jugador2, turno.jugadorNoActivo());
@@ -34,8 +31,8 @@ public class TurnoTest {
 	
 	@Test
 	public void test03TurnoCambiarJugador() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		Turno turno = new Turno(jugador1, jugador2);
 		
 		turno.cambiarJugador();
@@ -45,8 +42,8 @@ public class TurnoTest {
 	
 	@Test
 	public void test04TurnoPrimerJugadorConJuegoEmpezado() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		jugador1.setAlgomon(new Jigglypuff());
 		jugador2.setAlgomon(new Charmander());
 		Turno turno = new Turno(jugador1, jugador2);
@@ -59,8 +56,8 @@ public class TurnoTest {
 	
 	@Test
 	public void test05TurnoSegundoJugadorConJuegoEmpezado() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		jugador1.setAlgomon(new Jigglypuff());
 		jugador2.setAlgomon(new Charmander());
 		Turno turno = new Turno(jugador1, jugador2);

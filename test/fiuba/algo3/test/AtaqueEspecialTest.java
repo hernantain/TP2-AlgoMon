@@ -4,24 +4,17 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import Acciones.Atacar;
-import Algomones.Charmander;
-import Algomones.Jigglypuff;
-import Algomones.Squirtle;
-import Ataques.AtaqueConEfectoDormir;
-import Ataques.AtaqueConEfectoQuemar;
-import Ataques.AtaqueRapido;
-import Ataques.Burbuja;
-import Ataques.Canto;
-import Ataques.Fogonazo;
 import modelo.*;
+import Ataques.*;
+import Acciones.*;
+import Algomones.*;
 
 public class AtaqueEspecialTest {
 
 	@Test
 	public void test01() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		jugador1.setAlgomon(new Jigglypuff());
 		jugador2.setAlgomon(new Squirtle());
 		Turno turno = new Turno(jugador1, jugador2);
@@ -43,8 +36,8 @@ public class AtaqueEspecialTest {
 	
 	@Test
 	public void test02() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		jugador1.setAlgomon(new Jigglypuff());
 		jugador2.setAlgomon(new Squirtle());
 		Turno turno = new Turno(jugador1, jugador2);
@@ -71,8 +64,8 @@ public class AtaqueEspecialTest {
 	
 	@Test
 	public void test03() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		jugador1.setAlgomon(new Charmander());
 		jugador2.setAlgomon(new Squirtle());			//Vida de Squirtle 150
 		Turno turno = new Turno(jugador1, jugador2);
@@ -91,41 +84,4 @@ public class AtaqueEspecialTest {
 		//Total: 1 + 15 + 10 = 26, 150 - 26 = 124
 		assertEquals(124, turno.jugadorActivo().getAlgomonActivo().vida(),0.001D);
 	}
-
-	@Test
-	public void testJigglypuffAgotaCanto() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
-		jugador1.setAlgomon(new Jigglypuff());
-		jugador2.setAlgomon(new Charmander());
-		Turno turno = new Turno(jugador1, jugador2);
-		
-		//Jigglypuff usa Canto una vez.
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoDormir(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
-		
-		//Jigglypuff usa Canto dos veces.
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoDormir(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
-	
-		//Jigglypuff usa Canto tres veces.
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoDormir(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
-		
-		//Jigglypuff usa Canto cuatro veces.
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoDormir(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
-		
-		//Jigglypuff usa Canto cinco veces.
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoDormir(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
-		
-		//Jigglypuff usa Canto seis veces.
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoDormir(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo()));
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueRapido(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
-		
-		//JigglypuffYaNoPuedeUsarCanto.
-		assertFalse(turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new AtaqueConEfectoDormir(new Canto()), turno.jugadorActivo().getOponente().getAlgomonActivo())));
-	}
-	
 }

@@ -24,4 +24,9 @@ public class AtaqueConEfectoQuemar extends AtaqueEspecial{
 		ataqueADecorar.aumentarCantidadDeAtaque(cantidadAAumentar);
 	}
 
+	@Override
+	public String nombre() {
+		return ataqueADecorar.nombre();
+	}
+
 }

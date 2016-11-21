@@ -16,6 +16,7 @@ public abstract class Algomon {
 	protected boolean vivo = true;
 	protected Tipo tipo;
 	protected Estado estado = new EstadoNormal();
+	protected String nombre;
 
 	public boolean atacarACon(Algomon otroAlgomon, Ataque ataque){
 		try {
@@ -67,6 +68,14 @@ public abstract class Algomon {
 			return true;
 		}
 		return false;
+	}
+
+	public String nombre() {
+		return nombre;
+	}
+
+	public ArrayList<Ataque> ataques() {
+		return ataques;
 	}
 
 }

@@ -3,17 +3,18 @@ package test;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
+import modelo.*;
+import Ataques.*;
 import Acciones.*;
 import Algomones.*;
-import Ataques.*;
-import modelo.*;
 
 public class QuemarDecoratorTest {
 	
 	@Test
 	public void test01CharmanderAtacaConFogonazoARattata() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		jugador1.setAlgomon(new Charmander());
 		jugador2.setAlgomon(new Rattata());
 		Turno turno = new Turno(jugador1, jugador2);
@@ -30,8 +31,8 @@ public class QuemarDecoratorTest {
 	
 	@Test
 	public void test02CharmanderAtacaConFogonazoABulbasaur() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		jugador1.setAlgomon(new Charmander());
 		jugador2.setAlgomon(new Bulbasaur());
 		Turno turno = new Turno(jugador1, jugador2);
@@ -48,8 +49,8 @@ public class QuemarDecoratorTest {
 	
 	@Test
 	public void test03CharmanderAtacaConFogonazoASquirtle() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		jugador1.setAlgomon(new Charmander());
 		jugador2.setAlgomon(new Squirtle());
 		Turno turno = new Turno(jugador1, jugador2);
@@ -66,8 +67,8 @@ public class QuemarDecoratorTest {
 	
 	@Test
 	public void test04RattataAtacaConFogonazoACharmander() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		jugador1.setAlgomon(new Rattata());
 		jugador2.setAlgomon(new Charmander());
 		Turno turno = new Turno(jugador1, jugador2);
@@ -84,8 +85,8 @@ public class QuemarDecoratorTest {
 	
 	@Test
 	public void test05RattataAtacaConFogonazoAChansey() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		jugador1.setAlgomon(new Rattata());
 		jugador2.setAlgomon(new Chansey());
 		Turno turno = new Turno(jugador1, jugador2);
@@ -102,8 +103,8 @@ public class QuemarDecoratorTest {
 	
 	@Test
 	public void test06RattataAtacaConFogonazoAJigglypuff() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		jugador1.setAlgomon(new Rattata());
 		jugador2.setAlgomon(new Jigglypuff());
 		Turno turno = new Turno(jugador1, jugador2);
@@ -120,8 +121,8 @@ public class QuemarDecoratorTest {
 	
 	@Test
 	public void test07RattataAtacaConFogonazoAJigglypuffEfectoALargoPlazo() {
-		Jugador jugador1 = new Jugador();
-		Jugador jugador2 = new Jugador();
+		Jugador jugador1 = new Jugador("PEPE");
+		Jugador jugador2 = new Jugador("PEPE");
 		jugador1.setAlgomon(new Rattata());
 		jugador2.setAlgomon(new Jigglypuff());
 		Turno turno = new Turno(jugador1, jugador2);

@@ -9,6 +9,7 @@ import Tipos.TipoNormal;
 public class Jigglypuff extends Algomon {
 
 	public Jigglypuff(){
+		nombre = "Jigglypuff";
 		tipo = new TipoNormal();
 		vida = new Vida(130);
 		ataques.add(new Burbuja());

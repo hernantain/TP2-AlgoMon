@@ -4,23 +4,10 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import Acciones.Atacar;
-import Algomones.Bulbasaur;
-import Algomones.Chansey;
-import Algomones.Charmander;
-import Algomones.Jigglypuff;
-import Algomones.Rattata;
-import Algomones.Squirtle;
-import Ataques.AtaqueConEfectoDormir;
-import Ataques.AtaqueConEfectoQuemar;
-import Ataques.AtaqueRapido;
-import Ataques.Brasas;
-import Ataques.Burbuja;
-import Ataques.Canto;
-import Ataques.Chupavidas;
-import Ataques.Fogonazo;
-import Ataques.LatigoCepa;
 import modelo.*;
+import Ataques.*;
+import Acciones.*;
+import Algomones.*;
 
 public class SegundaEntregaTest {
 
@@ -28,8 +15,8 @@ public class SegundaEntregaTest {
 	
 		@Test
 		public void test01JigglypuffAtacaConCantoYElOponenteNoPuedeAtacarPrimerTurno() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Jigglypuff());
 			jugador2.setAlgomon(new Charmander());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -44,8 +31,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test02JigglypuffAtacaConCantoYElOponenteNoPuedeAtacarSegundoTurno() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Jigglypuff());
 			jugador2.setAlgomon(new Charmander());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -64,8 +51,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test03JigglypuffAtacaConCantoYElOponenteNoPuedeAtacarTercerTurno() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Jigglypuff());
 			jugador2.setAlgomon(new Charmander());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -88,8 +75,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test04JigglypuffAtacaConCantoYElOponentePuedeAtacarCuartoTurno() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Jigglypuff());
 			jugador2.setAlgomon(new Charmander());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -116,8 +103,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test05ChanseyAtacaConCantoYElOponenteNoPuedeAtacarPrimerTurno() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Chansey());
 			jugador2.setAlgomon(new Rattata());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -132,8 +119,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test06ChanseyAtacaConCantoYElOponenteNoPuedeAtacarSegundoTurno() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Chansey());
 			jugador2.setAlgomon(new Rattata());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -152,8 +139,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test07ChanseyAtacaConCantoYElOponenteNoPuedeAtacarTercerTurno() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Chansey());
 			jugador2.setAlgomon(new Rattata());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -176,8 +163,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test08ChanseyAtacaConCantoYElOponentePuedeAtacarCuartoTurno() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Chansey());
 			jugador2.setAlgomon(new Rattata());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -206,8 +193,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test09BulbasaurAtacaConChupavidasACharmanderYHaceDanio() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Bulbasaur());
 			jugador2.setAlgomon(new Charmander());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -222,8 +209,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test10BulbasaurConVidaLlenaAtacaConChupavidasACharmanderYSeCuraCero() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Bulbasaur());
 			jugador2.setAlgomon(new Charmander());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -238,8 +225,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test11BulbasaurConDanioRecibidoAtacaConChupavidasACharmanderYSeCuraParcial() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Charmander());
 			jugador2.setAlgomon(new Bulbasaur());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -260,8 +247,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test12BulbasaurAtacaConChupavidasASquirtleYHaceDanio() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Bulbasaur());
 			jugador2.setAlgomon(new Squirtle());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -276,8 +263,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test13BulbasaurConVidaLlenaAtacaConChupavidasASquirtleYSeCuraCero() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Bulbasaur());
 			jugador2.setAlgomon(new Squirtle());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -292,8 +279,8 @@ public class SegundaEntregaTest {
 
 		@Test
 		public void test14BulbasaurConDanioRecibidoAtacaConChupavidasASquirtleYSeCuraParcial() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Squirtle());
 			jugador2.setAlgomon(new Bulbasaur());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -312,8 +299,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test15BulbasaurConDanioRecibidoAtacaConChupavidasASquirtleYSeCuraATope() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Squirtle());
 			jugador2.setAlgomon(new Bulbasaur());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -334,8 +321,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test16BulbasaurAtacaConChupavidasAChanseyYHaceDanio() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Bulbasaur());
 			jugador2.setAlgomon(new Chansey());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -350,8 +337,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test17BulbasaurConVidaLlenaAtacaConChupavidasAChanseyYSeCuraCero() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Bulbasaur());
 			jugador2.setAlgomon(new Chansey());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -366,8 +353,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test18BulbasaurConDanioRecibidoAtacaConChupavidasAChanseyYSeCuraParcial() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Chansey());
 			jugador2.setAlgomon(new Bulbasaur());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -386,8 +373,8 @@ public class SegundaEntregaTest {
 				
 		@Test
 		public void test19BulbasaurAtacaConChupavidasAJigglypuffYHaceDanio() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Bulbasaur());
 			jugador2.setAlgomon(new Jigglypuff());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -402,8 +389,8 @@ public class SegundaEntregaTest {
 
 		@Test
 		public void test20BulbasaurConVidaLlenaAtacaConChupavidasAJigglypuffYSeCuraCero() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Bulbasaur());
 			jugador2.setAlgomon(new Jigglypuff());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -418,8 +405,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test21BulbasaurConDanioRecibidoAtacaConChupavidasAJigglypuffYSeCuraParcial() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Jigglypuff());
 			jugador2.setAlgomon(new Bulbasaur());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -438,8 +425,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test22BulbasaurAtacaConChupavidasARattataYHaceDanio() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Bulbasaur());
 			jugador2.setAlgomon(new Rattata());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -454,8 +441,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test23BulbasaurConVidaLlenaAtacaConChupavidasARattataYSeCuraCero() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Bulbasaur());
 			jugador2.setAlgomon(new Rattata());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -470,8 +457,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test24BulbasaurConDanioRecibidoAtacaConChupavidasARattataYSeCuraParcial() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Rattata());
 			jugador2.setAlgomon(new Bulbasaur());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -492,8 +479,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test25CharmanderAtacaConFogonazoARattata() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Charmander());
 			jugador2.setAlgomon(new Rattata());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -510,8 +497,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test26CharmanderAtacaConFogonazoABulbasaur() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Charmander());
 			jugador2.setAlgomon(new Bulbasaur());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -528,8 +515,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test27CharmanderAtacaConFogonazoASquirtle() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Charmander());
 			jugador2.setAlgomon(new Squirtle());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -546,8 +533,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test28RattataAtacaConFogonazoACharmander() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Rattata());
 			jugador2.setAlgomon(new Charmander());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -564,8 +551,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test29RattataAtacaConFogonazoAChansey() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Rattata());
 			jugador2.setAlgomon(new Chansey());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -582,8 +569,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test30RattataAtacaConFogonazoAJigglypuff() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Rattata());
 			jugador2.setAlgomon(new Jigglypuff());
 			Turno turno = new Turno(jugador1, jugador2);
@@ -600,8 +587,8 @@ public class SegundaEntregaTest {
 		
 		@Test
 		public void test31RattataAtacaConFogonazoAJigglypuffEfectoALargoPlazo() {
-			Jugador jugador1 = new Jugador();
-			Jugador jugador2 = new Jugador();
+			Jugador jugador1 = new Jugador("PEPE");
+			Jugador jugador2 = new Jugador("PEPE");
 			jugador1.setAlgomon(new Rattata());
 			jugador2.setAlgomon(new Jigglypuff());
 			Turno turno = new Turno(jugador1, jugador2);

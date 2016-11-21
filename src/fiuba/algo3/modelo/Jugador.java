@@ -17,9 +17,11 @@ public class Jugador {
 	private HashMap<Elemento, Integer> elementos = new HashMap<Elemento, Integer>();
 	private Algomon algomonActivo;	 
 	private Jugador oponente;
+	private String nombreJugador;
 	
-	public Jugador() {
+	public Jugador(String nombre) {
 		this.setElementosIniciales();
+		nombreJugador = nombre;
 	}
 	
 	private void setElementosIniciales() {
@@ -77,5 +79,21 @@ public class Jugador {
 			}
 		}
 		return false;
+	}
+	
+	public String getNombre(){
+		return nombreJugador;
+	}
+
+	public ArrayList<Elemento> elementos(){
+		ArrayList<Elemento> elementosADevolver = new ArrayList<Elemento>();
+		for (Elemento elementoAlmacenado : elementos.keySet()){
+			elementosADevolver.add(elementoAlmacenado);
+		}
+		return elementosADevolver;
+	}
+	
+	public ArrayList<Algomon> algomones() {
+		return algomones;
 	}
 }
