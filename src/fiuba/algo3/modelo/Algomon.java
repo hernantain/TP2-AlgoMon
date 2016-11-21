@@ -55,5 +55,11 @@ public abstract class Algomon {
 		}
 	}
 
+	public boolean estadoEsNormal(){
+		if (estado.getClass().equals(new EstadoNormal().getClass())){
+			return true;
+		}
+		return false;
+	}
 
 }

@@ -60,4 +60,14 @@ public class Jugador {
 		}
 		return false;
 	}
+
+	public boolean cambiarAlgomonActivo(Algomon algomonEntrante) {
+		for (int i = 0; i < algomones.size(); i++) {
+			if (algomones.get(i).getClass().equals(algomonEntrante.getClass())) {
+				this.setAlgomonActivo(algomones.get(i));
+				return true;
+			}
+		}
+		return false;
+	}
 }
