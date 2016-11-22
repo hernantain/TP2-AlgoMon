@@ -1,8 +1,5 @@
 package vista;
 
-import javafx.application.*;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,7 +9,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import modelo.Jugador;
@@ -35,16 +31,13 @@ public class PantallaJugadores {
 		//PANTALLA JUGAR/PRIMER JUGADOR
 		BorderPane pantallaJugadores = new BorderPane();
 		
-		Image img = new Image("file:src/fiuba/algo3/vista/Ash.png");
+		Image img = new Image("file:src/vista/Ash.png");
 		ImageView imgView = new ImageView(img);	
 		imgView.setFitHeight(500);
 		imgView.setFitWidth(350);
 		
 		VBox segundoLayout = new VBox(30);
-		segundoLayout.setAlignment(Pos.CENTER_LEFT);
-		
-		VBox imagen = new VBox();
-		//imagen.setAlignment(Pos.CENTER);
+		segundoLayout.setAlignment(Pos.TOP_LEFT);
 		
 		//Jugador ingresa su nombre
 		Label ingreseNombreLabel = new Label("Ingrese nombre de jugador 1: ");
@@ -67,9 +60,12 @@ public class PantallaJugadores {
 		
 				
 		Button botonIngresarNombre = new Button("Aceptar");
+		botonIngresarNombre.setPrefSize(300, 70);
 		botonIngresarNombre.setOnAction(e-> {
 			jugador1 = new Jugador(casilla.getText());
 				stage.setScene(tercerPantalla);
+				stage.setMaximized(false);
+				stage.setMaximized(true);
 			});
 			botonIngresarNombre.setStyle("-fx-font: 22 arial; -fx-base: #0014f4;"
 					+   "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
@@ -83,9 +79,13 @@ public class PantallaJugadores {
 					+   "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
 			
 				
-			boton.setOnAction(e-> stage.setScene(pantallaInicio));
+			boton.setOnAction(e-> {
+				stage.setScene(pantallaInicio); 
+				stage.setMaximized(false);
+				stage.setMaximized(true);
+			});
 			segundoLayout.getChildren().addAll(ingreseNombreLabel,casilla,botonIngresarNombre,boton);
-			pantallaJugadores.setStyle("-fx-background-image: url('file:src/fiuba/algo3/vista/fondo8.jpg');" 
+			pantallaJugadores.setStyle("-fx-background-image: url('file:src/vista/fondo8.jpg');" 
 								+"-fx-background-repeat: no-repeat;"
 								+"-fx-background-position: 50% 50%; "
 								+"-fx-background-size: cover;"
@@ -96,26 +96,22 @@ public class PantallaJugadores {
 			BorderPane.setAlignment(imgView, Pos.CENTER);
 			Scene segundaPantalla = new Scene(pantallaJugadores,1100,600);
 			stage.setScene(segundaPantalla);
-				
-				
-				
-				
-				
-				
-				
+			stage.setMaximized(false);
+			stage.setMaximized(true);
+
 				
 				
 				
 			BorderPane pantallaJugadores2 = new BorderPane();
 			
-			Image img2 = new Image("file:src/fiuba/algo3/vista/Ash2.png");
+			Image img2 = new Image("file:src/vista/Ash2.png");
 			ImageView imgView2 = new ImageView(img2);	
 			imgView2.setFitHeight(500);
 			imgView2.setFitWidth(350);
 			
 			
 			VBox tercerLayout = new VBox(30);
-			tercerLayout.setAlignment(Pos.CENTER_LEFT);
+			tercerLayout.setAlignment(Pos.TOP_LEFT);
 				
 				//Jugador ingresa su nombre
 				Label ingreseNombreLabel2 = new Label("Ingrese nombre de jugador 2: ");
@@ -138,6 +134,7 @@ public class PantallaJugadores {
 				
 				
 				Button botonIngresarNombre2 = new Button("Aceptar");
+				botonIngresarNombre2.setPrefSize(300, 70);
 				botonIngresarNombre2.setOnAction(e-> {
 					jugador2 = new Jugador(casilla2.getText());
 					PantallaDeSeleccionDeAlgomones seleccion = new PantallaDeSeleccionDeAlgomones(stage,jugador1,jugador2);
@@ -155,10 +152,14 @@ public class PantallaJugadores {
 				boton2.setStyle("-fx-font: 22 arial; -fx-base: #ff0000;"
 						+   "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
 							
-				boton2.setOnAction(e-> stage.setScene(pantallaInicio));
+				boton2.setOnAction(e-> {
+					stage.setScene(pantallaInicio); 
+					stage.setMaximized(false);
+					stage.setMaximized(true);
+				});
 				tercerLayout.getChildren().addAll(ingreseNombreLabel2,casilla2,botonIngresarNombre2,boton2);
 				
-				pantallaJugadores2.setStyle("-fx-background-image: url('file:src/fiuba/algo3/vista/fondo9.jpg');"
+				pantallaJugadores2.setStyle("-fx-background-image: url('file:src/vista/fondo9.jpg');"
 									 +"-fx-background-size: cover;");
 				
 				pantallaJugadores2.setLeft(tercerLayout);

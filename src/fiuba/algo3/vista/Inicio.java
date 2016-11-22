@@ -1,19 +1,10 @@
 package vista;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import modelo.*;
@@ -60,7 +51,7 @@ public class Inicio extends Application {
 		root.getChildren().addAll(mensaje,botonJugar,botonSalir);
 		
 		
-		root.setStyle("-fx-background-image: url('file:src/fiuba/algo3/vista/fondo.jpg');"
+		root.setStyle("-fx-background-image: url('file:src/vista/fondo.jpg');"
 					+ "-fx-background-position: 50% 50%;"
 					+ "-fx-background-size: cover;"
 					+ "-fx-border-color: red");
@@ -69,6 +60,7 @@ public class Inicio extends Application {
 		stagePrincipal.setTitle("TP2 - AlgoMon");
 		stagePrincipal.setScene(scene);
 		stagePrincipal.show();
+		stagePrincipal.setMaximized(true);
 		
 		botonJugar.setOnAction(e-> {
 			PantallaJugadores segunda = new PantallaJugadores(stagePrincipal,scene);

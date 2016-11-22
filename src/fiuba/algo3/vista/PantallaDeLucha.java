@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 import modelo.*;
 import Elementos.*;
 import Ataques.*;
-import Estado.*;
 import Acciones.*;
 import Algomones.Algomon;
 
@@ -21,7 +20,7 @@ public class PantallaDeLucha {
 
 	Stage stage;
 	Jugador jugador1, jugador2;
-	Button atacar,botonElemento,volverOpciones,volverElementos,volverAtacar;
+	Button botonAtacar,botonElemento,volverOpciones,volverElementos,volverAtacar;
 	Turno turno;
 	BorderPane pantalla;
 	HBox opciones, ataques, elementos;
@@ -43,6 +42,7 @@ public class PantallaDeLucha {
 	public void cambiarVista(){
 		
 		pantalla = new BorderPane();
+		
 		opciones = new HBox(40);
 		opciones.setPrefSize(700, 150);
 		opciones.setAlignment(Pos.CENTER);
@@ -79,26 +79,26 @@ public class PantallaDeLucha {
 		ataques.setAlignment(Pos.CENTER);
 		
 		elementos = new HBox(40);
-		ataques.setPrefSize(700, 150);
-		ataques.setAlignment(Pos.CENTER);
+		elementos.setPrefSize(700, 150);
+		elementos.setAlignment(Pos.CENTER);
 		
 		this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volverAtacar);
 		
-		atacar = new Button("Atacar");
-		atacar.setOnAction(e->pantalla.setBottom(ataques));
+		botonAtacar = this.crearBoton("Atacar");
+		botonAtacar.setOnAction(e->pantalla.setBottom(ataques));
 		
 		this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
 		
-		botonElemento = new Button("Usar Elemento");
+		botonElemento = this.crearBoton("Elementos");
 		botonElemento.setOnAction(e-> {
 			pantalla.setBottom(elementos);
 		});
 		
-		volverOpciones = new Button("Volver");
+		volverOpciones = this.crearBoton("Volver");
 		volverOpciones.setDisable(true);
-		volverOpciones.setOnAction(e->this.habilitarAlgomones(jugador1Algomones, atacar, botonElemento, volverOpciones));
+		volverOpciones.setOnAction(e->this.habilitarAlgomones(jugador1Algomones, botonAtacar, botonElemento, volverOpciones));
 		
-		Button cambiar = new Button("Cambiar Algomon");
+		Button cambiar = this.crearBoton("Cambiar Algomon");
 		cambiar.setOnAction(e->{
 			if (turno.jugadorActivo() == jugador1){
 				this.cambiarDeAlgomon(jugador1Algomones);
@@ -109,7 +109,7 @@ public class PantallaDeLucha {
 		this.mostrarAlgomonesDeJugadores(jugador1, volverAtacar, ataques, jugador1Algomones);
 		this.mostrarAlgomonesDeJugadores(jugador2, volverAtacar, ataques, jugador2Algomones);
 		
-		opciones.getChildren().addAll(atacar, cambiar, botonElemento,volverOpciones);
+		opciones.getChildren().addAll(botonAtacar, cambiar, botonElemento,volverOpciones);
 		
 		pantalla.setLeft(jugador1Algomones);
 		pantalla.setRight(jugador2Algomones);
@@ -118,6 +118,8 @@ public class PantallaDeLucha {
 		Scene quintaPantalla = new Scene(pantalla,1100,600);
 		
 		stage.setScene(quintaPantalla);
+		stage.setMaximized(false);
+		stage.setMaximized(true);
 	}
 	
 	public void habilitarAlgomones(VBox jugadorAlgomones,Button atacar,Button elementos, Button volverOpciones){
@@ -138,7 +140,7 @@ public class PantallaDeLucha {
 				botonAlgomon.setDisable(true);
 				botonAlgomon.setOnAction(event->{
 					turno.jugar(new CambiarAlgomonActivo(turno.jugadorActivo(),algomon));
-					this.habilitarAlgomones(algomonesJugador, atacar, botonElemento, volverOpciones);
+					this.habilitarAlgomones(algomonesJugador, botonAtacar, botonElemento, volverOpciones);
 					this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
 				});
 				algomonesJugador.getChildren().add(botonAlgomon);
@@ -185,7 +187,7 @@ public class PantallaDeLucha {
 		for (int x=0; x < jugadorAlgomones.getChildren().size();x++){
 			jugadorAlgomones.getChildren().get(x).setDisable(false); 
 		}
-		atacar.setDisable(true);
+		botonAtacar.setDisable(true);
 		botonElemento.setDisable(true);
 		volverOpciones.setDisable(false);
 	}
