@@ -35,7 +35,7 @@ public class PantallaJugadores {
 		//PANTALLA JUGAR/PRIMER JUGADOR
 		BorderPane pantallaJugadores = new BorderPane();
 		
-		Image img = new Image("file:src/vista/Ash.png");
+		Image img = new Image("file:src/fiuba/algo3/vista/Ash.png");
 		ImageView imgView = new ImageView(img);	
 		imgView.setFitHeight(500);
 		imgView.setFitWidth(350);
@@ -85,7 +85,7 @@ public class PantallaJugadores {
 				
 			boton.setOnAction(e-> stage.setScene(pantallaInicio));
 			segundoLayout.getChildren().addAll(ingreseNombreLabel,casilla,botonIngresarNombre,boton);
-			pantallaJugadores.setStyle("-fx-background-image: url('file:src/vista/fondo8.jpg');" 
+			pantallaJugadores.setStyle("-fx-background-image: url('file:src/fiuba/algo3/vista/fondo8.jpg');" 
 								+"-fx-background-repeat: no-repeat;"
 								+"-fx-background-position: 50% 50%; "
 								+"-fx-background-size: cover;"
@@ -108,7 +108,7 @@ public class PantallaJugadores {
 				
 			BorderPane pantallaJugadores2 = new BorderPane();
 			
-			Image img2 = new Image("file:src/vista/Ash2.png");
+			Image img2 = new Image("file:src/fiuba/algo3/vista/Ash2.png");
 			ImageView imgView2 = new ImageView(img2);	
 			imgView2.setFitHeight(500);
 			imgView2.setFitWidth(350);
@@ -158,7 +158,7 @@ public class PantallaJugadores {
 				boton2.setOnAction(e-> stage.setScene(pantallaInicio));
 				tercerLayout.getChildren().addAll(ingreseNombreLabel2,casilla2,botonIngresarNombre2,boton2);
 				
-				pantallaJugadores2.setStyle("-fx-background-image: url('file:src/vista/fondo9.jpg');"
+				pantallaJugadores2.setStyle("-fx-background-image: url('file:src/fiuba/algo3/vista/fondo9.jpg');"
 									 +"-fx-background-size: cover;");
 				
 				pantallaJugadores2.setLeft(tercerLayout);

@@ -21,10 +21,10 @@ public class PantallaDeLucha {
 
 	Stage stage;
 	Jugador jugador1, jugador2;
-	Button atacar,botonElemento,volverOpciones;
+	Button atacar,botonElemento,volverOpciones,volverElementos,volverAtacar;
 	Turno turno;
 	BorderPane pantalla;
-	HBox opciones;
+	HBox opciones, ataques, elementos;
 	
 	public PantallaDeLucha(Stage stagePrincipal, Jugador j1, Jugador j2){
 		stage = stagePrincipal;
@@ -64,21 +64,21 @@ public class PantallaDeLucha {
 		nombrejugador2.setStyle("-fx-font: 24 arial; -fx-text-fill: #00ffff;");
 		jugador2Algomones.getChildren().add(nombrejugador2);
 		
-		Button volverAtacar = crearBoton("Volver");
-		volverAtacar.setOnAction(e->{
+		volverAtacar = crearBoton("Volver");
+			volverAtacar.setOnAction(e->{
 			pantalla.setBottom(opciones);
 		});
 		
-		Button volverElementos = crearBoton("Volver");
+		volverElementos = crearBoton("Volver");
 		volverElementos.setOnAction(e->{
 			pantalla.setBottom(opciones);
 		});
 		
-		HBox ataques = new HBox(40);
+		ataques = new HBox(40);
 		ataques.setPrefSize(700, 150);
 		ataques.setAlignment(Pos.CENTER);
 		
-		HBox elementos = new HBox(40);
+		elementos = new HBox(40);
 		ataques.setPrefSize(700, 150);
 		ataques.setAlignment(Pos.CENTER);
 		
@@ -155,6 +155,7 @@ public class PantallaDeLucha {
 			botonAtaque.setOnAction(event->{
 				turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), ataque, turno.jugadorNoActivo().getAlgomonActivo()));
 				this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
+				this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
 				pantalla.setBottom(opciones);
 				System.out.println(turno.jugadorActivo().getAlgomonActivo().vida());
 			});
@@ -172,6 +173,7 @@ public class PantallaDeLucha {
 			botonElemento.setOnAction(event->{
 				turno.jugar(new UsarElemento(turno.jugadorActivo(),elemento));
 				this.usarElementosBotones(turno.jugadorActivo(), elementos, volver);
+				this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volverAtacar);
 				pantalla.setBottom(opciones);
 			});
 			elementos.getChildren().add(botonElemento);

@@ -98,12 +98,12 @@ public class PantallaDeSeleccionDeAlgomones {
 		Label nombreRattata = crearLabelDeAlgomon("Rattata","-fx-text-fill: #ffffff;");
 		Label nombreChansey = crearLabelDeAlgomon("Chansey","-fx-text-fill: #ffffff;");
 		
-		Button botonCharmander = crearBotonDeAlgomon("-fx-background-image: url('file:src/vista/charmander.png');-fx-background-size: cover;");
-		Button botonSquirtle = crearBotonDeAlgomon("-fx-background-image: url('file:src/vista/squirtle.png');-fx-background-size: cover;");
-		Button botonBulbasaur = crearBotonDeAlgomon("-fx-background-image: url('file:src/vista/bulbasaur.png');-fx-background-size: cover;");
-		Button botonJigglypuff = crearBotonDeAlgomon("-fx-background-image: url('file:src/vista/jigglypuff.png');-fx-background-size: cover;");
-		Button botonRattata = crearBotonDeAlgomon("-fx-background-image: url('file:src/vista/rattata.png');-fx-background-size: cover;");
-		Button botonChansey = crearBotonDeAlgomon("-fx-background-image: url('file:src/vista/chansey.png');-fx-background-size: cover;");
+		Button botonCharmander = crearBotonDeAlgomon("-fx-background-image: url('file:src/fiuba/algo3/vista/charmander.png');-fx-background-size: cover;");
+		Button botonSquirtle = crearBotonDeAlgomon("-fx-background-image: url('file:src/fiuba/algo3/vista/squirtle.png');-fx-background-size: cover;");
+		Button botonBulbasaur = crearBotonDeAlgomon("-fx-background-image: url('file:src/fiuba/algo3/vista/bulbasaur.png');-fx-background-size: cover;");
+		Button botonJigglypuff = crearBotonDeAlgomon("-fx-background-image: url('file:src/fiuba/algo3/vista/jigglypuff.png');-fx-background-size: cover;");
+		Button botonRattata = crearBotonDeAlgomon("-fx-background-image: url('file:src/fiuba/algo3/vista/rattata.png');-fx-background-size: cover;");
+		Button botonChansey = crearBotonDeAlgomon("-fx-background-image: url('file:src/fiuba/algo3/vista/chansey.png');-fx-background-size: cover;");
 		
 		Button comenzar = new Button("COMENZAR BATALLA");
 		comenzar.setPrefSize(300, 75);
@@ -121,12 +121,12 @@ public class PantallaDeSeleccionDeAlgomones {
 		Button botonElegirCharmander = crearBotonDeEleccion();
 		botonElegirCharmander.setOnAction(e->{
 			if (contador%2 == 0){
-			jugador1Algomones.getChildren().add(crearImagen("file:src/vista/charmander.png", 125, 125));
+			jugador1Algomones.getChildren().add(crearImagen("file:src/fiuba/algo3/vista/charmander.png", 125, 125));
 			jugador1.setAlgomon(new Charmander());
 			contador++;
 			}
 			else{
-				jugador2Algomones.getChildren().add(crearImagen("file:src/vista/charmander.png", 125, 125));
+				jugador2Algomones.getChildren().add(crearImagen("file:src/fiuba/algo3/vista/charmander.png", 125, 125));
 				jugador2.setAlgomon(new Charmander());
 				contador++;
 			}
@@ -138,12 +138,12 @@ public class PantallaDeSeleccionDeAlgomones {
 		Button botonElegirSquirtle = crearBotonDeEleccion();
 		botonElegirSquirtle.setOnAction(e->{
 			if (contador%2 == 0){
-			jugador1Algomones.getChildren().add(crearImagen("file:src/vista/squirtle.png", 125, 125));
+			jugador1Algomones.getChildren().add(crearImagen("file:src/fiuba/algo3/vista/squirtle.png", 125, 125));
 			jugador1.setAlgomon(new Squirtle());
 			contador++;
 			}
 			else{
-				jugador2Algomones.getChildren().add(crearImagen("file:src/vista/squirtle.png", 125, 125));
+				jugador2Algomones.getChildren().add(crearImagen("file:src/fiuba/algo3/vista/squirtle.png", 125, 125));
 				jugador2.setAlgomon(new Squirtle());
 				contador++;
 			}
@@ -156,12 +156,12 @@ public class PantallaDeSeleccionDeAlgomones {
 		Button botonElegirBulbasaur = crearBotonDeEleccion();
 		botonElegirBulbasaur.setOnAction(e->{
 			if (contador%2 == 0){
-			jugador1Algomones.getChildren().add(crearImagen("file:src/vista/bulbasaur.png", 125, 125));
+			jugador1Algomones.getChildren().add(crearImagen("file:src/fiuba/algo3/vista/bulbasaur.png", 125, 125));
 			jugador1.setAlgomon(new Bulbasaur());
 			contador++;
 			}
 			else{
-				jugador2Algomones.getChildren().add(crearImagen("file:src/vista/bulbasaur.png", 125, 125));
+				jugador2Algomones.getChildren().add(crearImagen("file:src/fiuba/algo3/vista/bulbasaur.png", 125, 125));
 				jugador2.setAlgomon(new Bulbasaur());
 				contador++;
 			}
@@ -173,12 +173,12 @@ public class PantallaDeSeleccionDeAlgomones {
 		Button botonElegirJigglypuff = crearBotonDeEleccion();
 		botonElegirJigglypuff.setOnAction(e->{
 			if (contador%2 == 0){
-			jugador1Algomones.getChildren().add(crearImagen("file:src/vista/jigglypuff.png", 125, 125));
+			jugador1Algomones.getChildren().add(crearImagen("file:src/fiuba/algo3/vista/jigglypuff.png", 125, 125));
 			jugador1.setAlgomon(new Jigglypuff());
 			contador++;
 			}
 			else{
-				jugador2Algomones.getChildren().add(crearImagen("file:src/vista/jigglypuff.png", 125, 125));
+				jugador2Algomones.getChildren().add(crearImagen("file:src/fiuba/algo3/vista/jigglypuff.png", 125, 125));
 				jugador2.setAlgomon(new Jigglypuff());
 				contador++;
 			}
@@ -190,12 +190,12 @@ public class PantallaDeSeleccionDeAlgomones {
 		Button botonElegirRattata = crearBotonDeEleccion();
 		botonElegirRattata.setOnAction(e->{
 			if (contador%2 == 0){
-			jugador1Algomones.getChildren().add(crearImagen("file:src/vista/rattata.png", 125, 125));
+			jugador1Algomones.getChildren().add(crearImagen("file:src/fiuba/algo3/vista/rattata.png", 125, 125));
 			jugador1.setAlgomon(new Rattata());
 			contador++;
 			}
 			else{
-				jugador2Algomones.getChildren().add(crearImagen("file:src/vista/rattata.png", 125, 125));
+				jugador2Algomones.getChildren().add(crearImagen("file:src/fiuba/algo3/vista/rattata.png", 125, 125));
 				jugador2.setAlgomon(new Rattata());
 				contador++;
 			}
@@ -207,12 +207,12 @@ public class PantallaDeSeleccionDeAlgomones {
 		Button botonElegirChansey = crearBotonDeEleccion();
 		botonElegirChansey.setOnAction(e->{
 			if (contador%2 == 0){
-			jugador1Algomones.getChildren().add(crearImagen("file:src/vista/chansey.png", 125, 125));
+			jugador1Algomones.getChildren().add(crearImagen("file:src/fiuba/algo3/vista/chansey.png", 125, 125));
 			jugador1.setAlgomon(new Chansey());
 			contador++;
 			}
 			else{
-				jugador2Algomones.getChildren().add(crearImagen("file:src/vista/chansey.png", 125, 125));
+				jugador2Algomones.getChildren().add(crearImagen("file:src/fiuba/algo3/vista/chansey.png", 125, 125));
 				jugador2.setAlgomon(new Chansey());
 				contador++;
 			}
@@ -227,34 +227,34 @@ public class PantallaDeSeleccionDeAlgomones {
 		
 		VBox vistaCharmander = new VBox(20);
 		vistaCharmander.setAlignment(Pos.CENTER);
-		vistaCharmander.getChildren().addAll(nombreCharmander,crearImagen("file:src/vista/charmander.png", 200, 200),crearImagen("file:src/vista/caraccharmander.png", 120, 480),botonElegirCharmander);
+		vistaCharmander.getChildren().addAll(nombreCharmander,crearImagen("file:src/fiuba/algo3/vista/charmander.png", 200, 200),crearImagen("file:src/fiuba/algo3/vista/caraccharmander.png", 120, 480),botonElegirCharmander);
 		
 		VBox vistaSquirtle = new VBox(20);
 		vistaSquirtle.setAlignment(Pos.CENTER);
-		vistaSquirtle.getChildren().addAll(nombreSquirtle,crearImagen("file:src/vista/squirtle.png",200,200),crearImagen("file:src/vista/caracsquirtle.png", 120, 480),botonElegirSquirtle);
+		vistaSquirtle.getChildren().addAll(nombreSquirtle,crearImagen("file:src/fiuba/algo3/vista/squirtle.png",200,200),crearImagen("file:src/fiuba/algo3/vista/caracsquirtle.png", 120, 480),botonElegirSquirtle);
 		
 		VBox vistaBulbasaur = new VBox(20);
 		vistaBulbasaur.setAlignment(Pos.CENTER);
-		vistaBulbasaur.getChildren().addAll(nombreBulbasaur,crearImagen("file:src/vista/bulbasaur.png",200,200),crearImagen("file:src/vista/caracbulbasaur.png", 120, 480),botonElegirBulbasaur);
+		vistaBulbasaur.getChildren().addAll(nombreBulbasaur,crearImagen("file:src/fiuba/algo3/vista/bulbasaur.png",200,200),crearImagen("file:src/fiuba/algo3/vista/caracbulbasaur.png", 120, 480),botonElegirBulbasaur);
 		
 		VBox vistaJigglypuff = new VBox(20);
 		vistaJigglypuff.setAlignment(Pos.CENTER);
-		vistaJigglypuff.getChildren().addAll(nombreJigglypuff,crearImagen("file:src/vista/jigglypuff.png",200,200),crearImagen("file:src/vista/caracjigglypuff.png", 120, 480),botonElegirJigglypuff);
+		vistaJigglypuff.getChildren().addAll(nombreJigglypuff,crearImagen("file:src/fiuba/algo3/vista/jigglypuff.png",200,200),crearImagen("file:src/fiuba/algo3/vista/caracjigglypuff.png", 120, 480),botonElegirJigglypuff);
 		
 		VBox vistaRattata = new VBox(20);
 		vistaRattata.setAlignment(Pos.CENTER);
-		vistaRattata.getChildren().addAll(nombreRattata,crearImagen("file:src/vista/rattata.png",200,200),crearImagen("file:src/vista/caracrattata.png", 120, 480),botonElegirRattata);
+		vistaRattata.getChildren().addAll(nombreRattata,crearImagen("file:src/fiuba/algo3/vista/rattata.png",200,200),crearImagen("file:src/fiuba/algo3/vista/caracrattata.png", 120, 480),botonElegirRattata);
 		
 		VBox vistaChansey = new VBox(20);
 		vistaChansey.setAlignment(Pos.CENTER);
-		vistaChansey.getChildren().addAll(nombreChansey,crearImagen("file:src/vista/chansey.png",200,200),crearImagen("file:src/vista/caracchansey.png", 120, 480),botonElegirChansey);
+		vistaChansey.getChildren().addAll(nombreChansey,crearImagen("file:src/fiuba/algo3/vista/chansey.png",200,200),crearImagen("file:src/fiuba/algo3/vista/caracchansey.png", 120, 480),botonElegirChansey);
 	
 		
 		seleccionDeAlgomon.setRight(jugador2Algomones);		
 		seleccionDeAlgomon.setLeft(jugador1Algomones);
 		seleccionDeAlgomon.setBottom(contenedorDeAlgomon);
 		
-		seleccionDeAlgomon.setStyle("-fx-background-image: url('file:src/vista/fondo3.jpg');"
+		seleccionDeAlgomon.setStyle("-fx-background-image: url('file:src/fiuba/algo3/vista/fondo3.jpg');"
 								   +"-fx-background-size: cover;");
 		Scene cuartaPantalla = new Scene(seleccionDeAlgomon,1100,600);
 		
