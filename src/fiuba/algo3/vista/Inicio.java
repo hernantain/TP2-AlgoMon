@@ -1,14 +1,15 @@
 package vista;
 
+import java.io.File;
+
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import modelo.*;
 
@@ -32,6 +33,15 @@ public class Inicio extends Application {
 						+"-fx-text-fill: #ff0000;"
 						+"-fx-opacity: 1000;"
 						+"-fx-vpos: top;");
+		
+		String mediaFile = "src/sonidos/Pokemon.mp3";
+		
+		Media media = new Media(new File(mediaFile).toURI().toString());
+		
+		MediaPlayer mediaPlayer = new MediaPlayer(media);
+		mediaPlayer.setAutoPlay(true);
+		mediaPlayer.setVolume(0.1);
+		
 		
 		Button botonJugar = new Button();
 		botonJugar.setText("Jugar");
