@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import Ataques.Ataque;
 import Ataques.NoTieneElAtaqueExcepcion;
 import Estado.Estado;
+import Estado.EstadoDormido;
 import Estado.EstadoDormidoExcepcion;
 import Estado.EstadoNormal;
 import Tipos.Tipo;
@@ -20,12 +21,10 @@ public abstract class Algomon {
 	protected Ataque ataqueActual;
 
 	public boolean atacarA(Algomon otroAlgomon){
-		try {
-			estado.consecuencia(); 				//Esta implementado en cada estado. 
-		} catch (EstadoDormidoExcepcion e){		//En el caso de dormido, no ataca y en quemado, se reduce el 10% de su vida original
-			return false;
+		if (this.efectoDeEstado()){
+			return ataqueActual.atacar(otroAlgomon);
 		}
-		return ataqueActual.atacar(otroAlgomon);
+		return false;
 	}
 	
 	public boolean setEstrategiaAtaque(Ataque ataque){
@@ -77,12 +76,9 @@ public abstract class Algomon {
 			ataques.get(i).aumentarCantidadDeAtaque(cantidadAAumentar);
 		}
 	}
-
-	public boolean estadoEsNormal(){
-		if (estado.getClass().equals(new EstadoNormal().getClass())){
-			return true;
-		}
-		return false;
+	
+	public boolean estadoEsDormido(){
+		return estado.getClass().equals(new EstadoDormido(this).getClass());
 	}
 
 	public String nombre() {
@@ -91,6 +87,19 @@ public abstract class Algomon {
 
 	public ArrayList<Ataque> ataques() {
 		return ataques;
+	}
+
+	public boolean efectoDeEstado() {
+		try {
+			estado.efecto();
+			return true;
+		} catch (EstadoDormidoExcepcion e){
+			return false;
+		}
+	}
+
+	public boolean estaVivo() {
+		return !vida.agotada();
 	}
 	
 

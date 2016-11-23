@@ -158,6 +158,9 @@ public class PantallaDeLucha {
 		for(int x = 0; x < ataquesAlgomon.size(); x++){
 			Ataque ataque = ataquesAlgomon.get(x);
 			Button botonAtaque = crearBoton(ataque.nombre());
+			if(ataque.agotado()){
+				botonAtaque.setDisable(true);
+			}
 			botonAtaque.setOnAction(event->{
 				turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), ataque, turno.jugadorNoActivo().getAlgomonActivo()));
 				this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
@@ -176,6 +179,9 @@ public class PantallaDeLucha {
 		for(int x = 0; x < elementosJugador.size(); x++){
 			Elemento elemento = elementosJugador.get(x);
 			Button botonElemento = crearBoton(elemento.nombre());
+			if(jugador.elementoAgotado(elemento)){
+				botonElemento.setDisable(true);
+			}
 			botonElemento.setOnAction(event->{
 				turno.jugar(new UsarElemento(turno.jugadorActivo(),elemento));
 				this.usarElementosBotones(turno.jugadorActivo(), elementos, volver);
@@ -189,7 +195,7 @@ public class PantallaDeLucha {
 	
 	public void cambiarDeAlgomon(VBox jugadorAlgomones){
 		for (int x=0; x < jugadorAlgomones.getChildren().size();x++){
-			jugadorAlgomones.getChildren().get(x).setDisable(false); 
+			jugadorAlgomones.getChildren().get(x).setDisable(false);
 		}
 		botonAtacar.setDisable(true);
 		botonElemento.setDisable(true);

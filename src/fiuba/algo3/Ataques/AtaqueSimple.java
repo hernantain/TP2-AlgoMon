@@ -21,6 +21,13 @@ public class AtaqueSimple implements Ataque {
 	public void aumentarCantidadDeAtaque(int cantidadAAumentar) {
 		cantidad = cantidad + cantidadAAumentar;
 	}
+	
+	public boolean agotado(){
+		if(cantidad == 0){
+			return true;
+		}
+		return false;
+	}
 
 	@Override
 	public String nombre() {

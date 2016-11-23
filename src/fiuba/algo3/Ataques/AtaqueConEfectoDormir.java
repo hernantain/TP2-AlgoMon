@@ -39,6 +39,11 @@ public class AtaqueConEfectoDormir extends AtaqueEspecial{
 	public int danioRealizado(Algomon algomonAtacado) {
 		return ataqueADecorar.danioRealizado(algomonAtacado);
 	}
+	
+	@Override
+	public boolean agotado() {
+		return ataqueADecorar.agotado();
+	}
 
 
 }

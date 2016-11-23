@@ -19,7 +19,7 @@ public class EstadoDormido extends Estado {
 	}
 	
 	@Override
-	public void consecuencia() { //Viene de atacarAcon() en Algomon.
+	public void efecto() { //Viene de atacarAcon() en Algomon.
 		pasoTurno();			//Es la manera de hacerle saber a estado dormido que paso el tiempo
 		throw new EstadoDormidoExcepcion();
 	}

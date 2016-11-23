@@ -8,4 +8,5 @@ public abstract class Elemento {
 	public String nombre(){
 		return nombre;
 	}
+	
 }

@@ -43,4 +43,9 @@ public class AtaqueConEfectoChuparVidas extends AtaqueEspecial{
 		return ataqueADecorar.danioRealizado(algomonAtacado);
 	}
 
+	@Override
+	public boolean agotado() {
+		return ataqueADecorar.agotado();
+	}
+
 }

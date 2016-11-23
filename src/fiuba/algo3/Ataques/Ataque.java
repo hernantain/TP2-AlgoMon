@@ -10,5 +10,7 @@ public interface Ataque {
 	public String nombre();
 	public boolean equals(Ataque ataque);
 	public int danioRealizado(Algomon algomonAtacado);
+	public boolean agotado();
+	
 	
 }

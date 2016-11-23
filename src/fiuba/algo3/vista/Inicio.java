@@ -62,6 +62,7 @@ public class Inicio extends Application {
 		stagePrincipal.show();
 		stagePrincipal.setMaximized(true);
 		
+		
 		botonJugar.setOnAction(e-> {
 			PantallaJugadores segunda = new PantallaJugadores(stagePrincipal,scene);
 			segunda.cambiarVista();

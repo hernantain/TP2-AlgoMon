@@ -70,6 +70,17 @@ public class Jugador {
 		}
 		return false;
 	}
+	
+	public boolean elementoAgotado(Elemento elementoAVerificar){
+		for(Elemento elementoAlmacenado : elementos.keySet()) {
+			if (elementoAlmacenado.getClass().equals(elementoAVerificar.getClass())){
+				if( elementos.get(elementoAlmacenado) == 0){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 
 	public boolean cambiarAlgomonActivo(Algomon algomonEntrante) {
 		for (int i = 0; i < algomones.size(); i++) {

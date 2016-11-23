@@ -2,6 +2,6 @@ package Estado;
 
 public abstract class Estado {
 
-	public abstract void consecuencia();
+	public abstract void efecto();
 
 }

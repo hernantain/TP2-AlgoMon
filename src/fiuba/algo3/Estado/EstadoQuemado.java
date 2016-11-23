@@ -11,7 +11,7 @@ public class EstadoQuemado extends Estado {
 	}
 	
 	@Override
-	public void consecuencia() {
+	public void efecto() {
 		miAlgomon.recibirAtaque(miAlgomon.getVidaMax()/10);
 	}
 
