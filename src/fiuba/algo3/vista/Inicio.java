@@ -5,6 +5,9 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import modelo.*;
@@ -44,8 +47,6 @@ public class Inicio extends Application {
 		botonSalir.setOnAction(e-> stagePrincipal.close());
 		botonSalir.setPrefSize(300, 70);
 		
-		
-		
 		VBox root = new VBox(30);
 		root.setAlignment(Pos.CENTER);
 		root.getChildren().addAll(mensaje,botonJugar,botonSalir);
@@ -57,6 +58,7 @@ public class Inicio extends Application {
 					+ "-fx-border-color: red");
 		
 		Scene scene = new Scene(root,1100,600);
+		
 		stagePrincipal.setTitle("TP2 - AlgoMon");
 		stagePrincipal.setScene(scene);
 		stagePrincipal.show();
