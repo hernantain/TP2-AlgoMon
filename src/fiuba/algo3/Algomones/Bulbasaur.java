@@ -1,5 +1,6 @@
 package Algomones;
 
+import Ataques.AtaqueConEfectoChuparVidas;
 import Ataques.AtaqueRapido;
 import Ataques.Chupavidas;
 import Ataques.LatigoCepa;
@@ -11,7 +12,7 @@ public class Bulbasaur extends Algomon{
 		nombre = "Bulbsaur";
 		tipo = new TipoPlanta();
 		vida = new Vida(140);
-		ataques.add(new Chupavidas(this));
+		ataques.add(new AtaqueConEfectoChuparVidas(new Chupavidas(), this));
 		ataques.add(new LatigoCepa());
 		ataques.add(new AtaqueRapido());
 	}

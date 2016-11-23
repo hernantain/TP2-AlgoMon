@@ -16,7 +16,10 @@ public class Atacar extends AccionDeJugador {
 	}
 	@Override
 	public boolean accionar() {
-		return algomonDeJugador.atacarACon(algomonDelContrincante, ataque);
+		if (algomonDeJugador.setEstrategiaAtaque(ataque)){
+			return algomonDeJugador.atacarA(algomonDelContrincante);
+		}
+		return false;
 	}
 
 }

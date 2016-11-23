@@ -11,7 +11,7 @@ public class AtaqueSimple implements Ataque {
 	
 	public boolean atacar(Algomon algomon){
 		if (cantidad > 0){
-			algomon.recibirAtaque(potencia.calcularPotencia(tipo, algomon.getTipo()));
+			algomon.recibirAtaque(this.danioRealizado(algomon));
 			cantidad --;
 			return true;
 		}
@@ -26,6 +26,17 @@ public class AtaqueSimple implements Ataque {
 	public String nombre() {
 		return nombre;
 	}
+
+	@Override
+	public boolean equals(Ataque ataque) {
+		if( ataque.getClass().equals(this.getClass())){
+			return true;
+		}
+		return false;
+	}
 	
+	public int danioRealizado(Algomon algomonAtacado){
+		return potencia.calcularPotencia(tipo, algomonAtacado.getTipo());
+	}
 	
 }

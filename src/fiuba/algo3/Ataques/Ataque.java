@@ -8,5 +8,7 @@ public interface Ataque {
 
 	public void aumentarCantidadDeAtaque(int cantidadAAumentar);
 	public String nombre();
+	public boolean equals(Ataque ataque);
+	public int danioRealizado(Algomon algomonAtacado);
 	
 }

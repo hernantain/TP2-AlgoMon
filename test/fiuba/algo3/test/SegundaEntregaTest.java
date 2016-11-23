@@ -199,7 +199,8 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Charmander());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar bulbasaurAtacaConChupavidasACharmander = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasACharmander = new Atacar(turno.jugadorActivo().getAlgomonActivo(),
+					new AtaqueConEfectoChuparVidas(new Chupavidas(), turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			turno.jugar(bulbasaurAtacaConChupavidasACharmander);
 			
 			//vidaMax de Charmander (170) - danio de chupavidas (15 * 0,5 = 7).
@@ -215,7 +216,8 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Charmander());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar bulbasaurAtacaConChupavidasACharmander = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasACharmander = new Atacar(turno.jugadorActivo().getAlgomonActivo(),
+					new AtaqueConEfectoChuparVidas(new Chupavidas(), turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			turno.jugar(bulbasaurAtacaConChupavidasACharmander);
 
 			//vidaMax de Bulbasaur (140) se mantiene.
@@ -235,7 +237,8 @@ public class SegundaEntregaTest {
 			//vida de Bulbasaur (140) - danio de Brasas (16 * 2) = 108.
 			turno.jugar(charmanderAtacaConBrasasABulbasaur);
 
-			Atacar bulbasaurAtacaConChupavidasACharmander = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasACharmander = new Atacar(turno.jugadorActivo().getAlgomonActivo(), 
+					new AtaqueConEfectoChuparVidas(new Chupavidas(), turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			//danio hecho a Charmander = 15 * 0.5 = 7.
 			turno.jugar(bulbasaurAtacaConChupavidasACharmander);
 
@@ -253,7 +256,8 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Squirtle());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar bulbasaurAtacaConChupavidasASquirtle = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasASquirtle = new Atacar(turno.jugadorActivo().getAlgomonActivo(),
+					new AtaqueConEfectoChuparVidas(new Chupavidas(), turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			turno.jugar(bulbasaurAtacaConChupavidasASquirtle);
 			
 			//vidaMax de Squirtle (150) - danio de chupavidas (15 * 2 = 30).
@@ -269,7 +273,8 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Squirtle());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar bulbasaurAtacaConChupavidasASquirtle = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasASquirtle = new Atacar(turno.jugadorActivo().getAlgomonActivo(),
+					new AtaqueConEfectoChuparVidas(new Chupavidas(), turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			turno.jugar(bulbasaurAtacaConChupavidasASquirtle);
 
 			//vidaMax de Bulbasaur (140) se mantiene.
@@ -289,7 +294,8 @@ public class SegundaEntregaTest {
 			//vida de Bulbasaur (140) - danio de AtaqueRapido (10 * 1.0) = 140.
 			turno.jugar(squirtleAtacaConAtaqueRapidoABulbasaur);
 
-			Atacar bulbasaurAtacaConChupavidasASquirtle = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasASquirtle = new Atacar(turno.jugadorActivo().getAlgomonActivo(),
+					new AtaqueConEfectoChuparVidas(new Chupavidas(), turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			//danio hecho a Squirtle = 15 * 2 = 30.
 			turno.jugar(bulbasaurAtacaConChupavidasASquirtle);
 
@@ -309,7 +315,8 @@ public class SegundaEntregaTest {
 			//vida de Bulbasaur (140) - danio de Burbuja (10 * 0.5) = 135.
 			turno.jugar(squirtleAtacaConBurbujaABulbasaur);
 
-			Atacar bulbasaurAtacaConChupavidasASquirtle = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasASquirtle = new Atacar(turno.jugadorActivo().getAlgomonActivo(),
+					new AtaqueConEfectoChuparVidas(new Chupavidas(), turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			//danio hecho a Squirtle = 15 * 2 = 30.
 			turno.jugar(bulbasaurAtacaConChupavidasASquirtle);
 
@@ -327,7 +334,8 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Chansey());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar bulbasaurAtacaConChupavidasAChansey = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasAChansey = new Atacar(turno.jugadorActivo().getAlgomonActivo(), 
+					new AtaqueConEfectoChuparVidas(new Chupavidas(), turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			turno.jugar(bulbasaurAtacaConChupavidasAChansey);
 			
 			//vidaMax de Chansey (130) - danio de chupavidas (15 * 1.0 = 15).
@@ -343,7 +351,8 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Chansey());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar bulbasaurAtacaConChupavidasAChansey = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasAChansey = new Atacar(turno.jugadorActivo().getAlgomonActivo(), 
+					new AtaqueConEfectoChuparVidas(new Chupavidas(), turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			turno.jugar(bulbasaurAtacaConChupavidasAChansey);
 
 			//vidaMax de Bulbasaur (140) se mantiene.
@@ -363,7 +372,8 @@ public class SegundaEntregaTest {
 			//vida de Bulbasaur (140) - danio de Latigo Cepa (15 * 0.5) = 133.
 			turno.jugar(chanseyAtacaConLatigoCepaABulbasaur);
 
-			Atacar bulbasaurAtacaConChupavidasAChansey = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasAChansey = new Atacar(turno.jugadorActivo().getAlgomonActivo(), 
+					new AtaqueConEfectoChuparVidas(new Chupavidas(), turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			//danio hecho a Chansey = 15 * 1 = 15.
 			turno.jugar(bulbasaurAtacaConChupavidasAChansey);
 
@@ -379,7 +389,8 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Jigglypuff());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar bulbasaurAtacaConChupavidasAJigglypuff = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasAJigglypuff = new Atacar(turno.jugadorActivo().getAlgomonActivo(), 
+					new AtaqueConEfectoChuparVidas(new Chupavidas(), turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			turno.jugar(bulbasaurAtacaConChupavidasAJigglypuff);
 			
 			//vidaMax de Jigglypuff (130) - danio de chupavidas (15 * 1.0 = 15).
@@ -395,7 +406,8 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Jigglypuff());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar bulbasaurAtacaConChupavidasAJigglypuff = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasAJigglypuff = new Atacar(turno.jugadorActivo().getAlgomonActivo(), 
+					new AtaqueConEfectoChuparVidas(new Chupavidas(), turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			turno.jugar(bulbasaurAtacaConChupavidasAJigglypuff);
 
 			//vidaMax de Bulbasaur (140) se mantiene.
@@ -415,7 +427,8 @@ public class SegundaEntregaTest {
 			//vida de Bulbasaur (140) - danio de Ataque Rapido (10 * 1.0) = 130.
 			turno.jugar(jigglypuffAtacaConAtaqueRapidoABulbasaur);
 
-			Atacar bulbasaurAtacaConChupavidasAJigglypuff = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasAJigglypuff = new Atacar(turno.jugadorActivo().getAlgomonActivo(),
+					new AtaqueConEfectoChuparVidas(new Chupavidas(), turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			//danio hecho a Jiglypuff = 15 * 1.0 = 15.
 			turno.jugar(bulbasaurAtacaConChupavidasAJigglypuff);
 
@@ -431,7 +444,8 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Rattata());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar bulbasaurAtacaConChupavidasARattata = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasARattata = new Atacar(turno.jugadorActivo().getAlgomonActivo(), 
+					new AtaqueConEfectoChuparVidas(new Chupavidas(), turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			turno.jugar(bulbasaurAtacaConChupavidasARattata);
 			
 			//vidaMax de Rattata (170) - danio de chupavidas (15 * 1.0 = 15).
@@ -447,7 +461,8 @@ public class SegundaEntregaTest {
 			jugador2.setAlgomon(new Rattata());
 			Turno turno = new Turno(jugador1, jugador2);
 			
-			Atacar bulbasaurAtacaConChupavidasARattata = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasARattata = new Atacar(turno.jugadorActivo().getAlgomonActivo(), 
+					new AtaqueConEfectoChuparVidas(new Chupavidas(), turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			turno.jugar(bulbasaurAtacaConChupavidasARattata);
 
 			//vidaMax de Bulbasaur (140) se mantiene.
@@ -467,7 +482,8 @@ public class SegundaEntregaTest {
 			//vida de Bulbasaur (140) - danio de AtaqueRapido (10 * 1.0) = 130.
 			turno.jugar(rattataAtacaConAtaqueRapidoABulbasaur);
 
-			Atacar bulbasaurAtacaConChupavidasARattata = new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Chupavidas(turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
+			Atacar bulbasaurAtacaConChupavidasARattata = new Atacar(turno.jugadorActivo().getAlgomonActivo(), 
+					new AtaqueConEfectoChuparVidas(new Chupavidas(), turno.jugadorActivo().getAlgomonActivo()), turno.jugadorActivo().getOponente().getAlgomonActivo());
 			//danio hecho a Rattata = 15 * 1.0 = 15.
 			turno.jugar(bulbasaurAtacaConChupavidasARattata);
 

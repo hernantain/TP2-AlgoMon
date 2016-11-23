@@ -96,8 +96,12 @@ public class PantallaDeLucha {
 		
 		volverOpciones = this.crearBoton("Volver");
 		volverOpciones.setDisable(true);
-		volverOpciones.setOnAction(e->this.habilitarAlgomones(jugador1Algomones, botonAtacar, botonElemento, volverOpciones));
-		
+		volverOpciones.setOnAction(e->{
+			if( turno.jugadorActivo() == jugador1){
+				this.habilitarAlgomones(jugador1Algomones, botonAtacar, botonElemento, volverOpciones);
+			}
+			else{ this.habilitarAlgomones(jugador2Algomones, botonAtacar, botonElemento, volverOpciones);}
+		});
 		Button cambiar = this.crearBoton("Cambiar Algomon");
 		cambiar.setOnAction(e->{
 			if (turno.jugadorActivo() == jugador1){

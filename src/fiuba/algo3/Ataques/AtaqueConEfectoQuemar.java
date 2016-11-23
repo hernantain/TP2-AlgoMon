@@ -29,4 +29,18 @@ public class AtaqueConEfectoQuemar extends AtaqueEspecial{
 		return ataqueADecorar.nombre();
 	}
 
+	@Override
+	public boolean equals(Ataque ataque) {
+		if( ataque.getClass().equals(this.getClass())){
+			return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public int danioRealizado(Algomon algomonAtacado) {
+		return ataqueADecorar.danioRealizado(algomonAtacado);
+	}
+
+
 }

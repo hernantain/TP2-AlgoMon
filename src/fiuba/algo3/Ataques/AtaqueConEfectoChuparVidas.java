@@ -1,11 +1,14 @@
 package Ataques;
 
 import Algomones.Algomon;
-import Estado.EstadoDormido;
 
-public class AtaqueConEfectoDormir extends AtaqueEspecial{
-	public AtaqueConEfectoDormir(Ataque ataqueADecorar) {
+public class AtaqueConEfectoChuparVidas extends AtaqueEspecial{
+	
+	Algomon miAlgomon;
+	
+	public AtaqueConEfectoChuparVidas(Ataque ataqueADecorar, Algomon algomonOrigen) {
 		super(ataqueADecorar);
+		miAlgomon = algomonOrigen;
 	}
 	
 	public boolean atacar(Algomon algomon) {
@@ -16,8 +19,8 @@ public class AtaqueConEfectoDormir extends AtaqueEspecial{
 		return false;
 	}
 
-	public void efectoSecundario(Algomon algomonAfectado) {
-		algomonAfectado.cambiarEstado(new EstadoDormido(algomonAfectado));
+	public void efectoSecundario(Algomon algomonDaniado) {
+		miAlgomon.curarse((ataqueADecorar.danioRealizado(algomonDaniado))* 30 / 100);
 	}
 	
 	public void aumentarCantidadDeAtaque(int cantidadAAumentar) {
@@ -34,11 +37,10 @@ public class AtaqueConEfectoDormir extends AtaqueEspecial{
 		}
 		return false;
 	}
-	
+
 	@Override
 	public int danioRealizado(Algomon algomonAtacado) {
 		return ataqueADecorar.danioRealizado(algomonAtacado);
 	}
-
 
 }

@@ -14,7 +14,8 @@ public class PrimeraEntregaTest {
 	public void testSquirtleAtacaConBurbujaACharmander() {
 		Squirtle squirtle = new Squirtle();
 		Charmander charmander = new Charmander();
-		squirtle.atacarACon(charmander, new Burbuja());
+		squirtle.setEstrategiaAtaque(new Burbuja());
+		squirtle.atacarA(charmander);
 		//LA VIDA DE CHARMANDER ES 170
 		assertEquals(150.0, charmander.vida(), 0.001D);
 	}
@@ -23,7 +24,8 @@ public class PrimeraEntregaTest {
 	public void testSquirtleAtacaConCanionDeAguaACharmander() {
 		Squirtle squirtle = new Squirtle();
 		Charmander charmander = new Charmander();
-		squirtle.atacarACon(charmander, new CanionDeAgua());
+		squirtle.setEstrategiaAtaque(new CanionDeAgua());
+		squirtle.atacarA(charmander);
 		//LA VIDA DE CHARMANDER ES 170
 		assertEquals(130.0, charmander.vida(), 0.001D);
 	}
@@ -34,7 +36,8 @@ public class PrimeraEntregaTest {
 	public void testSquirtleAtacaConBurbujaABulbasaur() {
 		Squirtle squirtle = new Squirtle();
 		Bulbasaur bulbasaur = new Bulbasaur();
-		squirtle.atacarACon(bulbasaur, new Burbuja());
+		squirtle.setEstrategiaAtaque(new Burbuja());
+		squirtle.atacarA(bulbasaur);
 		//LA VIDA DE BULBASAUR ES 140
 		assertEquals(135.0, bulbasaur.vida(), 0.001D);
 	}
@@ -43,7 +46,8 @@ public class PrimeraEntregaTest {
 	public void testSquirtleAtacaConCanionDeAguaABulbasaur() {
 		Squirtle squirtle = new Squirtle();
 		Bulbasaur bulbasaur = new Bulbasaur();
-		squirtle.atacarACon(bulbasaur, new CanionDeAgua());
+		squirtle.setEstrategiaAtaque(new CanionDeAgua());
+		squirtle.atacarA(bulbasaur);
 		//LA VIDA DE BULBASAUR ES 140
 		assertEquals(130.0, bulbasaur.vida(), 0.001D);
 	}
@@ -54,7 +58,8 @@ public class PrimeraEntregaTest {
 	public void testSquirtleAtacaConBurbujaAChansey() {
 		Squirtle squirtle = new Squirtle();
 		Chansey chansey = new Chansey();
-		squirtle.atacarACon(chansey, new Burbuja());
+		squirtle.setEstrategiaAtaque(new Burbuja());
+		squirtle.atacarA(chansey);
 		//LA VIDA DE CHANSEY ES 130
 		assertEquals(120.0, chansey.vida(), 0.001D);
 	}
@@ -63,7 +68,8 @@ public class PrimeraEntregaTest {
 	public void testSquirtleAtacaConCanionDeAguaAChansey() {
 		Squirtle squirtle = new Squirtle();
 		Chansey chansey = new Chansey();
-		squirtle.atacarACon(chansey, new CanionDeAgua());
+		squirtle.setEstrategiaAtaque(new CanionDeAgua());
+		squirtle.atacarA(chansey);
 		//LA VIDA DE CHANSEY ES 130
 		assertEquals(110.0, chansey.vida(), 0.001D);
 	}
@@ -72,7 +78,8 @@ public class PrimeraEntregaTest {
 	public void testSquirtleAtacaConBurbujaARattata() {
 		Squirtle squirtle = new Squirtle();
 		Rattata rattata = new Rattata();
-		squirtle.atacarACon(rattata, new Burbuja());
+		squirtle.setEstrategiaAtaque(new Burbuja());
+		squirtle.atacarA(rattata);
 		//LA VIDA DE RATTATA ES 170
 		assertEquals(160.0, rattata.vida(), 0.001D);
 	}
@@ -81,7 +88,8 @@ public class PrimeraEntregaTest {
 	public void testSquirtleAtacaConCanionDeAguaARattata() {
 		Squirtle squirtle = new Squirtle();
 		Rattata rattata = new Rattata();
-		squirtle.atacarACon(rattata, new CanionDeAgua());
+		squirtle.setEstrategiaAtaque(new CanionDeAgua());
+		squirtle.atacarA(rattata);
 		//LA VIDA DE RATTATA ES 170
 		assertEquals(150.0, rattata.vida(), 0.001D);
 	}
@@ -90,7 +98,8 @@ public class PrimeraEntregaTest {
 	public void testSquirtleAtacaConBurbujaAJigglypuff() {
 		Squirtle squirtle = new Squirtle();
 		Jigglypuff jigglypuff = new Jigglypuff();
-		squirtle.atacarACon(jigglypuff, new Burbuja());
+		squirtle.setEstrategiaAtaque(new Burbuja());
+		squirtle.atacarA(jigglypuff);
 		//LA VIDA DE JIGGLYPUFF ES 130
 		assertEquals(120.0, jigglypuff.vida(), 0.001D);
 	}
@@ -99,7 +108,8 @@ public class PrimeraEntregaTest {
 	public void testSquirtleAtacaConCanionDeAguaAJigglypuff() {
 		Squirtle squirtle = new Squirtle();
 		Jigglypuff jigglypuff = new Jigglypuff();
-		squirtle.atacarACon(jigglypuff, new CanionDeAgua());
+		squirtle.setEstrategiaAtaque(new CanionDeAgua());
+		squirtle.atacarA(jigglypuff);
 		//LA VIDA DE JIGGLYPUFF ES 130
 		assertEquals(110.0, jigglypuff.vida(), 0.001D);
 	}
@@ -110,7 +120,8 @@ public class PrimeraEntregaTest {
 	public void testBulbasaurAtacaConLatigoCepaASquirtle() {
 		Squirtle squirtle = new Squirtle();
 		Bulbasaur bulbasaur = new Bulbasaur();
-		bulbasaur.atacarACon(squirtle, new LatigoCepa());
+		bulbasaur.setEstrategiaAtaque(new LatigoCepa());
+		bulbasaur.atacarA(squirtle);
 		//LA VIDA DE SQUIRTLE ES 150
 		assertEquals(120.0, squirtle.vida(), 0.001D);
 	}
@@ -119,7 +130,8 @@ public class PrimeraEntregaTest {
 	public void testChanseyAtacaConLatigoCepaASquirtle() {
 		Squirtle squirtle = new Squirtle();
 		Chansey chansey = new Chansey();
-		chansey.atacarACon(squirtle, new LatigoCepa());
+		chansey.setEstrategiaAtaque(new LatigoCepa());
+		chansey.atacarA(squirtle);
 		//LA VIDA DE SQUIRTLE ES 150
 		assertEquals(120.0, squirtle.vida(), 0.001D);
 	}
@@ -130,7 +142,8 @@ public class PrimeraEntregaTest {
 	public void testBulbasaurAtacaConLatigoCepaACharmander() {
 		Charmander charmander = new Charmander();
 		Bulbasaur bulbasaur = new Bulbasaur();
-		bulbasaur.atacarACon(charmander, new LatigoCepa());
+		bulbasaur.setEstrategiaAtaque(new LatigoCepa());
+		bulbasaur.atacarA(charmander);
 		//LA VIDA DE CHARMANDER ES 170
 		assertEquals(163.0, charmander.vida(), 0.001D);
 	}
@@ -139,7 +152,8 @@ public class PrimeraEntregaTest {
 	public void testChanseyAtacaConLatigoCepaACharmander() {
 		Charmander charmander = new Charmander();
 		Chansey chansey = new Chansey();
-		chansey.atacarACon(charmander, new LatigoCepa());
+		chansey.setEstrategiaAtaque(new LatigoCepa());
+		chansey.atacarA(charmander);
 		//LA VIDA DE CHARMANDER ES 170
 		assertEquals(163.0, charmander.vida(), 0.001D);
 	}
@@ -150,7 +164,8 @@ public class PrimeraEntregaTest {
 	public void testBulbasaurAtacaConLatigoCepaAJigglypuff() {
 		Jigglypuff jigglypuff = new Jigglypuff();
 		Bulbasaur bulbasaur = new Bulbasaur();
-		bulbasaur.atacarACon(jigglypuff, new LatigoCepa());
+		bulbasaur.setEstrategiaAtaque(new LatigoCepa());
+		bulbasaur.atacarA(jigglypuff);
 		//LA VIDA DE JIGGLYPUFF ES 130
 		assertEquals(115.0, jigglypuff.vida(), 0.001D);
 	}
@@ -159,7 +174,8 @@ public class PrimeraEntregaTest {
 	public void testChanseyAtacaConLatigoCepaAJigglypuff() {
 		Jigglypuff jigglypuff = new Jigglypuff();
 		Chansey chansey = new Chansey();
-		chansey.atacarACon(jigglypuff, new LatigoCepa());
+		chansey.setEstrategiaAtaque(new LatigoCepa());
+		chansey.atacarA(jigglypuff);
 		//LA VIDA DE JIGGLYPUFF ES 130
 		assertEquals(115.0, jigglypuff.vida(), 0.001D);
 	}
@@ -168,7 +184,8 @@ public class PrimeraEntregaTest {
 	public void testBulbasaurAtacaConLatigoCepaARattata() {
 		Rattata rattata = new Rattata();
 		Bulbasaur bulbasaur = new Bulbasaur();
-		bulbasaur.atacarACon(rattata, new LatigoCepa());
+		bulbasaur.setEstrategiaAtaque(new LatigoCepa());
+		bulbasaur.atacarA(rattata);
 		//LA VIDA DE RATTATA ES 170
 		assertEquals(155.0, rattata.vida(), 0.001D);
 	}
@@ -177,7 +194,8 @@ public class PrimeraEntregaTest {
 	public void testChanseyAtacaConLatigoCepaARattata() {
 		Rattata rattata = new Rattata();
 		Chansey chansey = new Chansey();
-		chansey.atacarACon(rattata, new LatigoCepa());
+		chansey.setEstrategiaAtaque(new LatigoCepa());
+		chansey.atacarA(rattata);
 		//LA VIDA DE RATTATA ES 170
 		assertEquals(155.0, rattata.vida(), 0.001D);
 	}
@@ -188,7 +206,8 @@ public class PrimeraEntregaTest {
 	public void testCharmanderAtacaConBrasasABulbasaur() {
 		Charmander charmander = new Charmander();
 		Bulbasaur bulbasaur = new Bulbasaur();
-		charmander.atacarACon(bulbasaur, new Brasas());
+		charmander.setEstrategiaAtaque(new Brasas());
+		charmander.atacarA(bulbasaur);
 		//LA VIDA DE BULBASAUR ES 140
 		assertEquals(108.0, bulbasaur.vida(), 0.001D);
 	}
@@ -199,7 +218,8 @@ public class PrimeraEntregaTest {
 	public void testCharmanderAtacaConBrasasASquirtle() {
 		Charmander charmander = new Charmander();
 		Squirtle squirtle = new Squirtle();
-		charmander.atacarACon(squirtle, new Brasas());
+		charmander.setEstrategiaAtaque(new Brasas());
+		charmander.atacarA(squirtle);
 		//LA VIDA DE SQUIRTLE ES 150
 		assertEquals(142.0, squirtle.vida(), 0.001D);
 	}
@@ -210,7 +230,8 @@ public class PrimeraEntregaTest {
 	public void testCharmanderAtacaConBrasasAJigglypuff() {
 		Charmander charmander = new Charmander();
 		Jigglypuff jigglypuff = new Jigglypuff();
-		charmander.atacarACon(jigglypuff, new Brasas());
+		charmander.setEstrategiaAtaque(new Brasas());
+		charmander.atacarA(jigglypuff);
 		//LA VIDA DE JIGGLYPUFF ES 130
 		assertEquals(114.0, jigglypuff.vida(), 0.001D);
 	}
@@ -219,7 +240,8 @@ public class PrimeraEntregaTest {
 	public void testCharmanderAtacaConBrasasAChansey() {
 		Charmander charmander = new Charmander();
 		Chansey chansey = new Chansey();
-		charmander.atacarACon(chansey, new Brasas());
+		charmander.setEstrategiaAtaque(new Brasas());
+		charmander.atacarA(chansey);
 		//LA VIDA DE CHANSEY ES 130
 		assertEquals(114.0, chansey.vida(), 0.001D);
 	}
@@ -228,7 +250,8 @@ public class PrimeraEntregaTest {
 	public void testCharmanderAtacaConBrasasARattata() {
 		Charmander charmander = new Charmander();
 		Rattata rattata = new Rattata();
-		charmander.atacarACon(rattata, new Brasas());
+		charmander.setEstrategiaAtaque(new Brasas());
+		charmander.atacarA(rattata);
 		//LA VIDA DE RATTATA ES 170
 		assertEquals(154.0, rattata.vida(), 0.001D);
 	}
@@ -239,7 +262,8 @@ public class PrimeraEntregaTest {
 	public void testCharmanderAtacaConAtaqueRapidoARattata() {
 		Charmander charmander = new Charmander();
 		Rattata rattata = new Rattata();
-		charmander.atacarACon(rattata, new AtaqueRapido());
+		charmander.setEstrategiaAtaque(new AtaqueRapido());
+		charmander.atacarA(rattata);
 		//LA VIDA DE RATTATA ES 170
 		assertEquals(160.0, rattata.vida(), 0.001D);
 	}
@@ -248,7 +272,8 @@ public class PrimeraEntregaTest {
 	public void testCharmanderAtacaConAtaqueRapidoASquirtle() {
 		Charmander charmander = new Charmander();
 		Squirtle squirtle = new Squirtle();
-		charmander.atacarACon(squirtle, new AtaqueRapido());
+		charmander.setEstrategiaAtaque(new AtaqueRapido());
+		charmander.atacarA(squirtle);
 		//LA VIDA DE SQUIRTLE ES 150
 		assertEquals(140.0, squirtle.vida(), 0.001D);
 	}
@@ -257,7 +282,8 @@ public class PrimeraEntregaTest {
 	public void testCharmanderAtacaConAtaqueRapidoABulbasaur() {
 		Charmander charmander = new Charmander();
 		Bulbasaur bulbasaur = new Bulbasaur();
-		charmander.atacarACon(bulbasaur, new AtaqueRapido());
+		charmander.setEstrategiaAtaque(new AtaqueRapido());
+		charmander.atacarA(bulbasaur);
 		//LA VIDA DE BULBASAUR ES 140
 		assertEquals(130.0, bulbasaur.vida(), 0.001D);
 	}
@@ -266,7 +292,8 @@ public class PrimeraEntregaTest {
 	public void testSquirtleAtacaConAtaqueRapidoARattata() {
 		Squirtle squirtle = new Squirtle();
 		Rattata rattata = new Rattata();
-		squirtle.atacarACon(rattata, new AtaqueRapido());
+		squirtle.setEstrategiaAtaque(new AtaqueRapido());
+		squirtle.atacarA(rattata);
 		//LA VIDA DE RATTATA ES 170
 		assertEquals(160.0, rattata.vida(), 0.001D);
 	}
@@ -275,7 +302,8 @@ public class PrimeraEntregaTest {
 	public void testSquirtleAtacaConAtaqueRapidoACharmander() {
 		Charmander charmander = new Charmander();
 		Squirtle squirtle = new Squirtle();
-		squirtle.atacarACon(charmander, new AtaqueRapido());
+		squirtle.setEstrategiaAtaque(new AtaqueRapido());
+		squirtle.atacarA(charmander);
 		//LA VIDA DE CHARMANDER ES 170
 		assertEquals(160.0, charmander.vida(), 0.001D);
 	}
@@ -284,7 +312,8 @@ public class PrimeraEntregaTest {
 	public void testSquirtleAtacaConAtaqueRapidoABulbasaur() {
 		Squirtle squirtle = new Squirtle();
 		Bulbasaur bulbasaur = new Bulbasaur();
-		squirtle.atacarACon(bulbasaur, new AtaqueRapido());
+		squirtle.setEstrategiaAtaque(new AtaqueRapido());
+		squirtle.atacarA(bulbasaur);
 		//LA VIDA DE BULBASAUR ES 140
 		assertEquals(130.0, bulbasaur.vida(), 0.001D);
 	}
@@ -293,7 +322,8 @@ public class PrimeraEntregaTest {
 	public void testBulbasaurAtacaConAtaqueRapidoARattata() {
 		Bulbasaur bulbasaur = new Bulbasaur();
 		Rattata rattata = new Rattata();
-		bulbasaur.atacarACon(rattata, new AtaqueRapido());
+		bulbasaur.setEstrategiaAtaque(new AtaqueRapido());
+		bulbasaur.atacarA(rattata);
 		//LA VIDA DE RATTATA ES 170
 		assertEquals(160.0, rattata.vida(), 0.001D);
 	}
@@ -302,7 +332,8 @@ public class PrimeraEntregaTest {
 	public void testBulbasaurAtacaConAtaqueRapidoACharmander() {
 		Charmander charmander = new Charmander();
 		Bulbasaur bulbasaur = new Bulbasaur();
-		bulbasaur.atacarACon(charmander, new AtaqueRapido());
+		bulbasaur.setEstrategiaAtaque(new AtaqueRapido());
+		bulbasaur.atacarA(charmander);
 		//LA VIDA DE CHARMANDER ES 170
 		assertEquals(160.0, charmander.vida(), 0.001D);
 	}
@@ -311,7 +342,8 @@ public class PrimeraEntregaTest {
 	public void testBulbasaurAtacaConAtaqueRapidoASquirtle() {
 		Squirtle squirtle = new Squirtle();
 		Bulbasaur bulbasaur = new Bulbasaur();
-		bulbasaur.atacarACon(squirtle, new AtaqueRapido());
+		bulbasaur.setEstrategiaAtaque(new AtaqueRapido());
+		bulbasaur.atacarA(squirtle);
 		//LA VIDA DE SQUIRTLE ES 150
 		assertEquals(140.0, squirtle.vida(), 0.001D);
 	}
@@ -320,7 +352,8 @@ public class PrimeraEntregaTest {
 	public void testRattataAtacaConAtaqueRapidoAChansey() {
 		Chansey chansey = new Chansey();
 		Rattata rattata = new Rattata();
-		rattata.atacarACon(chansey, new AtaqueRapido());
+		rattata.setEstrategiaAtaque(new AtaqueRapido());
+		rattata.atacarA(chansey);
 		//LA VIDA DE CHANSEY ES 130
 		assertEquals(120.0, chansey.vida(), 0.001D);
 	}
@@ -329,7 +362,8 @@ public class PrimeraEntregaTest {
 	public void testRattataAtacaConAtaqueRapidoACharmander() {
 		Charmander charmander = new Charmander();
 		Rattata rattata = new Rattata();
-		rattata.atacarACon(charmander, new AtaqueRapido());
+		rattata.setEstrategiaAtaque(new AtaqueRapido());
+		rattata.atacarA(charmander);
 		//LA VIDA DE CHARMANDER ES 170
 		assertEquals(160.0, charmander.vida(), 0.001D);
 	}
@@ -338,7 +372,8 @@ public class PrimeraEntregaTest {
 	public void testRattatAtacaConAtaqueRapidoASquirtle() {
 		Squirtle squirtle = new Squirtle();
 		Rattata rattata = new Rattata();
-		rattata.atacarACon(squirtle, new AtaqueRapido());
+		rattata.setEstrategiaAtaque(new AtaqueRapido());
+		rattata.atacarA(squirtle);
 		//LA VIDA DE SQUIRTLE ES 150
 		assertEquals(140.0, squirtle.vida(), 0.001D);
 	}
@@ -347,7 +382,8 @@ public class PrimeraEntregaTest {
 	public void testRattatAtacaConAtaqueRapidoABulbasaur() {
 		Bulbasaur bulbasaur = new Bulbasaur();
 		Rattata rattata = new Rattata();
-		rattata.atacarACon(bulbasaur, new AtaqueRapido());
+		rattata.setEstrategiaAtaque(new AtaqueRapido());
+		rattata.atacarA(bulbasaur);
 		//LA VIDA DE BULBASAUR ES 140
 		assertEquals(130.0, bulbasaur.vida(), 0.001D);
 	}
@@ -359,10 +395,11 @@ public class PrimeraEntregaTest {
 		
 		Squirtle squirtle = new Squirtle();
 		Squirtle squirtle2 = new Squirtle();
+		squirtle.setEstrategiaAtaque(new AtaqueRapido());
 		for (int x = 0; x < 16; x++){  			//ATAQUE RAPIDO TIENE UNA CANTIDAD DE 16	
-			squirtle.atacarACon(squirtle2, new AtaqueRapido());
+			squirtle.atacarA(squirtle2);
 		}
-		assertEquals(false, squirtle.atacarACon(squirtle2, new AtaqueRapido()));
+		assertEquals(false, squirtle.atacarA(squirtle2));
 	}
 	
 	@Test
@@ -370,10 +407,11 @@ public class PrimeraEntregaTest {
 		
 		Squirtle squirtle = new Squirtle();
 		Squirtle squirtle2 = new Squirtle();
+		squirtle.setEstrategiaAtaque(new Burbuja());
 		for (int x = 0; x < 15; x++){ 			//BURBUJA TIENE UNA CANTIDAD DE 15
-			squirtle.atacarACon(squirtle2, new Burbuja());
+			squirtle.atacarA(squirtle2);
 		}
-		assertEquals(false, squirtle.atacarACon(squirtle2, new Burbuja()));
+		assertEquals(false, squirtle.atacarA(squirtle2));
 	}
 	
 	@Test
@@ -381,10 +419,11 @@ public class PrimeraEntregaTest {
 		
 		Squirtle squirtle = new Squirtle();
 		Squirtle squirtle2 = new Squirtle();
+		squirtle.setEstrategiaAtaque( new CanionDeAgua());
 		for (int x = 0; x < 8; x++){ 			//CANION DE AGUA TIENE UNA CANTIDAD DE 15
-			squirtle.atacarACon(squirtle2, new CanionDeAgua());
+			squirtle.atacarA(squirtle2);
 		}
-		assertEquals(false, squirtle.atacarACon(squirtle2, new CanionDeAgua()));
+		assertEquals(false, squirtle.atacarA(squirtle2));
 	}
 	
 	@Test
@@ -392,10 +431,11 @@ public class PrimeraEntregaTest {
 		
 		Charmander charmander = new Charmander();
 		Squirtle squirtle = new Squirtle();
+		charmander.setEstrategiaAtaque(new Brasas());
 		for (int x = 0; x < 10; x++){  			//BRASAS TIENE UNA CANTIDAD DE 10	
-			charmander.atacarACon(squirtle, new Brasas());
+			charmander.atacarA(squirtle);
 		}
-		assertEquals(false, charmander.atacarACon(squirtle, new Brasas()));
+		assertEquals(false, charmander.atacarA(squirtle));
 	}
 	
 	@Test
@@ -403,10 +443,11 @@ public class PrimeraEntregaTest {
 		
 		Charmander charmander = new Charmander();
 		Bulbasaur bulbasaur = new Bulbasaur();
+		charmander.setEstrategiaAtaque(new AtaqueRapido());
 		for (int x = 0; x < 16; x++){  			//ATAQUE RAPIDO TIENE UNA CANTIDAD DE 16	
-			charmander.atacarACon(bulbasaur, new AtaqueRapido());
+			charmander.atacarA(bulbasaur);
 		}
-		assertEquals(false, charmander.atacarACon(bulbasaur, new AtaqueRapido()));
+		assertEquals(false, charmander.atacarA(bulbasaur));
 	}
 	
 	@Test
@@ -414,10 +455,11 @@ public class PrimeraEntregaTest {
 		
 		Bulbasaur bulbasaur = new Bulbasaur();
 		Squirtle squirtle = new Squirtle();
+		bulbasaur.setEstrategiaAtaque(new LatigoCepa());
 		for (int x = 0; x < 10; x++){  			//LATIGO CEPA TIENE UNA CANTIDAD DE 10	
-			bulbasaur.atacarACon(squirtle, new LatigoCepa());
+			bulbasaur.atacarA(squirtle);
 		}
-		assertEquals(false, bulbasaur.atacarACon(squirtle, new LatigoCepa()));
+		assertEquals(false, bulbasaur.atacarA(squirtle));
 	}
 	
 	@Test
@@ -425,10 +467,11 @@ public class PrimeraEntregaTest {
 		
 		Bulbasaur bulbasaur = new Bulbasaur();
 		Squirtle squirtle = new Squirtle();
+		bulbasaur.setEstrategiaAtaque(new AtaqueRapido());
 		for (int x = 0; x < 16; x++){  			//ATAQUE RAPIDO TIENE UNA CANTIDAD DE 16	
-			bulbasaur.atacarACon(squirtle, new AtaqueRapido());
+			bulbasaur.atacarA(squirtle);
 		}
-		assertEquals(false, bulbasaur.atacarACon(squirtle, new AtaqueRapido()));
+		assertEquals(false, bulbasaur.atacarA(squirtle));
 	}
 	
 	@Test
@@ -436,10 +479,11 @@ public class PrimeraEntregaTest {
 		
 		Chansey chansey = new Chansey();
 		Bulbasaur bulbasaur = new Bulbasaur();
+		chansey.setEstrategiaAtaque(new AtaqueRapido());
 		for (int x = 0; x < 16; x++){  			//ATAQUE RAPIDO TIENE UNA CANTIDAD DE 16	
-			chansey.atacarACon(bulbasaur, new AtaqueRapido());
+			chansey.atacarA(bulbasaur);
 		}
-		assertEquals(false, chansey.atacarACon(bulbasaur, new AtaqueRapido()));
+		assertEquals(false, chansey.atacarA(bulbasaur));
 	}
 
 	@Test
@@ -447,10 +491,11 @@ public class PrimeraEntregaTest {
 		
 		Chansey chansey = new Chansey();
 		Squirtle squirtle = new Squirtle();
+		chansey.setEstrategiaAtaque( new LatigoCepa());
 		for (int x = 0; x < 10; x++){  			//LATIGO CEPA TIENE UNA CANTIDAD DE 10	
-			chansey.atacarACon(squirtle, new LatigoCepa());
+			chansey.atacarA(squirtle);
 		}
-		assertEquals(false, chansey.atacarACon(squirtle, new LatigoCepa()));
+		assertEquals(false, chansey.atacarA(squirtle));
 	}
 	
 	@Test
@@ -458,10 +503,11 @@ public class PrimeraEntregaTest {
 		
 		Jigglypuff jigglypuff = new Jigglypuff();
 		Bulbasaur bulbasaur = new Bulbasaur();
+		jigglypuff.setEstrategiaAtaque(new AtaqueRapido());
 		for (int x = 0; x < 16; x++){  			//ATAQUE RAPIDO TIENE UNA CANTIDAD DE 16	
-			jigglypuff.atacarACon(bulbasaur, new AtaqueRapido());
+			jigglypuff.atacarA(bulbasaur);
 		}
-		assertEquals(false, jigglypuff.atacarACon(bulbasaur, new AtaqueRapido()));
+		assertEquals(false, jigglypuff.atacarA(bulbasaur));
 	}	
 	
 	@Test
@@ -469,10 +515,11 @@ public class PrimeraEntregaTest {
 		
 		Jigglypuff jigglypuff = new Jigglypuff();
 		Squirtle squirtle = new Squirtle();
+		jigglypuff.setEstrategiaAtaque(new Burbuja());
 		for (int x = 0; x < 15; x++){ 			//BURBUJA TIENE UNA CANTIDAD DE 15
-			jigglypuff.atacarACon(squirtle, new Burbuja());
+			jigglypuff.atacarA(squirtle);
 		}
-		assertEquals(false, jigglypuff.atacarACon(squirtle, new Burbuja()));
+		assertEquals(false, jigglypuff.atacarA(squirtle));
 	}
 	
 	@Test
@@ -480,10 +527,11 @@ public class PrimeraEntregaTest {
 		
 		Rattata rattata = new Rattata();
 		Jigglypuff jigglypuff = new Jigglypuff();
+		rattata.setEstrategiaAtaque(new AtaqueRapido());
 		for (int x = 0; x < 16; x++){  			//ATAQUE RAPIDO TIENE UNA CANTIDAD DE 16	
-			rattata.atacarACon(jigglypuff, new AtaqueRapido());
+			rattata.atacarA(jigglypuff);
 		}
-		assertEquals(false, rattata.atacarACon(jigglypuff, new AtaqueRapido()));
+		assertEquals(false, rattata.atacarA(jigglypuff));
 	}	
 	
 	@Test
@@ -491,25 +539,28 @@ public class PrimeraEntregaTest {
 		
 		Rattata rattata = new Rattata();
 		Squirtle squirtle = new Squirtle();
+		rattata.setEstrategiaAtaque(new Burbuja());
 		for (int x = 0; x < 15; x++){ 			//BURBUJA TIENE UNA CANTIDAD DE 15
-			rattata.atacarACon(squirtle, new Burbuja());
+			rattata.atacarA(squirtle);
 		}
-		assertEquals(false, rattata.atacarACon(squirtle, new Burbuja()));
+		assertEquals(false, rattata.atacarA(squirtle));
 	}
 	
 	@Test
 	public void AtaqueAgotadoFinal() {
 		Squirtle squirtle = new Squirtle();
 		Bulbasaur bulbasaur = new Bulbasaur();
-		squirtle.atacarACon(bulbasaur, new CanionDeAgua());
-		assertEquals(true, squirtle.atacarACon(bulbasaur, new CanionDeAgua()));
-		squirtle.atacarACon(bulbasaur, new CanionDeAgua());
-		squirtle.atacarACon(bulbasaur, new CanionDeAgua());
-		squirtle.atacarACon(bulbasaur, new CanionDeAgua());
-		squirtle.atacarACon(bulbasaur, new CanionDeAgua());
-		assertEquals(true, squirtle.atacarACon(bulbasaur, new CanionDeAgua()));
-		squirtle.atacarACon(bulbasaur, new CanionDeAgua()); // ATAQUE NRO 8
-		assertEquals(false, squirtle.atacarACon(bulbasaur, new CanionDeAgua())); // ATAQUE NRO 9
-		assertEquals(true,squirtle.atacarACon(bulbasaur, new AtaqueRapido())); //NO ES CANION DE AGUA, PUEDE SEGUIR ATACANDO
+		squirtle.setEstrategiaAtaque(new CanionDeAgua());
+		squirtle.atacarA(bulbasaur);
+		assertEquals(true, squirtle.atacarA(bulbasaur));
+		squirtle.atacarA(bulbasaur);
+		squirtle.atacarA(bulbasaur);
+		squirtle.atacarA(bulbasaur);
+		squirtle.atacarA(bulbasaur);
+		assertEquals(true, squirtle.atacarA(bulbasaur));
+		squirtle.atacarA(bulbasaur); // ATAQUE NRO 8
+		assertEquals(false, squirtle.atacarA(bulbasaur)); // ATAQUE NRO 9
+		squirtle.setEstrategiaAtaque(new AtaqueRapido());
+		assertEquals(true,squirtle.atacarA(bulbasaur)); //NO ES CANION DE AGUA, PUEDE SEGUIR ATACANDO
 	}
 }

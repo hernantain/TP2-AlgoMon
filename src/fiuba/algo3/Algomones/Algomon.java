@@ -17,16 +17,31 @@ public abstract class Algomon {
 	protected Tipo tipo;
 	protected Estado estado = new EstadoNormal();
 	protected String nombre;
+	protected Ataque ataqueActual;
 
-	public boolean atacarACon(Algomon otroAlgomon, Ataque ataque){
+	public boolean atacarA(Algomon otroAlgomon){
 		try {
 			estado.consecuencia(); 				//Esta implementado en cada estado. 
 		} catch (EstadoDormidoExcepcion e){		//En el caso de dormido, no ataca y en quemado, se reduce el 10% de su vida original
 			return false;
 		}
-		for (int i = 0; i < ataques.size(); i++) {
-			if (ataques.get(i).getClass().equals(ataque.getClass())) {
-				return ataques.get(i).atacar(otroAlgomon);
+		return ataqueActual.atacar(otroAlgomon);
+	}
+	
+	public boolean setEstrategiaAtaque(Ataque ataque){
+		try{
+			ataqueActual = this.esAtaqueValido(ataque);
+			return true;
+		}
+		catch(NoTieneElAtaqueExcepcion e){
+			return false;
+		}
+	}
+	
+	protected Ataque esAtaqueValido(Ataque ataque){
+		for (Ataque ataques: ataques){
+			if( ataque.equals(ataques)){
+				return ataques;
 			}
 		}
 		throw new NoTieneElAtaqueExcepcion();
@@ -77,5 +92,6 @@ public abstract class Algomon {
 	public ArrayList<Ataque> ataques() {
 		return ataques;
 	}
+	
 
 }
