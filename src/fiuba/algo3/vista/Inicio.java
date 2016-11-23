@@ -51,7 +51,7 @@ public class Inicio extends Application {
 		root.getChildren().addAll(mensaje,botonJugar,botonSalir);
 		
 		
-		root.setStyle("-fx-background-image: url('file:src/vista/fondo.jpg');"
+		root.setStyle("-fx-background-image: url('file:src/imagenes/fondo.jpg');"
 					+ "-fx-background-position: 50% 50%;"
 					+ "-fx-background-size: cover;"
 					+ "-fx-border-color: red");
