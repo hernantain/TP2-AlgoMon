@@ -48,14 +48,13 @@ public class Inicio extends Application {
 		botonSalir.setPrefSize(300, 70);
 		
 		VBox root = new VBox(30);
-		root.setAlignment(Pos.CENTER);
+		root.setAlignment(Pos.CENTER_LEFT);
 		root.getChildren().addAll(mensaje,botonJugar,botonSalir);
 		
 		
-		root.setStyle("-fx-background-image: url('file:src/imagenes/fondo.jpg');"
+		root.setStyle("-fx-background-image: url('file:src/imagenes/fondo10.jpg');"
 					+ "-fx-background-position: 50% 50%;"
-					+ "-fx-background-size: cover;"
-					+ "-fx-border-color: red");
+					+ "-fx-background-size: cover;");
 		
 		Scene scene = new Scene(root,1100,600);
 		

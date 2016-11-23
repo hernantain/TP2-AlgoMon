@@ -74,9 +74,9 @@ public class PantallaDeSeleccionDeAlgomones {
 		HBox contenedorDeAlgomon = new HBox(40);
 		contenedorDeAlgomon.setPrefHeight(150);
 		contenedorDeAlgomon.setAlignment(Pos.CENTER);
-		jugador1Algomones = new VBox(10);
+		jugador1Algomones = new VBox(50);
 		jugador1Algomones.setAlignment(Pos.TOP_CENTER);
-		jugador2Algomones = new VBox(10);
+		jugador2Algomones = new VBox(50);
 		jugador2Algomones.setAlignment(Pos.TOP_CENTER);
 		jugador1Algomones.setPrefWidth(130);
 		jugador2Algomones.setPrefWidth(130);
@@ -139,27 +139,27 @@ public class PantallaDeSeleccionDeAlgomones {
 		
 		vistaCharmander = new VBox(20);
 		vistaCharmander.setAlignment(Pos.CENTER);
-		vistaCharmander.getChildren().addAll(nombreCharmander,crearImagen("file:src/imagenes/charmander.png", 200, 200),crearImagen("file:src/imagenes/caraccharmander.png", 120, 480),botonElegirCharmander);
+		vistaCharmander.getChildren().addAll(nombreCharmander,crearImagen("file:src/imagenes/charmander.png", 200, 200),crearImagen("file:src/imagenes/caraccharmander.png", 120, 750),botonElegirCharmander);
 		
 		vistaSquirtle = new VBox(20);
 		vistaSquirtle.setAlignment(Pos.CENTER);
-		vistaSquirtle.getChildren().addAll(nombreSquirtle,crearImagen("file:src/imagenes/squirtle.png",200,200),crearImagen("file:src/imagenes/caracsquirtle.png", 120, 480),botonElegirSquirtle);
+		vistaSquirtle.getChildren().addAll(nombreSquirtle,crearImagen("file:src/imagenes/squirtle.png",200,200),crearImagen("file:src/imagenes/caracsquirtle.png", 120, 750),botonElegirSquirtle);
 		
 		vistaBulbasaur = new VBox(20);
 		vistaBulbasaur.setAlignment(Pos.CENTER);
-		vistaBulbasaur.getChildren().addAll(nombreBulbasaur,crearImagen("file:src/imagenes/bulbasaur.png",200,200),crearImagen("file:src/imagenes/caracbulbasaur.png", 120, 480),botonElegirBulbasaur);
+		vistaBulbasaur.getChildren().addAll(nombreBulbasaur,crearImagen("file:src/imagenes/bulbasaur.png",200,200),crearImagen("file:src/imagenes/caracbulbasaur.png", 120, 750),botonElegirBulbasaur);
 		
 		vistaJigglypuff = new VBox(20);
 		vistaJigglypuff.setAlignment(Pos.CENTER);
-		vistaJigglypuff.getChildren().addAll(nombreJigglypuff,crearImagen("file:src/imagenes/jigglypuff.png",200,200),crearImagen("file:src/imagenes/caracjigglypuff.png", 120, 480),botonElegirJigglypuff);
+		vistaJigglypuff.getChildren().addAll(nombreJigglypuff,crearImagen("file:src/imagenes/jigglypuff.png",200,200),crearImagen("file:src/imagenes/caracjigglypuff.png", 120, 750),botonElegirJigglypuff);
 		
 		vistaRattata = new VBox(20);
 		vistaRattata.setAlignment(Pos.CENTER);
-		vistaRattata.getChildren().addAll(nombreRattata,crearImagen("file:src/imagenes/rattata.png",200,200),crearImagen("file:src/imagenes/caracrattata.png", 120, 480),botonElegirRattata);
+		vistaRattata.getChildren().addAll(nombreRattata,crearImagen("file:src/imagenes/rattata.png",200,200),crearImagen("file:src/imagenes/caracrattata.png", 120, 750),botonElegirRattata);
 		
 		vistaChansey = new VBox(20);
 		vistaChansey.setAlignment(Pos.CENTER);
-		vistaChansey.getChildren().addAll(nombreChansey,crearImagen("file:src/imagenes/chansey.png",200,200),crearImagen("file:src/imagenes/caracchansey.png", 120, 480),botonElegirChansey);
+		vistaChansey.getChildren().addAll(nombreChansey,crearImagen("file:src/imagenes/chansey.png",200,200),crearImagen("file:src/imagenes/caracchansey.png", 120, 750),botonElegirChansey);
 	
 		
 		seleccionDeAlgomon.setRight(jugador2Algomones);		

@@ -82,6 +82,8 @@ public class PantallaJugadores {
 			   if(event.getCode() == KeyCode.ENTER){
 				   jugador1 = new Jugador(casilla.getText());
 				   stage.setScene(tercerPantalla);
+					stage.setMaximized(false);
+					stage.setMaximized(true);
 			   }});
 		casilla.setOnMouseClicked(e->casilla.requestFocus());
 		
@@ -104,7 +106,7 @@ public class PantallaJugadores {
 			segundoLayout.setOnMouseClicked(e->botonIngresarNombre.requestFocus());
 			
 			Button boton = new Button();
-			boton.setText("Volver a la otra pantalla");
+			boton.setText("Volver al Inicio");
 			boton.setPrefSize(300, 70);
 			boton.setStyle("-fx-font: 22 arial; -fx-base: #ff0000;"
 					+   "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
@@ -190,7 +192,7 @@ public class PantallaJugadores {
 			 			+"-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
 						
 				Button boton2 = new Button();
-				boton2.setText("Volver a la otra pantalla");
+				boton2.setText("Volver al Inicio");
 				boton2.setPrefSize(300, 70);
 				boton2.setStyle("-fx-font: 22 arial; -fx-base: #ff0000;"
 						+   "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");

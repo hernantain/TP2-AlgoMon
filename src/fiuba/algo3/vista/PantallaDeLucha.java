@@ -57,11 +57,11 @@ public class PantallaDeLucha {
 		jugador2Algomones.setPrefWidth(130);
 		
 		Label nombrejugador1 = new Label(jugador1.getNombre());
-		nombrejugador1.setStyle("-fx-font: 24 arial; -fx-text-fill: #ff0000; -fx-background-color: white;");
+		nombrejugador1.setStyle("-fx-font: 24 arial; -fx-text-fill: #00ffff;");
 		jugador1Algomones.getChildren().add(nombrejugador1);
 		
 		Label nombrejugador2 = new Label(jugador2.getNombre());
-		nombrejugador2.setStyle("-fx-font: 24 arial; -fx-text-fill: #00ffff;");
+		nombrejugador2.setStyle("-fx-font: 24 arial; -fx-text-fill: #ff0000;");
 		jugador2Algomones.getChildren().add(nombrejugador2);
 		
 		volverAtacar = crearBoton("Volver");
@@ -166,7 +166,7 @@ public class PantallaDeLucha {
 				this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
 				this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
 				pantalla.setBottom(opciones);
-				System.out.println(turno.jugadorActivo().getAlgomonActivo().vida());
+				System.out.println("Vida de " + turno.jugadorActivo().getAlgomonActivo().nombre() + " ---> " + turno.jugadorActivo().getAlgomonActivo().vida());
 			});
 			ataques.getChildren().add(botonAtaque);
 		}

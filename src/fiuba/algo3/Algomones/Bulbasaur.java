@@ -9,7 +9,7 @@ import Tipos.TipoPlanta;
 public class Bulbasaur extends Algomon{
 	
 	public Bulbasaur(){
-		nombre = "Bulbsaur";
+		nombre = "Bulbasaur";
 		tipo = new TipoPlanta();
 		vida = new Vida(140);
 		ataques.add(new AtaqueConEfectoChuparVidas(new Chupavidas(), this));
