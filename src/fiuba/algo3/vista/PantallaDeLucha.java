@@ -3,7 +3,6 @@ package vista;
 import java.util.ArrayList;
 
 import javafx.animation.FadeTransition;
-import javafx.animation.Timeline;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -206,11 +205,8 @@ public class PantallaDeLucha {
 			}
 			botonAtaque.setOnAction(event->{
 				turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), ataque, turno.jugadorNoActivo().getAlgomonActivo()));
-				if(turno.jugadorActivo() == jugador1){
-					ft.play();
-					barraDeVida1.setProgress(jugador1.getAlgomonActivo().vida()/(1.0*jugador1.getAlgomonActivo().getVidaMax()));
-				}
-				else{ barraDeVida2.setProgress(jugador2.getAlgomonActivo().vida()/(1.0*jugador2.getAlgomonActivo().getVidaMax()));}
+				barraDeVida1.setProgress(jugador1.getAlgomonActivo().vida()/(1.0*jugador1.getAlgomonActivo().getVidaMax()));
+				barraDeVida2.setProgress(jugador2.getAlgomonActivo().vida()/(1.0*jugador2.getAlgomonActivo().getVidaMax()));
 				this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
 				this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
 				pantalla.setBottom(opciones);
@@ -232,11 +228,8 @@ public class PantallaDeLucha {
 			}
 			botonElemento.setOnAction(event->{
 				turno.jugar(new UsarElemento(turno.jugadorActivo(),elemento));
-				if(turno.jugadorActivo() == jugador2){
-					barraDeVida1.setProgress(jugador1.getAlgomonActivo().vida()/(1.0*jugador1.getAlgomonActivo().getVidaMax()));
-
-				}
-				else{ barraDeVida2.setProgress(jugador2.getAlgomonActivo().vida()/(1.0*jugador2.getAlgomonActivo().getVidaMax()));}
+				barraDeVida1.setProgress(jugador1.getAlgomonActivo().vida()/(1.0*jugador1.getAlgomonActivo().getVidaMax()));
+				barraDeVida2.setProgress(jugador2.getAlgomonActivo().vida()/(1.0*jugador2.getAlgomonActivo().getVidaMax()));
 				this.usarElementosBotones(turno.jugadorActivo(), elementos, volver);
 				this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volverAtacar);
 				pantalla.setBottom(opciones);
