@@ -23,6 +23,8 @@ public class Inicio extends Application {
 	
 	Scene scene;
 	Jugador jugador1,jugador2;
+	Button botonSalir, botonPonerSonido, botonSacarSonido;
+	VBox root;
 	
 	@Override
 	public void start(Stage stagePrincipal) throws Exception {
@@ -51,17 +53,39 @@ public class Inicio extends Application {
 						+   "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
 		botonJugar.setPrefSize(300, 70);
 		
+		botonSacarSonido = new Button();
+		botonSacarSonido.setText("Silenciar"); //ME TIENE LOS HUEVOS LLENOS LA CANCIONSITA
+		botonSacarSonido.setStyle("-fx-font: 22 arial; -fx-base: #0014f4;"
+						+   "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
+		botonSacarSonido.setPrefSize(300, 70);
+		botonSacarSonido.setOnAction(e->{
+			mediaPlayer.stop();
+			root.getChildren().clear();
+			root.getChildren().addAll(mensaje,botonJugar, botonPonerSonido,botonSalir,mediaView);
+		});
 		
-		Button botonSalir = new Button();
+		botonPonerSonido = new Button();
+		botonPonerSonido.setText("Sonido"); //ME TIENE LOS HUEVOS LLENOS LA CANCIONSITA
+		botonPonerSonido.setStyle("-fx-font: 22 arial; -fx-base: #0014f4;"
+						+   "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
+		botonPonerSonido.setPrefSize(300, 70);
+		botonPonerSonido.setOnAction(e->{
+			mediaPlayer.play();
+			root.getChildren().clear();
+			root.getChildren().addAll(mensaje,botonJugar, botonSacarSonido,botonSalir,mediaView);
+		});
+		
+		
+		botonSalir = new Button();
 		botonSalir.setText("Salir");
 		botonSalir.setStyle("-fx-font: 22 arial; -fx-base: #ff0000;"
 						   +"-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
 		botonSalir.setOnAction(e-> stagePrincipal.close());
 		botonSalir.setPrefSize(300, 70);
 		
-		VBox root = new VBox(30);
+		root = new VBox(30);
 		root.setAlignment(Pos.CENTER_LEFT);
-		root.getChildren().addAll(mensaje,botonJugar,botonSalir,mediaView);
+		root.getChildren().addAll(mensaje,botonJugar, botonSacarSonido,botonSalir,mediaView);
 		
 		
 		root.setStyle("-fx-background-image: url('file:src/imagenes/fondo10.jpg');"
