@@ -2,6 +2,8 @@ package vista;
 
 import java.util.ArrayList;
 
+import javafx.animation.FadeTransition;
+import javafx.animation.Timeline;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,6 +15,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import modelo.*;
 import Elementos.*;
 import Ataques.*;
@@ -29,6 +32,7 @@ public class PantallaDeLucha {
 	HBox opciones, ataques, elementos, pantallaDePelea;
 	VBox algomonJ1, algomonJ2;
 	ProgressBar barraDeVida1, barraDeVida2;
+	FadeTransition ft;
 	
 	public PantallaDeLucha(Stage stagePrincipal, Jugador j1, Jugador j2){
 		stage = stagePrincipal;
@@ -81,21 +85,31 @@ public class PantallaDeLucha {
 		
 		
 		barraDeVida1 = new ProgressBar(); //ESTA ES LA IDEA DE LAS BARRAS DE VIDA
-		barraDeVida1.setProgress(1.0);				
-		
+		barraDeVida1.setProgress(1.0);	
+		barraDeVida1.setPrefSize(200, 20);
+		barraDeVida1.setStyle("-fx-progress-color: #ff0000");
+	
 		barraDeVida2 = new ProgressBar();
 		barraDeVida2.setProgress(1.0);
+		barraDeVida2.setPrefSize(200, 20);
 		
 		algomonJ1 = new VBox(100);
 		algomonJ1.setAlignment(Pos.CENTER);
 		ImageView imgAlgomonActivo1 = this.crearImagen("file:src/imagenes/" + jugador1.getAlgomonActivo().nombre().toLowerCase()+".png", 200, 200);
+		imgAlgomonActivo1.setScaleX(-1);
 		algomonJ1.getChildren().addAll(barraDeVida1,imgAlgomonActivo1 );
 		algomonJ2 = new VBox(100);
 		algomonJ2.setAlignment(Pos.CENTER);
 		ImageView imgAlgomonActivo2 = this.crearImagen("file:src/imagenes/" + jugador2.getAlgomonActivo().nombre().toLowerCase()+".png", 200, 200);
 		algomonJ2.getChildren().addAll(barraDeVida2, imgAlgomonActivo2);
 		
+		ft = new FadeTransition(Duration.millis(3000), imgAlgomonActivo1);
+		ft.setFromValue(1.0);
+		ft.setToValue(0.0);
+		
 		pantallaDePelea = new HBox(265);
+		pantallaDePelea.setStyle("-fx-background-image: url('file:src/imagenes/fondoPelea.jpg');"
+								+"-fx-background-size: cover;");
 		pantallaDePelea.setAlignment(Pos.CENTER);
 		
 		
@@ -193,6 +207,7 @@ public class PantallaDeLucha {
 			botonAtaque.setOnAction(event->{
 				turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), ataque, turno.jugadorNoActivo().getAlgomonActivo()));
 				if(turno.jugadorActivo() == jugador1){
+					ft.play();
 					barraDeVida1.setProgress(jugador1.getAlgomonActivo().vida()/(1.0*jugador1.getAlgomonActivo().getVidaMax()));
 				}
 				else{ barraDeVida2.setProgress(jugador2.getAlgomonActivo().vida()/(1.0*jugador2.getAlgomonActivo().getVidaMax()));}
@@ -217,6 +232,11 @@ public class PantallaDeLucha {
 			}
 			botonElemento.setOnAction(event->{
 				turno.jugar(new UsarElemento(turno.jugadorActivo(),elemento));
+				if(turno.jugadorActivo() == jugador2){
+					barraDeVida1.setProgress(jugador1.getAlgomonActivo().vida()/(1.0*jugador1.getAlgomonActivo().getVidaMax()));
+
+				}
+				else{ barraDeVida2.setProgress(jugador2.getAlgomonActivo().vida()/(1.0*jugador2.getAlgomonActivo().getVidaMax()));}
 				this.usarElementosBotones(turno.jugadorActivo(), elementos, volver);
 				this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volverAtacar);
 				pantalla.setBottom(opciones);
@@ -245,10 +265,11 @@ public class PantallaDeLucha {
 	
 	public void mostrarImagenAlgomonesJugadores(Jugador j1, Jugador j2){
 		ImageView imgAlgomonActivo1 = this.crearImagen("file:src/imagenes/" + j1.getAlgomonActivo().nombre().toLowerCase()+".png", 200, 200);
+		imgAlgomonActivo1.setScaleX(-1);
 		ImageView imgAlgomonActivo2 = this.crearImagen("file:src/imagenes/" + j2.getAlgomonActivo().nombre().toLowerCase()+".png", 200, 200);
 		algomonJ1.getChildren().clear();
 		algomonJ2.getChildren().clear();
-		algomonJ1.getChildren().add(imgAlgomonActivo1);
-		algomonJ2.getChildren().add(imgAlgomonActivo2);
+		algomonJ1.getChildren().addAll(barraDeVida1,imgAlgomonActivo1);
+		algomonJ2.getChildren().addAll(barraDeVida2,imgAlgomonActivo2);
 	}
 }
