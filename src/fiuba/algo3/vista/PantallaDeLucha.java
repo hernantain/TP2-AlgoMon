@@ -185,6 +185,8 @@ public class PantallaDeLucha {
 				botonAlgomon.setDisable(true);
 				botonAlgomon.setOnAction(event->{
 					turno.jugar(new CambiarAlgomonActivo(turno.jugadorActivo(),algomon));
+					barraDeVida1.setProgress(jugador1.getAlgomonActivo().vida()/(1.0*jugador1.getAlgomonActivo().getVidaMax()));
+					barraDeVida2.setProgress(jugador2.getAlgomonActivo().vida()/(1.0*jugador2.getAlgomonActivo().getVidaMax()));
 					this.mostrarImagenAlgomonesJugadores(jugador1, jugador2);
 					this.habilitarAlgomones(algomonesJugador, botonAtacar, botonElemento, volverOpciones);
 					this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
