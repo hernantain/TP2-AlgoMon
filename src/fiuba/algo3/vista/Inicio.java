@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import modelo.*;
 
@@ -39,8 +40,9 @@ public class Inicio extends Application {
 		Media media = new Media(new File(mediaFile).toURI().toString());
 		
 		MediaPlayer mediaPlayer = new MediaPlayer(media);
-		mediaPlayer.setAutoPlay(true);
+		mediaPlayer.play();
 		mediaPlayer.setVolume(0.1);
+		MediaView mediaView = new MediaView(mediaPlayer);
 		
 		
 		Button botonJugar = new Button();
@@ -59,7 +61,7 @@ public class Inicio extends Application {
 		
 		VBox root = new VBox(30);
 		root.setAlignment(Pos.CENTER_LEFT);
-		root.getChildren().addAll(mensaje,botonJugar,botonSalir);
+		root.getChildren().addAll(mensaje,botonJugar,botonSalir,mediaView);
 		
 		
 		root.setStyle("-fx-background-image: url('file:src/imagenes/fondo10.jpg');"
