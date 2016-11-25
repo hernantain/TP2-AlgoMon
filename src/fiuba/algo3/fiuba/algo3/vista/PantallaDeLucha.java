@@ -20,6 +20,7 @@ import Elementos.*;
 import Ataques.*;
 import Acciones.*;
 import Algomones.Algomon;
+import Algomones.AlgomonDebilitadoExcepcion;
 
 public class PantallaDeLucha {
 
@@ -29,7 +30,7 @@ public class PantallaDeLucha {
 	Turno turno;
 	BorderPane pantalla;
 	HBox opciones, ataques, elementos, pantallaDeStats,pantallaDePelea;
-	VBox algomonJ1Stats, algomonJ2Stats,algomonJ1,algomonJ2;
+	VBox algomonJ1Stats, algomonJ2Stats,algomonJ1,algomonJ2,jugador1Algomones, jugador2Algomones;
 	ProgressBar barraDeVida1, barraDeVida2;
 	Label algomonNombreJ1, algomonNombreJ2;
 	FadeTransition ft;
@@ -56,11 +57,11 @@ public class PantallaDeLucha {
 		opciones.setPrefSize(700, 150);
 		opciones.setAlignment(Pos.CENTER);
 		
-		VBox jugador1Algomones = new VBox(10);
+		jugador1Algomones = new VBox(10);
 		jugador1Algomones.setPrefWidth(150);
 		jugador1Algomones.setAlignment(Pos.TOP_CENTER);
 		
-		VBox jugador2Algomones = new VBox(10);
+		jugador2Algomones = new VBox(10);
 		jugador2Algomones.setPrefWidth(150);
 		jugador2Algomones.setAlignment(Pos.TOP_CENTER);	
 		
@@ -69,11 +70,17 @@ public class PantallaDeLucha {
 		
 		Label nombrejugador1 = new Label(jugador1.getNombre());
 		nombrejugador1.setStyle("-fx-font: 24 arial; -fx-text-fill: #00ffff;");
-		jugador1Algomones.getChildren().add(nombrejugador1);
 		
 		Label nombrejugador2 = new Label(jugador2.getNombre());
 		nombrejugador2.setStyle("-fx-font: 24 arial; -fx-text-fill: #ff0000;");
-		jugador2Algomones.getChildren().add(nombrejugador2);
+		
+		//AGREGUE ESTOS CONTENEDORES, TIENEN LOS LABELS CON LOS NOMBRES
+		//Y LA VBOX DE LO ALGOMONES
+		
+		VBox contenedorJ1 = new VBox(70);
+		contenedorJ1.getChildren().addAll(nombrejugador1, jugador1Algomones);
+		VBox contenedorJ2 = new VBox(70);
+		contenedorJ2.getChildren().addAll(nombrejugador2, jugador2Algomones);
 		
 		volverAtacar = crearBoton("Volver");
 			volverAtacar.setOnAction(e->{
@@ -180,8 +187,8 @@ public class PantallaDeLucha {
 		
 		opciones.getChildren().addAll(botonAtacar, cambiar, botonElemento,volverOpciones);
 		
-		pantalla.setLeft(jugador1Algomones);
-		pantalla.setRight(jugador2Algomones);
+		pantalla.setLeft(contenedorJ1);
+		pantalla.setRight(contenedorJ2);
 		pantalla.setBottom(opciones);
 		pantalla.setCenter(pantallaDePelea);
 		
@@ -208,14 +215,17 @@ public class PantallaDeLucha {
 				Algomon algomon = algomones.get(x);
 				Button botonAlgomon = crearBoton(algomon.nombre());
 				botonAlgomon.setDisable(true);
-				botonAlgomon.setOnAction(event->{
-					turno.jugar(new CambiarAlgomonActivo(turno.jugadorActivo(),algomon));
-					barraDeVida1.setProgress(jugador1.getAlgomonActivo().vida()/(1.0*jugador1.getAlgomonActivo().getVidaMax()));
-					barraDeVida2.setProgress(jugador2.getAlgomonActivo().vida()/(1.0*jugador2.getAlgomonActivo().getVidaMax()));
-					this.mostrarImagenAlgomonesJugadores(jugador1, jugador2);
-					this.habilitarAlgomones(algomonesJugador, botonAtacar, botonElemento, volverOpciones);
-					this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
-				});
+				if (algomon.estaVivo()){
+					botonAlgomon.setOnAction(event->{
+						turno.jugar(new CambiarAlgomonActivo(turno.jugadorActivo(),algomon));
+						barraDeVida1.setProgress(jugador1.getAlgomonActivo().vida()/(1.0*jugador1.getAlgomonActivo().getVidaMax()));
+						barraDeVida2.setProgress(jugador2.getAlgomonActivo().vida()/(1.0*jugador2.getAlgomonActivo().getVidaMax()));
+						this.mostrarImagenAlgomonesJugadores(jugador1, jugador2);
+						this.habilitarAlgomones(algomonesJugador, botonAtacar, botonElemento, volverOpciones);
+						this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
+					});
+				}
+				else{ botonAlgomon.setId("muerto");} //SI EL ALGOMON ESTA MUERTO, LE SETEO UN ID QUE DESPUES USO EN cambiarDeAlgomon()
 				algomonesJugador.getChildren().add(botonAlgomon);
 		 }
 		
@@ -231,12 +241,34 @@ public class PantallaDeLucha {
 				botonAtaque.setDisable(true);
 			}
 			botonAtaque.setOnAction(event->{
-				turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), ataque, turno.jugadorNoActivo().getAlgomonActivo()));
-				this.actualizarStats();
-				this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
-				this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
-				pantalla.setBottom(opciones);
-				System.out.println("Vida de " + turno.jugadorActivo().getAlgomonActivo().nombre() + " ---> " + turno.jugadorActivo().getAlgomonActivo().vida());
+				try{
+					turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), ataque, turno.jugadorNoActivo().getAlgomonActivo()));
+					barraDeVida1.setProgress(jugador1.getAlgomonActivo().vida()/(1.0*jugador1.getAlgomonActivo().getVidaMax()));
+					barraDeVida2.setProgress(jugador2.getAlgomonActivo().vida()/(1.0*jugador2.getAlgomonActivo().getVidaMax()));
+					this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
+					this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
+					this.actualizarStats();
+					pantalla.setBottom(opciones);
+					System.out.println("Vida de " + turno.jugadorActivo().getAlgomonActivo().nombre() + " ---> " + turno.jugadorActivo().getAlgomonActivo().vida());}
+				catch (AlgomonDebilitadoExcepcion e){
+					
+					/*LO QUE HACE AHORA ES CAMBIAR EL TURNO Y MOSTRAR LAS COSAS DEL MUERTO SERIA
+					 * LO QUE FALTA ES QUE ELIJA SI O SI OTRO ALGOMON, DESPUES NO PUEDE VOLVER A ELEGIR
+					 * EL ALGOMON MUERTO, QUEDA INHABILITADO SU BOTON, ESO ES LO QUE IMPLEMENTE ACA
+					 * FALTA LO QUE DIJE */
+					
+					barraDeVida1.setProgress(jugador1.getAlgomonActivo().vida()/(1.0*jugador1.getAlgomonActivo().getVidaMax()));
+					barraDeVida2.setProgress(jugador2.getAlgomonActivo().vida()/(1.0*jugador2.getAlgomonActivo().getVidaMax()));
+					this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
+					this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
+					jugador1Algomones.getChildren().clear();
+					jugador2Algomones.getChildren().clear();
+					this.mostrarAlgomonesDeJugadores(jugador1, volverAtacar, ataques, jugador1Algomones);
+					this.mostrarAlgomonesDeJugadores(jugador2, volverAtacar, ataques, jugador2Algomones);
+					this.actualizarStats();
+					pantalla.setBottom(opciones);
+					
+				}
 			});
 			ataques.getChildren().add(botonAtaque);
 		}
@@ -273,7 +305,9 @@ public class PantallaDeLucha {
 	
 	public void cambiarDeAlgomon(VBox jugadorAlgomones){
 		for (int x=0; x < jugadorAlgomones.getChildren().size();x++){
-			jugadorAlgomones.getChildren().get(x).setDisable(false);
+			if( jugadorAlgomones.getChildren().get(x).getId() == null){ //SI ESTA VIVO, HABILITA EL BOTON, SINO LO DEJA INHABILITADO
+				jugadorAlgomones.getChildren().get(x).setDisable(false);
+			}
 		}
 		botonAtacar.setDisable(true);
 		botonElemento.setDisable(true);
