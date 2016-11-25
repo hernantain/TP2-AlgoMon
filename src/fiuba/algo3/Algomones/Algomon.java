@@ -14,15 +14,17 @@ public abstract class Algomon {
 	
 	protected Vida vida;
 	protected ArrayList<Ataque> ataques = new ArrayList<Ataque>();
-	protected boolean vivo = true;
 	protected Tipo tipo;
 	protected Estado estado = new EstadoNormal();
 	protected String nombre;
 	protected Ataque ataqueActual;
 
 	public boolean atacarA(Algomon otroAlgomon){
-		if (this.efectoDeEstado()){
-			return ataqueActual.atacar(otroAlgomon);
+		if (this.estaVivo()){
+			if (this.efectoDeEstado()){
+				return ataqueActual.atacar(otroAlgomon);
+			}
+			return false;
 		}
 		return false;
 	}
@@ -54,7 +56,9 @@ public abstract class Algomon {
 	}
 	
 	public void curarse(int cantidadACurarse) {
-		vida.aumentar(cantidadACurarse);
+		if (this.estaVivo()){
+			vida.aumentar(cantidadACurarse);
+		}//VER EL MANEJO DE ALGUNA EXCPECION PARA NO UTILIZAR EL ELEMENTO
 	}
 	
 	public double vida(){//ESTE METODO LO CREE PARA LOS TEST BASICAMENTE

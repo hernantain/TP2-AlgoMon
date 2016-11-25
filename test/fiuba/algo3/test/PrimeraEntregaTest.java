@@ -394,12 +394,12 @@ public class PrimeraEntregaTest {
 	public void SquirtleAgotaAtaqueRapido(){
 		
 		Squirtle squirtle = new Squirtle();
-		Squirtle squirtle2 = new Squirtle();
+		Rattata rattata = new Rattata();
 		squirtle.setEstrategiaAtaque(new AtaqueRapido());
 		for (int x = 0; x < 16; x++){  			//ATAQUE RAPIDO TIENE UNA CANTIDAD DE 16	
-			squirtle.atacarA(squirtle2);
+			squirtle.atacarA(rattata);
 		}
-		assertEquals(false, squirtle.atacarA(squirtle2));
+		assertEquals(false, squirtle.atacarA(rattata));
 	}
 	
 	@Test
@@ -442,72 +442,72 @@ public class PrimeraEntregaTest {
 	public void CharmanderAgotaAtaqueRapido(){
 		
 		Charmander charmander = new Charmander();
-		Bulbasaur bulbasaur = new Bulbasaur();
+		Rattata rattata = new Rattata();
 		charmander.setEstrategiaAtaque(new AtaqueRapido());
 		for (int x = 0; x < 16; x++){  			//ATAQUE RAPIDO TIENE UNA CANTIDAD DE 16	
-			charmander.atacarA(bulbasaur);
+			charmander.atacarA(rattata);
 		}
-		assertEquals(false, charmander.atacarA(bulbasaur));
+		assertEquals(false, charmander.atacarA(rattata));
 	}
 	
 	@Test
 	public void BulbasaurAgotaLatigoCepa(){
 		
 		Bulbasaur bulbasaur = new Bulbasaur();
-		Squirtle squirtle = new Squirtle();
+		Rattata rattata = new Rattata();
 		bulbasaur.setEstrategiaAtaque(new LatigoCepa());
 		for (int x = 0; x < 10; x++){  			//LATIGO CEPA TIENE UNA CANTIDAD DE 10	
-			bulbasaur.atacarA(squirtle);
+			bulbasaur.atacarA(rattata);
 		}
-		assertEquals(false, bulbasaur.atacarA(squirtle));
+		assertEquals(false, bulbasaur.atacarA(rattata));
 	}
 	
 	@Test
 	public void BulbasaurAgotaAtaqueRapido(){
 		
 		Bulbasaur bulbasaur = new Bulbasaur();
-		Squirtle squirtle = new Squirtle();
+		Charmander charmander = new Charmander();
 		bulbasaur.setEstrategiaAtaque(new AtaqueRapido());
 		for (int x = 0; x < 16; x++){  			//ATAQUE RAPIDO TIENE UNA CANTIDAD DE 16	
-			bulbasaur.atacarA(squirtle);
+			bulbasaur.atacarA(charmander);
 		}
-		assertEquals(false, bulbasaur.atacarA(squirtle));
+		assertEquals(false, bulbasaur.atacarA(charmander));
 	}
 	
 	@Test
 	public void ChanseyAgotaAtaqueRapido(){
 		
 		Chansey chansey = new Chansey();
-		Bulbasaur bulbasaur = new Bulbasaur();
+		Rattata rattata = new Rattata();
 		chansey.setEstrategiaAtaque(new AtaqueRapido());
 		for (int x = 0; x < 16; x++){  			//ATAQUE RAPIDO TIENE UNA CANTIDAD DE 16	
-			chansey.atacarA(bulbasaur);
+			chansey.atacarA(rattata);
 		}
-		assertEquals(false, chansey.atacarA(bulbasaur));
+		assertEquals(false, chansey.atacarA(rattata));
 	}
 
 	@Test
 	public void ChanseyAgotaLatigoCepa(){
 		
 		Chansey chansey = new Chansey();
-		Squirtle squirtle = new Squirtle();
+		Charmander charmander = new Charmander();
 		chansey.setEstrategiaAtaque( new LatigoCepa());
 		for (int x = 0; x < 10; x++){  			//LATIGO CEPA TIENE UNA CANTIDAD DE 10	
-			chansey.atacarA(squirtle);
+			chansey.atacarA(charmander);
 		}
-		assertEquals(false, chansey.atacarA(squirtle));
+		assertEquals(false, chansey.atacarA(charmander));
 	}
 	
 	@Test
 	public void JigglypuffAgotaAtaqueRapido(){
 		
 		Jigglypuff jigglypuff = new Jigglypuff();
-		Bulbasaur bulbasaur = new Bulbasaur();
+		Rattata rattata = new Rattata();
 		jigglypuff.setEstrategiaAtaque(new AtaqueRapido());
 		for (int x = 0; x < 16; x++){  			//ATAQUE RAPIDO TIENE UNA CANTIDAD DE 16	
-			jigglypuff.atacarA(bulbasaur);
+			jigglypuff.atacarA(rattata);
 		}
-		assertEquals(false, jigglypuff.atacarA(bulbasaur));
+		assertEquals(false, jigglypuff.atacarA(rattata));
 	}	
 	
 	@Test
@@ -526,12 +526,12 @@ public class PrimeraEntregaTest {
 	public void RattataAgotaAtaqueRapido(){
 		
 		Rattata rattata = new Rattata();
-		Jigglypuff jigglypuff = new Jigglypuff();
+		Charmander charmander = new Charmander();
 		rattata.setEstrategiaAtaque(new AtaqueRapido());
 		for (int x = 0; x < 16; x++){  			//ATAQUE RAPIDO TIENE UNA CANTIDAD DE 16	
-			rattata.atacarA(jigglypuff);
+			rattata.atacarA(charmander);
 		}
-		assertEquals(false, rattata.atacarA(jigglypuff));
+		assertEquals(false, rattata.atacarA(charmander));
 	}	
 	
 	@Test

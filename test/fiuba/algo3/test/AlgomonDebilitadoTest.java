@@ -37,7 +37,9 @@ public class AlgomonDebilitadoTest {
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new LatigoCepa(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
 		//Bulbasaur queda debilitado.
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Brasas(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		try{
+			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Brasas(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		}catch (AlgomonDebilitadoExcepcion e){};
 		//Este ataque no debería hacerse, Charmander debería quedar con 142 de vida.
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new LatigoCepa(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
