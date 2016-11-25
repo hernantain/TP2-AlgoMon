@@ -48,6 +48,9 @@ public abstract class Algomon {
 	
 	public void recibirAtaque(int danio){
 		vida.disminuir(danio);
+		if(!this.estaVivo()){
+			throw new AlgomonDebilitadoExcepcion();
+		}
 	}
 	
 	public void curarse(int cantidadACurarse) {

@@ -36,7 +36,10 @@ public class Vida {
 	}
 
 	public boolean agotada() {
-		return vidaActual == 0;
+		if (vidaActual == 0){
+			return true;
+		}
+		return false;
 	}
 	
 }
