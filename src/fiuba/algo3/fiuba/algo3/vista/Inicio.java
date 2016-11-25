@@ -1,4 +1,4 @@
-package vista;
+package fiuba.algo3.vista;
 
 import java.io.File;
 
