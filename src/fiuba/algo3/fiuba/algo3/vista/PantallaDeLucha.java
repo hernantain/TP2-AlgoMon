@@ -223,7 +223,7 @@ public class PantallaDeLucha {
 						this.mostrarImagenAlgomonesJugadores(jugador1, jugador2);
 						this.habilitarAlgomones(algomonesJugador, botonAtacar, botonElemento, volverOpciones);
 						this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
-
+						botonCambiar.setDisable(false);
 					});
 				}
 				else{ botonAlgomon.setId("muerto");} //SI EL ALGOMON ESTA MUERTO, LE SETEO UN ID QUE DESPUES USO EN cambiarDeAlgomon()
@@ -253,10 +253,6 @@ public class PantallaDeLucha {
 					System.out.println("Vida de " + turno.jugadorActivo().getAlgomonActivo().nombre() + " ---> " + turno.jugadorActivo().getAlgomonActivo().vida());}
 				catch (AlgomonDebilitadoExcepcion e){
 					
-					/*LO QUE HACE AHORA ES CAMBIAR EL TURNO Y MOSTRAR LAS COSAS DEL MUERTO SERIA
-					 * LO QUE FALTA ES QUE ELIJA SI O SI OTRO ALGOMON, DESPUES NO PUEDE VOLVER A ELEGIR
-					 * EL ALGOMON MUERTO, QUEDA INHABILITADO SU BOTON, ESO ES LO QUE IMPLEMENTE ACA
-					 * FALTA LO QUE DIJE */
 					barraDeVida1.setProgress(jugador1.getAlgomonActivo().vida()/(1.0*jugador1.getAlgomonActivo().getVidaMax()));
 					barraDeVida2.setProgress(jugador2.getAlgomonActivo().vida()/(1.0*jugador2.getAlgomonActivo().getVidaMax()));
 					this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
@@ -271,9 +267,7 @@ public class PantallaDeLucha {
 					} else {
 						this.elegirSuplenteDeAlgomonDebilitado(jugador2Algomones);
 					}
-					botonCambiar.setDisable(false);
 					pantalla.setBottom(opciones);
-
 				}
 			});
 			ataques.getChildren().add(botonAtaque);
