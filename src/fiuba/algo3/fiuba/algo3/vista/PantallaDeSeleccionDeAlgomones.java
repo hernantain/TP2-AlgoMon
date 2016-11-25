@@ -11,6 +11,9 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -33,6 +36,20 @@ public class PantallaDeSeleccionDeAlgomones {
 		jugador1 = j1;
 		jugador2 = j2;
 		stage = stagePrincipal;
+	}
+	
+	public MenuBar agregarMenuBar(String url){
+		MenuBar menuBar = new MenuBar();
+		//menuBar.setStyle("-fx-position: top");
+		Menu archivo = new Menu("Archivo");
+		MenuItem salir = new MenuItem("Salir");
+		archivo.getItems().addAll(salir);
+		salir.setOnAction(e->stage.close());
+		menuBar.getMenus().addAll(archivo);
+		menuBar.setStyle(url);
+		menuBar.setOpacity(0.75);
+		
+		return menuBar;
 	}
 	
 	public ImageView crearImagen(String url, int height, int width){
@@ -74,13 +91,15 @@ public class PantallaDeSeleccionDeAlgomones {
 		HBox contenedorDeAlgomon = new HBox(40);
 		contenedorDeAlgomon.setPrefHeight(150);
 		contenedorDeAlgomon.setAlignment(Pos.CENTER);
-		jugador1Algomones = new VBox(50);
+		jugador1Algomones = new VBox(30);
 		jugador1Algomones.setAlignment(Pos.TOP_CENTER);
-		jugador2Algomones = new VBox(50);
+		jugador2Algomones = new VBox(30);
 		jugador2Algomones.setAlignment(Pos.TOP_CENTER);
 		jugador1Algomones.setPrefWidth(130);
 		jugador2Algomones.setPrefWidth(130);
 		
+		MenuBar menuBar = agregarMenuBar("-fx-font: 14 arial; -fx-base: #ffffff;"
+				+ "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 )");
 		
 		Label nombrejugador1 = new Label(jugador1.getNombre());
 		nombrejugador1.setStyle("-fx-font: 24 arial; -fx-text-fill: #00ffff;");
@@ -161,7 +180,7 @@ public class PantallaDeSeleccionDeAlgomones {
 		vistaChansey.setAlignment(Pos.CENTER);
 		vistaChansey.getChildren().addAll(nombreChansey,crearImagen("file:src/imagenes/chansey.png",200,200),crearImagen("file:src/imagenes/caracchansey.png", 120, 750),botonElegirChansey);
 	
-		
+		seleccionDeAlgomon.setTop(menuBar);
 		seleccionDeAlgomon.setRight(jugador2Algomones);		
 		seleccionDeAlgomon.setLeft(jugador1Algomones);
 		seleccionDeAlgomon.setBottom(contenedorDeAlgomon);

@@ -42,7 +42,7 @@ public class Inicio extends Application {
 		Media media = new Media(new File(mediaFile).toURI().toString());
 		
 		MediaPlayer mediaPlayer = new MediaPlayer(media);
-		//mediaPlayer.play();
+		mediaPlayer.play();
 		mediaPlayer.setVolume(0.1);
 		MediaView mediaView = new MediaView(mediaPlayer);
 		
