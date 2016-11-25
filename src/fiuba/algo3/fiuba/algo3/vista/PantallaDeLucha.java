@@ -26,7 +26,7 @@ public class PantallaDeLucha {
 
 	Stage stage;
 	Jugador jugador1, jugador2;
-	Button botonAtacar,botonElemento,volverOpciones,volverElementos,volverAtacar;
+	Button botonAtacar,botonElemento, botonCambiar, volverOpciones,volverElementos,volverAtacar;
 	Turno turno;
 	BorderPane pantalla;
 	HBox opciones, ataques, elementos, pantallaDeStats,pantallaDePelea;
@@ -174,8 +174,8 @@ public class PantallaDeLucha {
 			}
 			else{ this.habilitarAlgomones(jugador2Algomones, botonAtacar, botonElemento, volverOpciones);}
 		});
-		Button cambiar = this.crearBoton("Cambiar Algomon");
-		cambiar.setOnAction(e->{
+		botonCambiar = this.crearBoton("Cambiar Algomon");
+		botonCambiar.setOnAction(e->{
 			if (turno.jugadorActivo() == jugador1){
 				this.cambiarDeAlgomon(jugador1Algomones);
 			}
@@ -185,7 +185,7 @@ public class PantallaDeLucha {
 		this.mostrarAlgomonesDeJugadores(jugador1, volverAtacar, ataques, jugador1Algomones);
 		this.mostrarAlgomonesDeJugadores(jugador2, volverAtacar, ataques, jugador2Algomones);
 		
-		opciones.getChildren().addAll(botonAtacar, cambiar, botonElemento,volverOpciones);
+		opciones.getChildren().addAll(botonAtacar, botonCambiar, botonElemento,volverOpciones);
 		
 		pantalla.setLeft(contenedorJ1);
 		pantalla.setRight(contenedorJ2);
@@ -223,6 +223,7 @@ public class PantallaDeLucha {
 						this.mostrarImagenAlgomonesJugadores(jugador1, jugador2);
 						this.habilitarAlgomones(algomonesJugador, botonAtacar, botonElemento, volverOpciones);
 						this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
+
 					});
 				}
 				else{ botonAlgomon.setId("muerto");} //SI EL ALGOMON ESTA MUERTO, LE SETEO UN ID QUE DESPUES USO EN cambiarDeAlgomon()
@@ -256,7 +257,6 @@ public class PantallaDeLucha {
 					 * LO QUE FALTA ES QUE ELIJA SI O SI OTRO ALGOMON, DESPUES NO PUEDE VOLVER A ELEGIR
 					 * EL ALGOMON MUERTO, QUEDA INHABILITADO SU BOTON, ESO ES LO QUE IMPLEMENTE ACA
 					 * FALTA LO QUE DIJE */
-					
 					barraDeVida1.setProgress(jugador1.getAlgomonActivo().vida()/(1.0*jugador1.getAlgomonActivo().getVidaMax()));
 					barraDeVida2.setProgress(jugador2.getAlgomonActivo().vida()/(1.0*jugador2.getAlgomonActivo().getVidaMax()));
 					this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
@@ -266,8 +266,14 @@ public class PantallaDeLucha {
 					this.mostrarAlgomonesDeJugadores(jugador1, volverAtacar, ataques, jugador1Algomones);
 					this.mostrarAlgomonesDeJugadores(jugador2, volverAtacar, ataques, jugador2Algomones);
 					this.actualizarStats();
+					if (turno.jugadorActivo() == jugador1){
+						this.elegirSuplenteDeAlgomonDebilitado(jugador1Algomones);
+					} else {
+						this.elegirSuplenteDeAlgomonDebilitado(jugador2Algomones);
+					}
+					botonCambiar.setDisable(false);
 					pantalla.setBottom(opciones);
-					
+
 				}
 			});
 			ataques.getChildren().add(botonAtaque);
@@ -297,11 +303,17 @@ public class PantallaDeLucha {
 	}
 	
 	public void actualizarStats(){
-		algomonNombreJ1.setText(jugador1.getAlgomonActivo().nombre()+" "+ jugador1.getAlgomonActivo().vida() + "/" + jugador1.getAlgomonActivo().getVidaMax());
-		algomonNombreJ2.setText(jugador2.getAlgomonActivo().nombre()+" "+ jugador2.getAlgomonActivo().vida() + "/" + jugador2.getAlgomonActivo().getVidaMax());
+		algomonNombreJ1.setText(jugador1.getAlgomonActivo().nombre()+" "+ (int)jugador1.getAlgomonActivo().vida() + "/" + jugador1.getAlgomonActivo().getVidaMax());
+		algomonNombreJ2.setText(jugador2.getAlgomonActivo().nombre()+" "+ (int)jugador2.getAlgomonActivo().vida() + "/" + jugador2.getAlgomonActivo().getVidaMax());
 		barraDeVida1.setProgress(jugador1.getAlgomonActivo().vida()/(1.0*jugador1.getAlgomonActivo().getVidaMax()));
 		barraDeVida2.setProgress(jugador2.getAlgomonActivo().vida()/(1.0*jugador2.getAlgomonActivo().getVidaMax()));
 	}
+	
+	public void elegirSuplenteDeAlgomonDebilitado(VBox jugadorAlgomones) {
+		this.cambiarDeAlgomon(jugadorAlgomones);
+		botonCambiar.setDisable(true);
+		volverOpciones.setDisable(true);
+		}
 	
 	public void cambiarDeAlgomon(VBox jugadorAlgomones){
 		for (int x=0; x < jugadorAlgomones.getChildren().size();x++){
