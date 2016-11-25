@@ -221,8 +221,7 @@ public class PantallaDeLucha {
 						if (botonCambiar.isDisabled()) {
 							turno.cambiarJugador();
 						}
-						barraDeVida1.setProgress(jugador1.getAlgomonActivo().vida()/(1.0*jugador1.getAlgomonActivo().getVidaMax()));
-						barraDeVida2.setProgress(jugador2.getAlgomonActivo().vida()/(1.0*jugador2.getAlgomonActivo().getVidaMax()));
+						this.actualizarStats();
 						this.mostrarImagenAlgomonesJugadores(jugador1, jugador2);
 						this.habilitarAlgomones(algomonesJugador, botonAtacar, botonElemento, volverOpciones);
 						this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
@@ -248,17 +247,12 @@ public class PantallaDeLucha {
 			botonAtaque.setOnAction(event->{
 				try{
 					turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), ataque, turno.jugadorNoActivo().getAlgomonActivo()));
-					barraDeVida1.setProgress(jugador1.getAlgomonActivo().vida()/(1.0*jugador1.getAlgomonActivo().getVidaMax()));
-					barraDeVida2.setProgress(jugador2.getAlgomonActivo().vida()/(1.0*jugador2.getAlgomonActivo().getVidaMax()));
+					this.actualizarStats();
 					this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
 					this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
-					this.actualizarStats();
 					pantalla.setBottom(opciones);
 					System.out.println("Vida de " + turno.jugadorActivo().getAlgomonActivo().nombre() + " ---> " + turno.jugadorActivo().getAlgomonActivo().vida());}
 				catch (AlgomonDebilitadoExcepcion e){
-					
-					barraDeVida1.setProgress(jugador1.getAlgomonActivo().vida()/(1.0*jugador1.getAlgomonActivo().getVidaMax()));
-					barraDeVida2.setProgress(jugador2.getAlgomonActivo().vida()/(1.0*jugador2.getAlgomonActivo().getVidaMax()));
 					this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
 					this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
 					jugador1Algomones.getChildren().clear();
