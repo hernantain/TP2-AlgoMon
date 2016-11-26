@@ -9,7 +9,10 @@ import Algomones.Rattata;
 import Algomones.Squirtle;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -137,13 +140,13 @@ public class PantallaDeSeleccionDeAlgomones {
 		comenzarBatalla.getChildren().addAll(comenzar);
 		
 		Button botonElegirCharmander = crearBotonDeEleccion();
-		botonElegirCharmander.setOnAction(e->this.agregarImagenDeAlgomonAJugador(new Charmander(), "file:src/imagenes/charmander.png"));		
+		botonElegirCharmander.setOnAction(e-> this.agregarImagenDeAlgomonAJugador(new Charmander(), "file:src/imagenes/charmander.png"));		
 		
 		Button botonElegirSquirtle = crearBotonDeEleccion();
-		botonElegirSquirtle.setOnAction(e->this.agregarImagenDeAlgomonAJugador(new Squirtle(), "file:src/imagenes/squirtle.png"));
+		botonElegirSquirtle.setOnAction(e-> this.agregarImagenDeAlgomonAJugador(new Squirtle(), "file:src/imagenes/squirtle.png"));
 		
 		Button botonElegirBulbasaur = crearBotonDeEleccion();
-		botonElegirBulbasaur.setOnAction(e->this.agregarImagenDeAlgomonAJugador(new Bulbasaur(), "file:src/imagenes/bulbasaur.png"));
+		botonElegirBulbasaur.setOnAction(e-> this.agregarImagenDeAlgomonAJugador(new Bulbasaur(), "file:src/imagenes/bulbasaur.png"));
 		
 		Button botonElegirJigglypuff = crearBotonDeEleccion();
 		botonElegirJigglypuff.setOnAction(e->this.agregarImagenDeAlgomonAJugador(new Jigglypuff(), "file:src/imagenes/jigglypuff.png"));
@@ -203,14 +206,24 @@ public class PantallaDeSeleccionDeAlgomones {
 	
 	public void agregarImagenDeAlgomonAJugador(Algomon algomon, String url){
 		if (contador%2 == 0){
-		jugador1Algomones.getChildren().add(crearImagen(url, 125, 125));
-		jugador1.setAlgomon(algomon);
-		contador++;
+			try {
+				jugador1.setAlgomon(algomon);
+				jugador1Algomones.getChildren().add(crearImagen(url, 125, 125));
+				contador++;
+			} catch (AlgomonRepetidoExcepcion e) {
+				Alert alert = new Alert(AlertType.NONE, "No puedes volver a elegir a "+algomon.nombre()+"!", ButtonType.OK);
+				alert.showAndWait();
+			}
 		}
 		else{
-			jugador2Algomones.getChildren().add(crearImagen(url, 125, 125));
-			jugador2.setAlgomon(algomon);
-			contador++;
+			try {
+				jugador2.setAlgomon(algomon);
+				jugador2Algomones.getChildren().add(crearImagen(url, 125, 125));
+				contador++;
+			} catch (AlgomonRepetidoExcepcion e) {
+				Alert alert = new Alert(AlertType.NONE, "No puedes volver a elegir a "+algomon.nombre()+"!", ButtonType.OK);
+				alert.showAndWait();
+			}
 		}
 		if (contador > 5){
 			seleccionDeAlgomon.setCenter(comenzarBatalla);

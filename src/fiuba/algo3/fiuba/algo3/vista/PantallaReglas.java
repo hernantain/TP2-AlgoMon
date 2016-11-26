@@ -38,7 +38,7 @@ public class PantallaReglas {
 					 	  +"algomon;\n"
 					 	  +"	- aplicarle algun elemento al algomon activo: aparecera un listado de todos los elementos y\n"
 					 	  +"	las cantidades que todavia dispone el jugador.\n"
-					 	  +"Cualquiera de estas tres acciones hará que el turno termine.\n"
+					 	  +"Cualquiera de estas tres acciones hara que el turno termine.\n"
 					 	  +"El juego elige al azar que jugador comienza. Cuando un algomon se queda sin puntos de vida el\n"
 					 	  +"jugador debe elegir cual de sus algomones restantes vivos reemplaza al fallecido. La partida\n"
 					 	  +"termina cuando algun jugador se quede sin algomones vivos, convirtiendose asi en el jugador perdedor.");

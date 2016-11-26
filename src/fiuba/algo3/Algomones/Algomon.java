@@ -19,6 +19,14 @@ public abstract class Algomon {
 	protected String nombre;
 	protected Ataque ataqueActual;
 
+	@Override
+	public boolean equals(Object otroAlgomon){
+		if (((Algomon)otroAlgomon).nombre == this.nombre) {
+			return true;
+		}
+		return false;
+	}
+	
 	public boolean atacarA(Algomon otroAlgomon){
 		if (this.estaVivo()){
 			if (this.efectoDeEstado()){

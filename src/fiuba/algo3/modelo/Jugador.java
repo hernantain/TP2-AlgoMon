@@ -36,6 +36,9 @@ public class Jugador {
 		if (algomones.size() == cantidadDeAlgomonesASeleccionar) {
 			throw new LimiteDeAlgomonesAlcanzadoExcepcion();
 		}
+		else if (algomones.contains(unAlgomon)) {
+			throw new AlgomonRepetidoExcepcion();
+		}
 		algomones.add(unAlgomon);
 		if (algomones.size() == 1) {
 			setAlgomonActivo(unAlgomon);
@@ -88,7 +91,7 @@ public class Jugador {
 
 	public boolean cambiarAlgomonActivo(Algomon algomonEntrante) {
 		for (int i = 0; i < algomones.size(); i++) {
-			if (algomones.get(i).getClass().equals(algomonEntrante.getClass())) {
+			if (algomones.get(i).equals(algomonEntrante)) {
 				this.setAlgomonActivo(algomones.get(i));
 				return true;
 			}

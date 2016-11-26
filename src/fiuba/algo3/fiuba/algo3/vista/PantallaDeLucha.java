@@ -5,9 +5,12 @@ import java.util.ArrayList;
 import javafx.animation.FadeTransition;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -245,7 +248,7 @@ public class PantallaDeLucha {
 			}
 			botonAtaque.setOnAction(event->{
 				if (!turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), ataque, turno.jugadorNoActivo().getAlgomonActivo()))
-						&& !turno.jugadorActivo().getAlgomonActivo().estaVivo()) {
+						&& !turno.jugadorActivo().getAlgomonActivo().estaVivo()) { // Caso de ataque que provoca debilitacion de algomon.
 					this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
 					this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
 					jugador1Algomones.getChildren().clear();
@@ -253,13 +256,16 @@ public class PantallaDeLucha {
 					this.mostrarAlgomonesDeJugadores(jugador1, volverAtacar, ataques, jugador1Algomones);
 					this.mostrarAlgomonesDeJugadores(jugador2, volverAtacar, ataques, jugador2Algomones);
 					this.actualizarStats();
+					Alert alert = new Alert(AlertType.NONE, turno.jugadorActivo().getAlgomonActivo().nombre()+" se ha debilitado! Elija un reemplazo.", ButtonType.OK);
+					alert.showAndWait();
 					if (turno.jugadorActivo() == jugador1){
 						this.elegirSuplenteDeAlgomonDebilitado(jugador1Algomones);
 					} else {
 						this.elegirSuplenteDeAlgomonDebilitado(jugador2Algomones);
 					}
+					
 					pantalla.setBottom(opciones);
-				} else {
+				} else { // Caso normal.
 					this.actualizarStats();
 					this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
 					this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
