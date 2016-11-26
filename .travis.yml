@@ -2,6 +2,26 @@
 language: java
 
 # version numbers
+<<<<<<< HEAD
 jdk:
     - oraclejdk8u45
 
+=======
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
+
+before_install:
+   - apt-get update
+   - apt-get install -y maven
+
+before_script:
+   - if [[ $SHIPPABLE_JDK_VERSION == "oraclejdk8" ]] ; then export JAVA_HOME="/usr/lib/jvm/java-8-oracle"; export PATH="$PATH:/usr/lib/jvm/java-8-oracle/bin"; export java_path="/usr/lib/jvm/java-8-oracle/jre/bin/java"; fi
+   - update-alternatives --set java $java_path
+   - java -version
+
+after_success:
+   - mvn clean cobertura:cobertura
+   - mvn test
+>>>>>>> origin/master
