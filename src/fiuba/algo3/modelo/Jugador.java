@@ -12,7 +12,8 @@ import Elementos.SuperPocion;
 import Elementos.Vitamina;
 
 public class Jugador {
-
+	
+	private int cantidadDeAlgomonesASeleccionar = 3; 
 	private ArrayList<Algomon> algomones = new ArrayList<Algomon>();	//Lista de los algomones 
 	private HashMap<Elemento, Integer> elementos = new HashMap<Elemento, Integer>();
 	private Algomon algomonActivo;	 
@@ -32,6 +33,9 @@ public class Jugador {
 	}
 
 	public void setAlgomon(Algomon unAlgomon){
+		if (algomones.size() == cantidadDeAlgomonesASeleccionar) {
+			throw new LimiteDeAlgomonesAlcanzadoExcepcion();
+		}
 		algomones.add(unAlgomon);
 		if (algomones.size() == 1) {
 			setAlgomonActivo(unAlgomon);

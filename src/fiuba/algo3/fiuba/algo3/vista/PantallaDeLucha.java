@@ -20,7 +20,6 @@ import Elementos.*;
 import Ataques.*;
 import Acciones.*;
 import Algomones.Algomon;
-import Algomones.AlgomonDebilitadoExcepcion;
 
 public class PantallaDeLucha {
 

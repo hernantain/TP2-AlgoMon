@@ -37,20 +37,16 @@ public class TercerEntregaTest {
 		Jigglypuff jigglypuff = new Jigglypuff();
 		Charmander charmander = new Charmander();
 		Rattata rattata = new Rattata();
-		Squirtle squirtle_1 = new Squirtle();
 		jugador1.setAlgomon(jigglypuff);
 		jugador1.setAlgomon(rattata);
 		jugador1.setAlgomon(charmander);
-		jugador1.setAlgomon(squirtle_1);
 
 		Bulbasaur bulbasaur = new Bulbasaur();
 		Squirtle squirtle = new Squirtle();
 		Chansey chansey = new Chansey();
-		Rattata rattata_2 = new Rattata();
 		jugador2.setAlgomon(bulbasaur);
 		jugador2.setAlgomon(squirtle);
 		jugador2.setAlgomon(chansey);
-		jugador2.setAlgomon(rattata_2);
 		
 		Turno turno = new Turno(jugador1, jugador2);
 		
