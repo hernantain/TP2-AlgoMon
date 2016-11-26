@@ -19,8 +19,9 @@ public class Turno {
 	}
 	
 	public boolean jugar(AccionDeJugador accion){ //Al jugador que le corresponde jugar se le pasa la accion correspondiente
+		boolean resultado;
 		try{
-			boolean resultado = jugadorActivo.realizarAccion(accion);
+			resultado = jugadorActivo.realizarAccion(accion);
 			if( !jugadorActivo.getAlgomonActivo().estadoEsDormido()){ //VER QUE PASA SI ALGOMN ACTIVO DOMRIDO Y EL DEL BANCO TMB
 				for (Algomon algomon: jugadorActivo.algomones()){
 					if( algomon.estadoEsDormido()){
@@ -29,12 +30,11 @@ public class Turno {
 				}
 			}
 			cambiarJugador();
-			return resultado;
 		} catch (AlgomonDebilitadoExcepcion e){    //Cada vez que se realiza una accion, cambia el jugador activo.
 			cambiarJugador();
-			throw new AlgomonDebilitadoExcepcion();
+			resultado = false;
 		}
-		
+		return resultado;
 	}
 	
 	public void cambiarJugador(){

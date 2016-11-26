@@ -1,7 +1,7 @@
 package test;
 
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
@@ -19,6 +19,7 @@ public class AlgomonDebilitadoTest {
 		jugador1.setAlgomon(new Charmander());
 		jugador2.setAlgomon(new Bulbasaur());
 		Turno turno = new Turno(jugador1, jugador2);
+		boolean sePudoAtacar = true;
 		
 		//Bulbasaur queda con 108 de vida. Charmander 163.
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Brasas(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
@@ -37,12 +38,13 @@ public class AlgomonDebilitadoTest {
 		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new LatigoCepa(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
 		
 		//Bulbasaur queda debilitado.
-		try{
-			turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Brasas(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
-		}catch (AlgomonDebilitadoExcepcion e){};
-		//Este ataque no debería hacerse, Charmander debería quedar con 142 de vida.
-		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new LatigoCepa(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
-		
-		assertEquals(turno.jugadorActivo().getAlgomonActivo().vida(), 142, 0.001D);
+		turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new Brasas(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+		//Este ataque no debería poder hacerse.
+			try {
+				turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), new LatigoCepa(), turno.jugadorActivo().getOponente().getAlgomonActivo()));
+			} catch (AlgomonDebilitadoExcepcion e) {
+				sePudoAtacar = false;
+			}
+		assertFalse(sePudoAtacar);
 	}
 }

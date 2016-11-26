@@ -245,14 +245,8 @@ public class PantallaDeLucha {
 				botonAtaque.setDisable(true);
 			}
 			botonAtaque.setOnAction(event->{
-				try{
-					turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), ataque, turno.jugadorNoActivo().getAlgomonActivo()));
-					this.actualizarStats();
-					this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
-					this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
-					pantalla.setBottom(opciones);
-					System.out.println("Vida de " + turno.jugadorActivo().getAlgomonActivo().nombre() + " ---> " + turno.jugadorActivo().getAlgomonActivo().vida());}
-				catch (AlgomonDebilitadoExcepcion e){
+				if (!turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), ataque, turno.jugadorNoActivo().getAlgomonActivo()))
+						&& !turno.jugadorActivo().getAlgomonActivo().estaVivo()) {
 					this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
 					this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
 					jugador1Algomones.getChildren().clear();
@@ -266,6 +260,12 @@ public class PantallaDeLucha {
 						this.elegirSuplenteDeAlgomonDebilitado(jugador2Algomones);
 					}
 					pantalla.setBottom(opciones);
+				} else {
+					this.actualizarStats();
+					this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
+					this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
+					pantalla.setBottom(opciones);
+					System.out.println("Vida de " + turno.jugadorActivo().getAlgomonActivo().nombre() + " ---> " + turno.jugadorActivo().getAlgomonActivo().vida());
 				}
 			});
 			ataques.getChildren().add(botonAtaque);
