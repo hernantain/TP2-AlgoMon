@@ -114,4 +114,13 @@ public class Jugador {
 	public ArrayList<Algomon> algomones() {
 		return algomones;
 	}
+
+	public boolean algomonesVivos() {
+		for (Algomon algomon : algomones){
+			if (algomon.estaVivo()){
+				return true;
+			}
+		}
+		return false;
+	}
 }

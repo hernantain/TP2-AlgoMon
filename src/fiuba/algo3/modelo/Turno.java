@@ -8,6 +8,7 @@ public class Turno {
 	private Jugador jugadorActivo;  //Es el jugador que le corresponde jugar
 	private Jugador jugador1;
 	private Jugador jugador2;       //Los 2 jugadores del juego
+	private Jugador jugadorGanador;
 	
 	public Turno(Jugador player1, Jugador player2) {
 		jugadorActivo = player1;   //Esto hay que implmentarlo al azar, despues vemos como.
@@ -47,5 +48,21 @@ public class Turno {
 		} else {
 			return jugador1;
 		}
+	}
+
+	public boolean hayGanador() {
+		if( !jugador1.algomonesVivos()){
+			jugadorGanador = jugador2;
+			return true;
+		}
+		else if( !jugador2.algomonesVivos()){
+			jugadorGanador = jugador1;
+			return true;
+		}
+		else{ return false;}
+	}
+
+	public Jugador jugadorGanador() {
+		return jugadorGanador;
 	}
 }

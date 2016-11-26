@@ -247,25 +247,30 @@ public class PantallaDeLucha {
 				botonAtaque.setDisable(true);
 			}
 			botonAtaque.setOnAction(event->{
-				if (!turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), ataque, turno.jugadorNoActivo().getAlgomonActivo()))
+					if (!turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), ataque, turno.jugadorNoActivo().getAlgomonActivo()))
 						&& !turno.jugadorActivo().getAlgomonActivo().estaVivo()) { // Caso de ataque que provoca debilitacion de algomon.
-					this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
-					this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
-					jugador1Algomones.getChildren().clear();
-					jugador2Algomones.getChildren().clear();
-					this.mostrarAlgomonesDeJugadores(jugador1, volverAtacar, ataques, jugador1Algomones);
-					this.mostrarAlgomonesDeJugadores(jugador2, volverAtacar, ataques, jugador2Algomones);
-					this.actualizarStats();
-					Alert alert = new Alert(AlertType.NONE, turno.jugadorActivo().getAlgomonActivo().nombre()+" se ha debilitado, Elija un reemplazo.", ButtonType.OK);
-					alert.showAndWait();
-					if (turno.jugadorActivo() == jugador1){
-						this.elegirSuplenteDeAlgomonDebilitado(jugador1Algomones);
-					} else {
-						this.elegirSuplenteDeAlgomonDebilitado(jugador2Algomones);
-					}
-					
-					pantalla.setBottom(opciones);
-				} else { // Caso normal.
+						if (turno.hayGanador()){
+						PantallaDeGanador pantallaDeGanador = new PantallaDeGanador(stage, turno.jugadorGanador());
+						pantallaDeGanador.cambiarVista();
+						}
+						else{
+							this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
+							this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
+							jugador1Algomones.getChildren().clear();
+							jugador2Algomones.getChildren().clear();
+							this.mostrarAlgomonesDeJugadores(jugador1, volverAtacar, ataques, jugador1Algomones);
+							this.mostrarAlgomonesDeJugadores(jugador2, volverAtacar, ataques, jugador2Algomones);
+							this.actualizarStats();
+							Alert alert = new Alert(AlertType.NONE, turno.jugadorActivo().getAlgomonActivo().nombre()+" se ha debilitado, Elija un reemplazo.", ButtonType.OK);
+							alert.showAndWait();
+							if (turno.jugadorActivo() == jugador1){
+								this.elegirSuplenteDeAlgomonDebilitado(jugador1Algomones);
+							} else {
+								this.elegirSuplenteDeAlgomonDebilitado(jugador2Algomones);
+							}
+						}
+							pantalla.setBottom(opciones);
+					} else { // Caso normal.
 					this.actualizarStats();
 					this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
 					this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
