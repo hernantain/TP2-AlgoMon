@@ -4,5 +4,5 @@ language: java
 # version numbers
 
 jdk:
-    - oraclejdk1.8u45
+    - oraclejdk8
 
