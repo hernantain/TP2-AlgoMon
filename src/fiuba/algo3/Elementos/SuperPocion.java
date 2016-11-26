@@ -11,5 +11,6 @@ public class SuperPocion extends Elemento {
 	
 	public void aplicarA(Algomon algomon) {
 		algomon.curarse(vidaACurar);
+		algomon.efectoDeEstado();
 	}
 }

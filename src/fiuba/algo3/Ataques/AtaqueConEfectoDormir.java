@@ -17,7 +17,7 @@ public class AtaqueConEfectoDormir extends AtaqueEspecial{
 	}
 
 	public void efectoSecundario(Algomon algomonAfectado) {
-		algomonAfectado.cambiarEstado(new EstadoDormido(algomonAfectado));
+		algomonAfectado.agregarEstado(new EstadoDormido(algomonAfectado));
 	}
 	
 	public void aumentarCantidadDeAtaque(int cantidadAAumentar) {

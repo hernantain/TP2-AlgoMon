@@ -2,6 +2,11 @@ package Estado;
 
 public abstract class Estado {
 
-	public abstract void efecto();
+	protected String nombre;
+	
+	public abstract String nombre();
+	
+	public abstract boolean equals(Estado estado);
 
+	public abstract void efecto();
 }

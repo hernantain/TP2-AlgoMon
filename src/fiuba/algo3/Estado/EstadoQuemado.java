@@ -8,6 +8,7 @@ public class EstadoQuemado extends Estado {
 	
 	public EstadoQuemado(Algomon algomon){
 		miAlgomon = algomon;
+		nombre = "Estado Quemado";
 	}
 	
 	@Override
@@ -15,5 +16,17 @@ public class EstadoQuemado extends Estado {
 		miAlgomon.recibirAtaque(miAlgomon.getVidaMax()/10);
 	}
 
+	@Override
+	public String nombre() {
+		return this.nombre;
+	}
+	
+	@Override
+	public boolean equals(Estado estado) {
+		if (this.nombre() == estado.nombre()) {
+			return true;
+		}
+		return false;
+	}
 
 }

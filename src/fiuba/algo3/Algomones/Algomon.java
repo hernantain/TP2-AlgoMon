@@ -8,11 +8,13 @@ import Estado.Estado;
 import Estado.EstadoDormido;
 import Estado.EstadoDormidoExcepcion;
 import Estado.EstadoNormal;
+import Estado.FinEstadoDormidoExcepcion;
 import Tipos.Tipo;
 
 public abstract class Algomon {
 	
 	protected Vida vida;
+	protected ArrayList<Estado> estados = new ArrayList<Estado>();
 	protected ArrayList<Ataque> ataques = new ArrayList<Ataque>();
 	protected Tipo tipo;
 	protected Estado estado = new EstadoNormal();
@@ -78,8 +80,21 @@ public abstract class Algomon {
 		return tipo;
 	}
 	
-	public void cambiarEstado(Estado nuevoEstado){
-		estado = nuevoEstado;
+	public void agregarEstado(Estado nuevoEstado) {
+		for (Estado estado: estados){
+			if (nuevoEstado.equals(estado)){
+				return;
+			}
+		}
+		estados.add(nuevoEstado);
+	}
+	
+	public void quitarEstado(Estado estadoAQuitar){
+		for (int i=0; i < estados.size(); i++){
+			if (estadoAQuitar.equals(estados.get(i))){
+				estados.remove(i);
+			}
+		}
 	}
 
 	public int getVidaMax() {
@@ -93,7 +108,7 @@ public abstract class Algomon {
 	}
 	
 	public boolean estadoEsDormido(){
-		return estado.getClass().equals(new EstadoDormido(this).getClass());
+		return estado.equals(new EstadoDormido(this));
 	}
 
 	public String nombre() {
@@ -105,12 +120,22 @@ public abstract class Algomon {
 	}
 
 	public boolean efectoDeEstado() {
-		try {
-			estado.efecto();
-			return true;
-		} catch (EstadoDormidoExcepcion e){
-			return false;
+		boolean atacar = true;
+		boolean quitarEstado = false;
+		for (Estado estado: estados) {
+			try {
+				estado.efecto();
+			} catch (EstadoDormidoExcepcion e){
+				atacar = false;
+			} catch (FinEstadoDormidoExcepcion e){
+				atacar = false;
+				quitarEstado = true;
+			}
 		}
+		if (quitarEstado) {
+			this.quitarEstado(new EstadoDormido(this));
+		}
+		return atacar;
 	}
 
 	public boolean estaVivo() {

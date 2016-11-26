@@ -11,6 +11,7 @@ public class Pocion extends Elemento {
 	
 	public void aplicarA(Algomon algomon) {
 		algomon.curarse(vidaACurar);
+		algomon.efectoDeEstado();
 	}
 
 }

@@ -1,7 +1,8 @@
 package Elementos;
 
 import Algomones.Algomon;
-import Estado.EstadoNormal;
+import Estado.EstadoDormido;
+import Estado.EstadoQuemado;
 
 public class Restaurador extends Elemento {
 	
@@ -10,6 +11,7 @@ public class Restaurador extends Elemento {
 	}
 	
 	public void aplicarA(Algomon algomon) {
-		algomon.cambiarEstado(new EstadoNormal());
+		algomon.quitarEstado(new EstadoDormido(algomon));
+		algomon.quitarEstado(new EstadoQuemado(algomon));
 	}
 }

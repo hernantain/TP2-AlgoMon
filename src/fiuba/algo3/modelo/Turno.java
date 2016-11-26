@@ -1,7 +1,6 @@
 package modelo;
 
 import Acciones.AccionDeJugador;
-import Algomones.Algomon;
 import Algomones.AlgomonDebilitadoExcepcion;
 
 public class Turno {
@@ -22,13 +21,6 @@ public class Turno {
 		boolean resultado;
 		try{
 			resultado = jugadorActivo.realizarAccion(accion);
-			if( !jugadorActivo.getAlgomonActivo().estadoEsDormido()){ //VER QUE PASA SI ALGOMN ACTIVO DOMRIDO Y EL DEL BANCO TMB
-				for (Algomon algomon: jugadorActivo.algomones()){
-					if( algomon.estadoEsDormido()){
-						algomon.efectoDeEstado();
-					}
-				}
-			}
 			cambiarJugador();
 		} catch (AlgomonDebilitadoExcepcion e){    //Cada vez que se realiza una accion, cambia el jugador activo.
 			cambiarJugador();

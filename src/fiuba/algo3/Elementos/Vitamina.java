@@ -11,6 +11,7 @@ public class Vitamina extends Elemento{
 	
 	public void aplicarA(Algomon algomon) {
 		algomon.aumentarCantidadDeAtaques(cantidadAAumentar);
+		algomon.efectoDeEstado();
 	}
 
 }
