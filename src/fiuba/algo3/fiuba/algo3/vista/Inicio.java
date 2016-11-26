@@ -53,15 +53,22 @@ public class Inicio extends Application {
 						+   "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
 		botonJugar.setPrefSize(300, 70);
 		
+		Button botonReglas = new Button();
+		botonReglas.setText("Ver Reglamento");
+		botonReglas.setStyle("-fx-font: 22 arial; -fx-base: #0014f4;"
+						+   "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
+		botonReglas.setPrefSize(300, 70);
+			
+		
 		botonSacarSonido = new Button();
-		botonSacarSonido.setText("Silenciar"); //ME TIENE LOS HUEVOS LLENOS LA CANCIONSITA
+		botonSacarSonido.setText("Silenciar Musica"); //ME TIENE LOS HUEVOS LLENOS LA CANCIONSITA
 		botonSacarSonido.setStyle("-fx-font: 22 arial; -fx-base: #0014f4;"
 						+   "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
 		botonSacarSonido.setPrefSize(300, 70);
 		botonSacarSonido.setOnAction(e->{
 			mediaPlayer.stop();
 			root.getChildren().clear();
-			root.getChildren().addAll(mensaje,botonJugar, botonPonerSonido,botonSalir,mediaView);
+			root.getChildren().addAll(mensaje,botonJugar,botonReglas,botonPonerSonido,botonSalir,mediaView);
 		});
 		
 		botonPonerSonido = new Button();
@@ -72,7 +79,7 @@ public class Inicio extends Application {
 		botonPonerSonido.setOnAction(e->{
 			mediaPlayer.play();
 			root.getChildren().clear();
-			root.getChildren().addAll(mensaje,botonJugar, botonSacarSonido,botonSalir,mediaView);
+			root.getChildren().addAll(mensaje,botonJugar,botonReglas,botonSacarSonido,botonSalir,mediaView);
 		});
 		
 		
@@ -85,7 +92,7 @@ public class Inicio extends Application {
 		
 		root = new VBox(30);
 		root.setAlignment(Pos.CENTER_LEFT);
-		root.getChildren().addAll(mensaje,botonJugar, botonSacarSonido,botonSalir,mediaView);
+		root.getChildren().addAll(mensaje,botonJugar,botonReglas,botonSacarSonido,botonSalir,mediaView);
 		
 		
 		root.setStyle("-fx-background-image: url('file:src/imagenes/fondo10.jpg');"
@@ -97,12 +104,17 @@ public class Inicio extends Application {
 		stagePrincipal.setTitle("TP2 - AlgoMon");
 		stagePrincipal.setScene(scene);
 		stagePrincipal.show();
-		stagePrincipal.setFullScreen(true);
+		stagePrincipal.setMaximized(true);
 		
 		
 		botonJugar.setOnAction(e-> {
 			PantallaJugadores segunda = new PantallaJugadores(stagePrincipal,scene);
 			segunda.cambiarVista();
 		});		
+		
+		botonReglas.setOnAction(e->{
+			PantallaReglas pantallaReglas = new PantallaReglas(stagePrincipal,scene);
+			pantallaReglas.cambiarVista();
+		});
 	}
 }

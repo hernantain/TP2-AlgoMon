@@ -59,11 +59,6 @@ public class PantallaJugadores {
 		segundoLayout.setAlignment(Pos.CENTER_LEFT);
 		
 		//Jugador ingresa su nombre
-		Label equipoLabel = new Label("Equipo Azul ");
-		equipoLabel.setStyle("-fx-text-fill: #16a0fc;"
-								 +"-fx-font: 45 arial;"
-								 +"-fx-effect: innershadow( two-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
-		
 		
 		Label ingreseNombreLabel = new Label("Ingrese nombre de jugador 1: ");
 		ingreseNombreLabel.setStyle("-fx-text-fill: #16a0fc;"
@@ -117,7 +112,7 @@ public class PantallaJugadores {
 				stage.setMaximized(false);
 				stage.setMaximized(true);
 			});
-			segundoLayout.getChildren().addAll(equipoLabel,ingreseNombreLabel,casilla,botonIngresarNombre,boton);
+			segundoLayout.getChildren().addAll(ingreseNombreLabel,casilla,botonIngresarNombre,boton);
 			pantallaJugadores.setStyle("-fx-background-image: url('file:src/imagenes/fondo8.jpg');" 
 								+"-fx-background-repeat: no-repeat;"
 								+"-fx-background-position: 50% 50%; "
@@ -147,13 +142,7 @@ public class PantallaJugadores {
 			tercerLayout.setAlignment(Pos.CENTER_LEFT);
 				
 				//Jugador ingresa su nombre
-			
-				Label equipoLabel2 = new Label("Equipo Rojo ");
-				equipoLabel2.setStyle("-fx-text-fill: #ff0000;"
-									 +"-fx-font: 45 arial;"
-									 +"-fx-effect: innershadow( two-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
-			
-				
+							
 				Label ingreseNombreLabel2 = new Label("Ingrese nombre de jugador 2: ");
 				ingreseNombreLabel2.setStyle("-fx-text-fill: #ff0000;"
 								 			+"-fx-font: 30 arial;"
@@ -202,7 +191,7 @@ public class PantallaJugadores {
 					stage.setMaximized(false);
 					stage.setMaximized(true);
 				});
-				tercerLayout.getChildren().addAll(equipoLabel2,ingreseNombreLabel2,casilla2,botonIngresarNombre2,boton2);
+				tercerLayout.getChildren().addAll(ingreseNombreLabel2,casilla2,botonIngresarNombre2,boton2);
 				
 				pantallaJugadores2.setStyle("-fx-background-image: url('file:src/imagenes/fondo9.jpg');"
 									 +"-fx-background-size: cover;");
