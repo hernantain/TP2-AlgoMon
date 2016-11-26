@@ -211,7 +211,7 @@ public class PantallaDeSeleccionDeAlgomones {
 				jugador1Algomones.getChildren().add(crearImagen(url, 125, 125));
 				contador++;
 			} catch (AlgomonRepetidoExcepcion e) {
-				Alert alert = new Alert(AlertType.NONE, "No puedes volver a elegir a "+algomon.nombre()+"!", ButtonType.OK);
+				Alert alert = new Alert(AlertType.NONE, "No puedes volver a elegir a "+algomon.nombre(), ButtonType.OK);
 				alert.showAndWait();
 			}
 		}
