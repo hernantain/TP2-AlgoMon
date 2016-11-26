@@ -256,7 +256,7 @@ public class PantallaDeLucha {
 					this.mostrarAlgomonesDeJugadores(jugador1, volverAtacar, ataques, jugador1Algomones);
 					this.mostrarAlgomonesDeJugadores(jugador2, volverAtacar, ataques, jugador2Algomones);
 					this.actualizarStats();
-					Alert alert = new Alert(AlertType.NONE, turno.jugadorActivo().getAlgomonActivo().nombre()+" se ha debilitado! Elija un reemplazo.", ButtonType.OK);
+					Alert alert = new Alert(AlertType.NONE, turno.jugadorActivo().getAlgomonActivo().nombre()+" se ha debilitado, Elija un reemplazo.", ButtonType.OK);
 					alert.showAndWait();
 					if (turno.jugadorActivo() == jugador1){
 						this.elegirSuplenteDeAlgomonDebilitado(jugador1Algomones);
