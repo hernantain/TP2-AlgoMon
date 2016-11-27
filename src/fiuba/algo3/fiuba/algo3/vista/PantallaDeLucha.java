@@ -16,6 +16,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import modelo.*;
@@ -34,8 +36,8 @@ public class PantallaDeLucha {
 	HBox opciones, ataques, elementos, pantallaDeStats;
 	VBox algomonJ1Stats, algomonJ2Stats,algomonJ1,algomonJ2,jugador1Algomones, jugador2Algomones;
 	ProgressBar barraDeVida1, barraDeVida2;
-	Label algomonNombreJ1, algomonNombreJ2;
-	FadeTransition ft;
+	Label algomonNombreJ1, algomonNombreJ2, nombrejugador1, nombrejugador2;
+	Circle circulo, circulo2;
 	
 	public PantallaDeLucha(Stage stagePrincipal, Turno t, Jugador player1, Jugador player2){
 		stage = stagePrincipal;
@@ -69,23 +71,37 @@ public class PantallaDeLucha {
 		jugador1Algomones.setPrefWidth(130);
 		jugador2Algomones.setPrefWidth(130);
 		
-		Label nombrejugador1 = new Label(jugador1.getNombre());
-		nombrejugador1.setStyle("-fx-font: 24 arial; -fx-text-fill: #00ffff;");
+		nombrejugador1 = new Label(jugador1.getNombre());
+		nombrejugador1.setStyle("-fx-font: 24 arial; -fx-text-fill: blue;");
 		
-		Label nombrejugador2 = new Label(jugador2.getNombre());
+		nombrejugador2 = new Label(jugador2.getNombre());
 		nombrejugador2.setStyle("-fx-font: 24 arial; -fx-text-fill: #820000;");
 		
 		//AGREGUE ESTOS CONTENEDORES, TIENEN LOS LABELS CON LOS NOMBRES
 		//Y LA VBOX DE LO ALGOMONES
 		
+		circulo = new Circle(10);
+		circulo2 = new Circle(10);
+		circulo.setFill(Color.BLUE);
+		circulo2.setFill(Color.DARKRED);
+		if (turno.jugadorActivo() == jugador1) {
+			circulo2.setOpacity(0); 
+			nombrejugador2.setDisable(true);
+		}
+		else {
+			circulo.setOpacity(0); 
+			nombrejugador1.setDisable(true);
+		}
+
+		
 		VBox contenedorJ1 = new VBox(70);
 		contenedorJ1.setAlignment(Pos.TOP_CENTER);
-		contenedorJ1.getChildren().addAll(nombrejugador1, jugador1Algomones);
+		contenedorJ1.getChildren().addAll(nombrejugador1, circulo, jugador1Algomones);
 		contenedorJ1.setStyle("-fx-background-color: #00b2ff; -fx-border-color: black;-fx-border-width: 7;");
 		contenedorJ1.setPrefWidth(150);
 		VBox contenedorJ2 = new VBox(70);
 		contenedorJ2.setAlignment(Pos.TOP_CENTER);
-		contenedorJ2.getChildren().addAll(nombrejugador2, jugador2Algomones);
+		contenedorJ2.getChildren().addAll(nombrejugador2, circulo2, jugador2Algomones);
 		contenedorJ2.setStyle("-fx-background-color: #ff0000; -fx-border-color: black;-fx-border-width: 7;");
 		contenedorJ2.setPrefWidth(150);
 		
@@ -109,9 +125,9 @@ public class PantallaDeLucha {
 		barraDeVida2.setProgress(1.0);
 		barraDeVida2.setPrefSize(200, 20);
 		
-		algomonNombreJ1 = new Label(jugador1.getAlgomonActivo().nombre()+" "+ jugador1.getAlgomonActivo().vida() + "/" + jugador1.getAlgomonActivo().getVidaMax()); 
+		algomonNombreJ1 = new Label(jugador1.getAlgomonActivo().nombre()+" "+ (int)jugador1.getAlgomonActivo().vida() + "/" + jugador1.getAlgomonActivo().getVidaMax()); 
 		algomonNombreJ1.setStyle("-fx-font: 20 arial;");
-		algomonNombreJ2 = new Label(jugador2.getAlgomonActivo().nombre()+" "+ jugador2.getAlgomonActivo().vida() + "/" + jugador2.getAlgomonActivo().getVidaMax()); 		
+		algomonNombreJ2 = new Label(jugador2.getAlgomonActivo().nombre()+" "+ (int)jugador2.getAlgomonActivo().vida() + "/" + jugador2.getAlgomonActivo().getVidaMax()); 		
 		algomonNombreJ2.setStyle("-fx-font: 20 arial;");
 		
 		algomonJ1Stats = new VBox(20);
@@ -134,10 +150,6 @@ public class PantallaDeLucha {
 		algomonJ2.getChildren().add(imgAlgomonActivo2);
 		algomonJ2.setAlignment(Pos.CENTER);
 		algomonJ2.setPrefSize(400, 400);
-		
-		ft = new FadeTransition(Duration.millis(3000), imgAlgomonActivo1);
-		ft.setFromValue(1.0);
-		ft.setToValue(0.0);
 		
 		pantallaDeStats = new HBox(200);
 		pantallaDeStats.setPrefSize(800, 100);
@@ -237,6 +249,7 @@ public class PantallaDeLucha {
 						this.habilitarAlgomones(algomonesJugador, botonAtacar, botonElemento, volverOpciones);
 						this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
 						botonCambiar.setDisable(false);
+						this.modificarFocus();
 
 					});
 				}
@@ -286,7 +299,8 @@ public class PantallaDeLucha {
 					this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
 					pantalla.setBottom(opciones);
 					System.out.println("Vida de " + turno.jugadorActivo().getAlgomonActivo().nombre() + " ---> " + turno.jugadorActivo().getAlgomonActivo().vida());
-				}
+					}
+					this.modificarFocus();
 			});
 			ataques.getChildren().add(botonAtaque);
 		}
@@ -325,6 +339,7 @@ public class PantallaDeLucha {
 				this.usarElementosBotones(turno.jugadorActivo(), elementos, volver);
 				this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volverAtacar);
 				pantalla.setBottom(opciones);
+				this.modificarFocus();
 			});
 			elementos.getChildren().add(botonElemento);
 		}
@@ -383,4 +398,20 @@ public class PantallaDeLucha {
 		algomonJ1.getChildren().addAll(imgAlgomonActivo1);
 		algomonJ2.getChildren().addAll(imgAlgomonActivo2);
 	}
+	
+	private void modificarFocus() {
+		if (turno.jugadorActivo() == jugador2){
+			circulo2.setOpacity(1);
+			circulo.setOpacity(0);
+			nombrejugador1.setDisable(true);
+			nombrejugador2.setDisable(false);
+		}
+		else{
+			circulo2.setOpacity(0);
+			circulo.setOpacity(1);
+			nombrejugador1.setDisable(false);
+			nombrejugador2.setDisable(true);
+		}
+	}
+
 }

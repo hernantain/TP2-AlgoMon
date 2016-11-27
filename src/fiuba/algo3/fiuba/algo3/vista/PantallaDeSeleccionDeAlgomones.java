@@ -110,7 +110,7 @@ public class PantallaDeSeleccionDeAlgomones {
 		jugador2Algomones.setPrefWidth(130);
 		
 		nombrejugador1 = new Label(jugador1.getNombre());
-		nombrejugador1.setStyle("-fx-font: 24 arial; -fx-text-fill: #00ffff;");
+		nombrejugador1.setStyle("-fx-font: 24 arial; -fx-text-fill: blue;");
 		nombrejugador2 = new Label(jugador2.getNombre());
 		nombrejugador2.setStyle("-fx-font: 24 arial; -fx-text-fill: #ff0000;");
 		

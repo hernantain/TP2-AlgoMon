@@ -2,19 +2,22 @@ package fiuba.algo3.vista;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import modelo.Jugador;
+import modelo.*;
 
 
 public class PantallaJugadores {
@@ -75,10 +78,15 @@ public class PantallaJugadores {
 		casilla.setPromptText("Ingrese su nombre aqui");
 		casilla.setOnKeyPressed(event -> {
 			   if(event.getCode() == KeyCode.ENTER){
-				   jugador1 = new Jugador(casilla.getText());
-				   stage.setScene(tercerPantalla);
-					stage.setMaximized(false);
-					stage.setMaximized(true);
+				   try{
+					   jugador1 = new Jugador(casilla.getText());
+					   stage.setScene(tercerPantalla);
+					   stage.setMaximized(false);
+					   stage.setMaximized(true);
+				   }catch (NombreVacioExcepcion e){
+					   Alert alert = new Alert(AlertType.NONE, "Ingrese un nombre", ButtonType.OK);
+					   alert.showAndWait();
+				   }
 			   }});
 		casilla.setOnMouseClicked(e->casilla.requestFocus());
 		
@@ -90,10 +98,15 @@ public class PantallaJugadores {
 		Button botonIngresarNombre = new Button("Aceptar");
 		botonIngresarNombre.setPrefSize(300, 70);
 		botonIngresarNombre.setOnAction(e-> {
-			jugador1 = new Jugador(casilla.getText());
-				stage.setScene(tercerPantalla);
-				stage.setMaximized(false);
-				stage.setMaximized(true);
+			try{
+				   jugador1 = new Jugador(casilla.getText());
+				   stage.setScene(tercerPantalla);
+				   stage.setMaximized(false);
+				   stage.setMaximized(true);
+			   }catch (NombreVacioExcepcion ex){
+				   Alert alert = new Alert(AlertType.NONE, "Ingrese un nombre", ButtonType.OK);
+				   alert.showAndWait();
+			   }
 			});
 			botonIngresarNombre.setStyle("-fx-font: 22 arial; -fx-base: #0014f4;"
 					+   "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
@@ -157,9 +170,14 @@ public class PantallaJugadores {
 				casilla2.setPromptText("Ingrese su nombre aqui");
 				casilla2.setOnKeyPressed(event -> {
 					   if(event.getCode() == KeyCode.ENTER){
-						   jugador2 = new Jugador(casilla2.getText());
-						   PantallaDeSeleccionDeAlgomones seleccion = new PantallaDeSeleccionDeAlgomones(stage,jugador1,jugador2);
-						   seleccion.cambiarVista();
+						   try{
+							   jugador2 = new Jugador(casilla2.getText());
+							   PantallaDeSeleccionDeAlgomones seleccion = new PantallaDeSeleccionDeAlgomones(stage,jugador1,jugador2);
+							   seleccion.cambiarVista();
+						   }catch (NombreVacioExcepcion e){
+							   Alert alert = new Alert(AlertType.NONE, "Ingrese un nombre", ButtonType.OK);
+							   alert.showAndWait();
+						   }
 					   }});
 				casilla2.setOnMouseClicked(e->casilla.requestFocus());
 				
@@ -167,9 +185,14 @@ public class PantallaJugadores {
 				Button botonIngresarNombre2 = new Button("Aceptar");
 				botonIngresarNombre2.setPrefSize(300, 70);
 				botonIngresarNombre2.setOnAction(e-> {
-					jugador2 = new Jugador(casilla2.getText());
-					PantallaDeSeleccionDeAlgomones seleccion = new PantallaDeSeleccionDeAlgomones(stage,jugador1,jugador2);
-					seleccion.cambiarVista();
+						try{
+						   jugador2 = new Jugador(casilla2.getText());
+						   PantallaDeSeleccionDeAlgomones seleccion = new PantallaDeSeleccionDeAlgomones(stage,jugador1,jugador2);
+						   seleccion.cambiarVista();
+					   }catch (NombreVacioExcepcion ex){
+						   Alert alert = new Alert(AlertType.NONE, "Ingrese un nombre", ButtonType.OK);
+						   alert.showAndWait();
+					   }
 				});
 				botonIngresarNombre2.setOnMouseMoved(e->botonIngresarNombre2.requestFocus());
 				botonIngresarNombre2.setStyle("-fx-font: 22 arial; -fx-base: #0014f4;"

@@ -21,6 +21,9 @@ public class Jugador {
 	private String nombreJugador;
 	
 	public Jugador(String nombre) {
+		if (nombre.compareTo("") == 0){
+			throw new NombreVacioExcepcion();
+		}
 		this.setElementosIniciales();
 		nombreJugador = nombre;
 	}
