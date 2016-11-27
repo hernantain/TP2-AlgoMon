@@ -9,10 +9,7 @@ import Algomones.Rattata;
 import Algomones.Squirtle;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -274,8 +271,9 @@ public class PantallaDeSeleccionDeAlgomones {
 				} 
 				if (contador > 5) seleccionDeAlgomon.setCenter(comenzarBatalla);
 			} catch (AlgomonRepetidoExcepcion e) {
-				Alert alert = new Alert(AlertType.NONE, "No puedes volver a elegir a "+algomon.nombre(), ButtonType.OK);
-				alert.showAndWait();
+				//Alert alert = new Alert(AlertType.NONE, "No puedes volver a elegir a "+algomon.nombre(), ButtonType.OK);
+				//alert.showAndWait();
+				new Alerta("No puedes volver a elegir a "+algomon.nombre(), stage);
 			}
 	}
 	

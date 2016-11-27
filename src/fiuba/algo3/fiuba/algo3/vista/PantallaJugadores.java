@@ -2,22 +2,17 @@ package fiuba.algo3.vista;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modelo.*;
 
@@ -86,8 +81,9 @@ public class PantallaJugadores {
 					   stage.setMaximized(false);
 					   stage.setMaximized(true);
 				   }catch (NombreVacioExcepcion e){
-					   Alert alert = new Alert(AlertType.NONE, "Ingrese un nombre", ButtonType.OK);
-					   alert.showAndWait();
+					   //Alert alert = new Alert(AlertType.NONE, "Ingrese un nombre", ButtonType.OK);
+					   //alert.showAndWait();
+					   new Alerta("Ingrese un nombre", stage);
 				   }
 			   }});
 		casilla.setOnMouseClicked(e->casilla.requestFocus());
@@ -108,15 +104,7 @@ public class PantallaJugadores {
 			   }catch (NombreVacioExcepcion ex){
 				   //Alert alert = new Alert(AlertType.NONE, "Ingrese un nombre", ButtonType.OK);
 				   //alert.showAndWait();
-				   final Stage dialog = new Stage();
-	                dialog.initModality(Modality.APPLICATION_MODAL);
-	                dialog.initOwner(stage);
-	                VBox dialogVbox = new VBox(20);
-	                dialogVbox.getChildren().add(new Text("This is a Dialog"));
-	                Scene dialogScene = new Scene(dialogVbox, 300, 200);
-	                dialog.setScene(dialogScene);
-	                dialog.show();
-				   
+				   new Alerta("Ingrese un nombre", stage);			   
 			   }
 			});
 			botonIngresarNombre.setStyle("-fx-font: 22 arial; -fx-base: #0014f4;"
@@ -186,8 +174,9 @@ public class PantallaJugadores {
 							   PantallaDeSeleccionDeAlgomones seleccion = new PantallaDeSeleccionDeAlgomones(stage,jugador1,jugador2);
 							   seleccion.cambiarVista();
 						   }catch (NombreVacioExcepcion e){
-							   Alert alert = new Alert(AlertType.NONE, "Ingrese un nombre", ButtonType.OK);
-							   alert.showAndWait();
+							   //Alert alert = new Alert(AlertType.NONE, "Ingrese un nombre", ButtonType.OK);
+							   //alert.showAndWait();
+							   new Alerta("Ingrese un nombre", stage);
 						   }
 					   }});
 				casilla2.setOnMouseClicked(e->casilla.requestFocus());
@@ -201,8 +190,9 @@ public class PantallaJugadores {
 						   PantallaDeSeleccionDeAlgomones seleccion = new PantallaDeSeleccionDeAlgomones(stage,jugador1,jugador2);
 						   seleccion.cambiarVista();
 					   }catch (NombreVacioExcepcion ex){
-						   Alert alert = new Alert(AlertType.NONE, "Ingrese un nombre", ButtonType.OK);
-						   alert.showAndWait();
+						   //Alert alert = new Alert(AlertType.NONE, "Ingrese un nombre", ButtonType.OK);
+						   //alert.showAndWait();
+						   new Alerta("Ingrese un nombre", stage);
 					   }
 				});
 				botonIngresarNombre2.setOnMouseMoved(e->botonIngresarNombre2.requestFocus());
