@@ -19,26 +19,32 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import modelo.*;
 
 public class PantallaDeSeleccionDeAlgomones {
 
 	Jugador jugador1,jugador2;
+	Turno turno;
 	Stage stage;
 	BorderPane seleccionDeAlgomon;
 	VBox jugador1Algomones,jugador2Algomones,comenzarBatalla;
 	VBox vistaCharmander,vistaSquirtle,vistaBulbasaur,vistaJigglypuff,vistaRattata,vistaChansey;
 	int contador = 0;
+	Circle circulo,circulo2;
 	
 	
 	public PantallaDeSeleccionDeAlgomones(Stage stagePrincipal, Jugador j1,Jugador j2){
 		jugador1 = j1;
 		jugador2 = j2;
 		stage = stagePrincipal;
+		turno = new Turno(j1,j2);
 	}
 	
 	public MenuBar agregarMenuBar(String url){
@@ -94,23 +100,31 @@ public class PantallaDeSeleccionDeAlgomones {
 		HBox contenedorDeAlgomon = new HBox(40);
 		contenedorDeAlgomon.setPrefHeight(150);
 		contenedorDeAlgomon.setAlignment(Pos.CENTER);
-		jugador1Algomones = new VBox(30);
+		jugador1Algomones = new VBox(25);
 		jugador1Algomones.setAlignment(Pos.TOP_CENTER);
-		jugador2Algomones = new VBox(30);
+		jugador2Algomones = new VBox(25);
 		jugador2Algomones.setAlignment(Pos.TOP_CENTER);
 		jugador1Algomones.setPrefWidth(130);
 		jugador2Algomones.setPrefWidth(130);
+		
+		circulo = new Circle(10);
+		circulo2 = new Circle(10);
+		circulo.setFill(Color.BLUE);
+		circulo2.setFill(Color.RED);
+		if (turno.jugadorActivo() == jugador1) circulo2.setOpacity(0);
+		else circulo.setOpacity(0);
 		
 		MenuBar menuBar = agregarMenuBar("-fx-font: 14 arial; -fx-base: #ffffff;"
 				+ "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 )");
 		
 		Label nombrejugador1 = new Label(jugador1.getNombre());
 		nombrejugador1.setStyle("-fx-font: 24 arial; -fx-text-fill: #00ffff;");
-		jugador1Algomones.getChildren().add(nombrejugador1);
+		jugador1Algomones.getChildren().addAll(nombrejugador1,circulo);
 		
 		Label nombrejugador2 = new Label(jugador2.getNombre());
 		nombrejugador2.setStyle("-fx-font: 24 arial; -fx-text-fill: #ff0000;");
-		jugador2Algomones.getChildren().add(nombrejugador2);
+		jugador2Algomones.getChildren().addAll(nombrejugador2,circulo2);
+		nombrejugador2.setDisable(true);
 		
 		Label nombreCharmander = crearLabelDeAlgomon("Charmander","-fx-text-fill: #ff0000;");
 		Label nombreSquirtle = crearLabelDeAlgomon("Squirtle","-fx-text-fill: #00ffdd;");
@@ -132,7 +146,7 @@ public class PantallaDeSeleccionDeAlgomones {
 						+ "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );"
 						+ "-fx-font: 22 arial;");
 		comenzar.setOnAction(e->{
-			PantallaDeLucha pantallaLucha = new PantallaDeLucha(stage, jugador1, jugador2);
+			PantallaDeLucha pantallaLucha = new PantallaDeLucha(stage, turno, jugador1, jugador2);
 			pantallaLucha.cambiarVista();
 		});
 		comenzarBatalla = new VBox();
@@ -140,22 +154,41 @@ public class PantallaDeSeleccionDeAlgomones {
 		comenzarBatalla.getChildren().addAll(comenzar);
 		
 		Button botonElegirCharmander = crearBotonDeEleccion();
-		botonElegirCharmander.setOnAction(e-> this.agregarImagenDeAlgomonAJugador(new Charmander(), "file:src/imagenes/charmander.png"));		
+		botonElegirCharmander.setOnAction(e-> {
+			this.agregarImagenDeAlgomonAJugador(new Charmander(), "file:src/imagenes/charmander.png");
+			this.modificarFocus();
+		});	
 		
 		Button botonElegirSquirtle = crearBotonDeEleccion();
-		botonElegirSquirtle.setOnAction(e-> this.agregarImagenDeAlgomonAJugador(new Squirtle(), "file:src/imagenes/squirtle.png"));
+		botonElegirSquirtle.setOnAction(e-> {
+			this.agregarImagenDeAlgomonAJugador(new Squirtle(), "file:src/imagenes/squirtle.png");
+			this.modificarFocus();
+		});
 		
 		Button botonElegirBulbasaur = crearBotonDeEleccion();
-		botonElegirBulbasaur.setOnAction(e-> this.agregarImagenDeAlgomonAJugador(new Bulbasaur(), "file:src/imagenes/bulbasaur.png"));
+		botonElegirBulbasaur.setOnAction(e->{ 
+			this.agregarImagenDeAlgomonAJugador(new Bulbasaur(), "file:src/imagenes/bulbasaur.png");
+			this.modificarFocus();
+		});
 		
 		Button botonElegirJigglypuff = crearBotonDeEleccion();
-		botonElegirJigglypuff.setOnAction(e->this.agregarImagenDeAlgomonAJugador(new Jigglypuff(), "file:src/imagenes/jigglypuff.png"));
+		botonElegirJigglypuff.setOnAction(e->{
+			this.agregarImagenDeAlgomonAJugador(new Jigglypuff(), "file:src/imagenes/jigglypuff.png");
+			this.modificarFocus();
+		});
+		
 		
 		Button botonElegirRattata = crearBotonDeEleccion();
-		botonElegirRattata.setOnAction(e->this.agregarImagenDeAlgomonAJugador(new Rattata(), "file:src/imagenes/rattata.png"));
+		botonElegirRattata.setOnAction(e->{
+			this.agregarImagenDeAlgomonAJugador(new Rattata(), "file:src/imagenes/rattata.png");
+			this.modificarFocus();
+		});
 		
 		Button botonElegirChansey = crearBotonDeEleccion();
-		botonElegirChansey.setOnAction(e->this.agregarImagenDeAlgomonAJugador(new Chansey(), "file:src/imagenes/chansey.png"));
+		botonElegirChansey.setOnAction(e->{
+			this.agregarImagenDeAlgomonAJugador(new Chansey(), "file:src/imagenes/chansey.png");
+			this.modificarFocus();
+		});
 
 		contenedorDeAlgomon.getChildren().addAll(botonCharmander,botonSquirtle,botonBulbasaur,botonJigglypuff,botonRattata,botonChansey);
 		
@@ -204,30 +237,33 @@ public class PantallaDeSeleccionDeAlgomones {
 		botonChansey.setOnMouseEntered(e->this.mostrarVistaDeAlgomonEnElCentro(vistaChansey));
 	}
 	
+
+	private void modificarFocus() {
+		if (turno.jugadorActivo() == jugador2){
+			circulo2.setOpacity(1);
+			circulo.setOpacity(0);
+		}
+		else{
+			circulo2.setOpacity(0);
+			circulo.setOpacity(1);
+		}
+	}
+
 	public void agregarImagenDeAlgomonAJugador(Algomon algomon, String url){
-		if (contador%2 == 0){
 			try {
-				jugador1.setAlgomon(algomon);
-				jugador1Algomones.getChildren().add(crearImagen(url, 125, 125));
+				turno.elegirAlgomon(algomon);
 				contador++;
+				if( turno.jugadorActivo() == jugador2){
+					jugador1Algomones.getChildren().add(crearImagen(url, 125, 125));
+				}
+				else{ 
+					jugador2Algomones.getChildren().add(crearImagen(url, 125, 125));
+				} 
+				if (contador > 5) seleccionDeAlgomon.setCenter(comenzarBatalla);
 			} catch (AlgomonRepetidoExcepcion e) {
 				Alert alert = new Alert(AlertType.NONE, "No puedes volver a elegir a "+algomon.nombre(), ButtonType.OK);
 				alert.showAndWait();
 			}
-		}
-		else{
-			try {
-				jugador2.setAlgomon(algomon);
-				jugador2Algomones.getChildren().add(crearImagen(url, 125, 125));
-				contador++;
-			} catch (AlgomonRepetidoExcepcion e) {
-				Alert alert = new Alert(AlertType.NONE, "No puedes volver a elegir a "+algomon.nombre()+"!", ButtonType.OK);
-				alert.showAndWait();
-			}
-		}
-		if (contador > 5){
-			seleccionDeAlgomon.setCenter(comenzarBatalla);
-		}
 	}
 	
 	public void mostrarVistaDeAlgomonEnElCentro(VBox vistaAlgomon){

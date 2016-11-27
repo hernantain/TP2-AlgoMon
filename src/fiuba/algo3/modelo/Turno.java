@@ -1,6 +1,9 @@
 package modelo;
 
+import java.util.Random;
+
 import Acciones.AccionDeJugador;
+import Algomones.Algomon;
 import Algomones.AlgomonDebilitadoExcepcion;
 
 public class Turno {
@@ -11,7 +14,9 @@ public class Turno {
 	private Jugador jugadorGanador;
 	
 	public Turno(Jugador player1, Jugador player2) {
-		jugadorActivo = player1;   //Esto hay que implmentarlo al azar, despues vemos como.
+		Random randomGenerator = new Random();
+		if( randomGenerator.nextInt(2) == 0) jugadorActivo = player1;
+		else jugadorActivo = player2;
 		jugador1 = player1;
 		jugador2 = player2;
 		jugador1.setOponente(jugador2);
@@ -64,5 +69,10 @@ public class Turno {
 
 	public Jugador jugadorGanador() {
 		return jugadorGanador;
+	}
+
+	public void elegirAlgomon(Algomon algomon) {
+		jugadorActivo.setAlgomon(algomon);
+		cambiarJugador();
 	}
 }

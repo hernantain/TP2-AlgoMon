@@ -37,11 +37,11 @@ public class PantallaDeLucha {
 	Label algomonNombreJ1, algomonNombreJ2;
 	FadeTransition ft;
 	
-	public PantallaDeLucha(Stage stagePrincipal, Jugador j1, Jugador j2){
+	public PantallaDeLucha(Stage stagePrincipal, Turno t, Jugador player1, Jugador player2){
 		stage = stagePrincipal;
-		jugador1 = j1;
-		jugador2 = j2;
-		turno = new Turno(jugador1,jugador2);
+		jugador1 = player1;
+		jugador2 = player2;
+		turno = t;
 	}
 	
 	public Button crearBoton(String nombreAtaque){
@@ -247,11 +247,11 @@ public class PantallaDeLucha {
 				botonAtaque.setDisable(true);
 			}
 			botonAtaque.setOnAction(event->{
-					boolean sePudoAtacar = !turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), ataque, turno.jugadorNoActivo().getAlgomonActivo()));
-					if (!sePudoAtacar && !turno.jugadorActivo().getAlgomonActivo().estaVivo()) { // Caso de ataque que provoca debilitacion de algomon.
+					if (!turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), ataque, turno.jugadorNoActivo().getAlgomonActivo()))
+						&& !turno.jugadorActivo().getAlgomonActivo().estaVivo()) { // Caso de ataque que provoca debilitacion de algomon.
 						if (turno.hayGanador()){
-						PantallaDeGanador pantallaDeGanador = new PantallaDeGanador(stage, turno.jugadorGanador());
-						pantallaDeGanador.cambiarVista();
+							PantallaDeGanador pantallaDeGanador = new PantallaDeGanador(stage, turno.jugadorGanador());
+							pantallaDeGanador.cambiarVista();
 						}
 						else{
 							this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
@@ -261,6 +261,7 @@ public class PantallaDeLucha {
 							this.mostrarAlgomonesDeJugadores(jugador1, volverAtacar, ataques, jugador1Algomones);
 							this.mostrarAlgomonesDeJugadores(jugador2, volverAtacar, ataques, jugador2Algomones);
 							this.actualizarStats();
+							ft.play();
 							Alert alert = new Alert(AlertType.NONE, turno.jugadorActivo().getAlgomonActivo().nombre()+" se ha debilitado, Elija un reemplazo.", ButtonType.OK);
 							alert.showAndWait();
 							if (turno.jugadorActivo() == jugador1){
@@ -269,33 +270,8 @@ public class PantallaDeLucha {
 								this.elegirSuplenteDeAlgomonDebilitado(jugador2Algomones);
 							}
 						}
-						pantalla.setBottom(opciones);
-					} else if (!turno.jugadorNoActivo().getAlgomonActivo().estaVivo()) {
-						if (turno.hayGanador()){
-						PantallaDeGanador pantallaDeGanador = new PantallaDeGanador(stage, turno.jugadorGanador());
-						pantallaDeGanador.cambiarVista();
-						}
-						else{
-							turno.cambiarJugador();
-							this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
-							this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
-							jugador1Algomones.getChildren().clear();
-							jugador2Algomones.getChildren().clear();
-							this.mostrarAlgomonesDeJugadores(jugador1, volverAtacar, ataques, jugador1Algomones);
-							this.mostrarAlgomonesDeJugadores(jugador2, volverAtacar, ataques, jugador2Algomones);
-							this.actualizarStats();
-							Alert alert = new Alert(AlertType.NONE, turno.jugadorActivo().getAlgomonActivo().nombre()+" se ha debilitado, Elija un reemplazo.", ButtonType.OK);
-							alert.showAndWait();
-							if (turno.jugadorActivo() == jugador1){
-								this.elegirSuplenteDeAlgomonDebilitado(jugador1Algomones);
-							} else {
-								this.elegirSuplenteDeAlgomonDebilitado(jugador2Algomones);
-							}
-						}
-						pantalla.setBottom(opciones);
+							pantalla.setBottom(opciones);
 					} else { // Caso normal.
-						System.out.println("caso normal");
-						System.out.println(turno.jugadorNoActivo().getAlgomonActivo().vida());
 					this.actualizarStats();
 					this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
 					this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
