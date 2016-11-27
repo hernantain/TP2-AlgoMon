@@ -47,5 +47,10 @@ public class AtaqueConEfectoQuemar extends AtaqueEspecial{
 		return ataqueADecorar.agotado();
 	}
 
+	@Override
+	public int getCantidad() {
+		return ataqueADecorar.getCantidad();
+	}
+
 
 }

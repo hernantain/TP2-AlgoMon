@@ -47,5 +47,8 @@ public class AtaqueConEfectoChuparVidas extends AtaqueEspecial{
 	public boolean agotado() {
 		return ataqueADecorar.agotado();
 	}
-
+	
+	public int getCantidad() {
+		return ataqueADecorar.getCantidad();
+	}
 }

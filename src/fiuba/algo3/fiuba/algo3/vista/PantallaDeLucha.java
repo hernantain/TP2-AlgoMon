@@ -30,8 +30,8 @@ public class PantallaDeLucha {
 	Jugador jugador1, jugador2;
 	Button botonAtacar,botonElemento, botonCambiar, volverOpciones,volverElementos,volverAtacar;
 	Turno turno;
-	BorderPane pantalla;
-	HBox opciones, ataques, elementos, pantallaDeStats,pantallaDePelea;
+	BorderPane pantalla,pantallaDePelea;
+	HBox opciones, ataques, elementos, pantallaDeStats;
 	VBox algomonJ1Stats, algomonJ2Stats,algomonJ1,algomonJ2,jugador1Algomones, jugador2Algomones;
 	ProgressBar barraDeVida1, barraDeVida2;
 	Label algomonNombreJ1, algomonNombreJ2;
@@ -143,7 +143,7 @@ public class PantallaDeLucha {
 		pantallaDeAlgomones.setAlignment(Pos.CENTER);
 		pantallaDeAlgomones.getChildren().addAll(algomonJ1,algomonJ2);
 		
-		BorderPane pantallaDePelea = new BorderPane();
+		pantallaDePelea = new BorderPane();
 		pantallaDePelea.setStyle("-fx-background-image: url('file:src/imagenes/fondoPelea.jpg'); -fx-background-size: cover;");
 		pantallaDePelea.setTop(pantallaDeStats);
 		pantallaDePelea.setCenter(pantallaDeAlgomones);
@@ -246,6 +246,7 @@ public class PantallaDeLucha {
 			if(ataque.agotado()){
 				botonAtaque.setDisable(true);
 			}
+			botonAtaque.setOnMouseEntered(e->cambiarPanelAtaques(ataque));
 			botonAtaque.setOnAction(event->{
 					if (!turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), ataque, turno.jugadorNoActivo().getAlgomonActivo()))
 						&& !turno.jugadorActivo().getAlgomonActivo().estaVivo()) { // Caso de ataque que provoca debilitacion de algomon.
@@ -261,7 +262,6 @@ public class PantallaDeLucha {
 							this.mostrarAlgomonesDeJugadores(jugador1, volverAtacar, ataques, jugador1Algomones);
 							this.mostrarAlgomonesDeJugadores(jugador2, volverAtacar, ataques, jugador2Algomones);
 							this.actualizarStats();
-							ft.play();
 							Alert alert = new Alert(AlertType.NONE, turno.jugadorActivo().getAlgomonActivo().nombre()+" se ha debilitado, Elija un reemplazo.", ButtonType.OK);
 							alert.showAndWait();
 							if (turno.jugadorActivo() == jugador1){
@@ -284,6 +284,22 @@ public class PantallaDeLucha {
 		ataques.getChildren().add(volver);
 	}
 	
+	private void cambiarPanelAtaques(Ataque ataque) {
+		HBox infoAtaques = new HBox(20);
+		infoAtaques.setStyle("-fx-background-color: blue;");
+		infoAtaques.setAlignment(Pos.CENTER);
+		Label cantidad = crearLabel("Cantidad restante " + ataque.getCantidad());
+		Label danioARealizar = crearLabel("Danio a Realizar: " + ataque.danioRealizado(turno.jugadorNoActivo().getAlgomonActivo()));
+		infoAtaques.getChildren().addAll(cantidad,danioARealizar);
+		pantallaDePelea.setBottom(infoAtaques);
+	}
+	
+	public Label crearLabel(String dato){
+		Label label = new Label(dato);
+		label.setStyle("-fx-font: 18 arial; -fx-text-fill: white;");
+		return label;
+	}
+
 	public void usarElementosBotones(Jugador jugador, HBox elementos, Button volver){
 		elementos.getChildren().clear();
 		ArrayList<Elemento> elementosJugador = jugador.elementos();
@@ -293,6 +309,7 @@ public class PantallaDeLucha {
 			if(jugador.elementoAgotado(elemento)){
 				botonElemento.setDisable(true);
 			}
+			botonElemento.setOnMouseEntered(e->cambiarPanelElementos(elemento));
 			botonElemento.setOnAction(event->{
 				turno.jugar(new UsarElemento(turno.jugadorActivo(),elemento));
 				this.actualizarStats();
@@ -303,6 +320,15 @@ public class PantallaDeLucha {
 			elementos.getChildren().add(botonElemento);
 		}
 		elementos.getChildren().add(volver);
+	}
+	
+	private void cambiarPanelElementos(Elemento elemento) {
+		HBox infoElementos = new HBox();
+		infoElementos.setStyle("-fx-background-color: blue;");
+		infoElementos.setAlignment(Pos.CENTER);
+		Label cantidad = crearLabel("Cantidad restante " + turno.jugadorActivo().getCantidadElemento(elemento));
+		infoElementos.getChildren().addAll(cantidad);
+		pantallaDePelea.setBottom(infoElementos);
 	}
 	
 	public void actualizarStats(){

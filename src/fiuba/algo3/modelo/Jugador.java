@@ -123,4 +123,8 @@ public class Jugador {
 		}
 		return false;
 	}
+	
+	public int getCantidadElemento(Elemento elemento){
+		return elementos.get(elemento);
+	}
 }

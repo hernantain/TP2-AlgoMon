@@ -38,6 +38,7 @@ public class PantallaDeSeleccionDeAlgomones {
 	VBox vistaCharmander,vistaSquirtle,vistaBulbasaur,vistaJigglypuff,vistaRattata,vistaChansey;
 	int contador = 0;
 	Circle circulo,circulo2;
+	Label nombrejugador1, nombrejugador2;
 	
 	
 	public PantallaDeSeleccionDeAlgomones(Stage stagePrincipal, Jugador j1,Jugador j2){
@@ -107,24 +108,31 @@ public class PantallaDeSeleccionDeAlgomones {
 		jugador1Algomones.setPrefWidth(130);
 		jugador2Algomones.setPrefWidth(130);
 		
+		nombrejugador1 = new Label(jugador1.getNombre());
+		nombrejugador1.setStyle("-fx-font: 24 arial; -fx-text-fill: #00ffff;");
+		nombrejugador2 = new Label(jugador2.getNombre());
+		nombrejugador2.setStyle("-fx-font: 24 arial; -fx-text-fill: #ff0000;");
+		
 		circulo = new Circle(10);
 		circulo2 = new Circle(10);
 		circulo.setFill(Color.BLUE);
 		circulo2.setFill(Color.RED);
-		if (turno.jugadorActivo() == jugador1) circulo2.setOpacity(0);
-		else circulo.setOpacity(0);
+		if (turno.jugadorActivo() == jugador1) {
+			circulo2.setOpacity(0); 
+			nombrejugador2.setDisable(true);
+		}
+		else {
+			circulo.setOpacity(0); 
+			nombrejugador1.setDisable(true);
+		}
 		
 		MenuBar menuBar = agregarMenuBar("-fx-font: 14 arial; -fx-base: #ffffff;"
 				+ "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 )");
 		
-		Label nombrejugador1 = new Label(jugador1.getNombre());
-		nombrejugador1.setStyle("-fx-font: 24 arial; -fx-text-fill: #00ffff;");
-		jugador1Algomones.getChildren().addAll(nombrejugador1,circulo);
 		
-		Label nombrejugador2 = new Label(jugador2.getNombre());
-		nombrejugador2.setStyle("-fx-font: 24 arial; -fx-text-fill: #ff0000;");
+		jugador1Algomones.getChildren().addAll(nombrejugador1,circulo);
 		jugador2Algomones.getChildren().addAll(nombrejugador2,circulo2);
-		nombrejugador2.setDisable(true);
+
 		
 		Label nombreCharmander = crearLabelDeAlgomon("Charmander","-fx-text-fill: #ff0000;");
 		Label nombreSquirtle = crearLabelDeAlgomon("Squirtle","-fx-text-fill: #00ffdd;");
@@ -242,10 +250,14 @@ public class PantallaDeSeleccionDeAlgomones {
 		if (turno.jugadorActivo() == jugador2){
 			circulo2.setOpacity(1);
 			circulo.setOpacity(0);
+			nombrejugador1.setDisable(true);
+			nombrejugador2.setDisable(false);
 		}
 		else{
 			circulo2.setOpacity(0);
 			circulo.setOpacity(1);
+			nombrejugador1.setDisable(false);
+			nombrejugador2.setDisable(true);
 		}
 	}
 

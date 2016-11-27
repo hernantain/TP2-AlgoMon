@@ -11,6 +11,8 @@ public interface Ataque {
 	public boolean equals(Ataque ataque);
 	public int danioRealizado(Algomon algomonAtacado);
 	public boolean agotado();
+
+	public int getCantidad();
 	
 	
 }

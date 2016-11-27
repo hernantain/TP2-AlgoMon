@@ -45,5 +45,10 @@ public class AtaqueSimple implements Ataque {
 	public int danioRealizado(Algomon algomonAtacado){
 		return potencia.calcularPotencia(tipo, algomonAtacado.getTipo());
 	}
+
+	@Override
+	public int getCantidad() {
+		return cantidad;
+	}
 	
 }
