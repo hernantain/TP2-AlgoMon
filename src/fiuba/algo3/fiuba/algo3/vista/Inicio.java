@@ -42,64 +42,54 @@ public class Inicio extends Application {
 		MediaView mediaView = new MediaView(mediaPlayer);
 		
 		
-		Button botonJugar = new Button();
-		botonJugar.setText("Jugar");
-		botonJugar.getStyleClass().add("botonJugar");
-		botonJugar.setPrefSize(300, 70);
+		Button botonJugar = this.crearBotonInicio("Jugar", "botonJugar");
+		botonJugar.setOnAction(e-> {
+			PantallaJugadores segunda = new PantallaJugadores(stagePrincipal,scene);
+			segunda.cambiarVista();
+		});	
 		
-		Button botonReglas = new Button();
-		botonReglas.setText("Ver Reglamento");
-		botonReglas.getStyleClass().add("botonReglas");
-		botonReglas.setPrefSize(300, 70);
+		Button botonReglas = this.crearBotonInicio("Ver Reglamento", "botonReglas");
+		botonReglas.setOnAction(e->{
+			PantallaReglas pantallaReglas = new PantallaReglas(stagePrincipal,scene);
+			pantallaReglas.cambiarVista();
+		});
 			
 		
-		botonSacarSonido = new Button();
-		botonSacarSonido.setText("Silenciar Musica");
-		botonSacarSonido.getStyleClass().add("botonSacarSonido");
-		botonSacarSonido.setPrefSize(300, 70);
+		botonSacarSonido = this.crearBotonInicio("Silenciar Musica", "botonSacarSonido");
 		botonSacarSonido.setOnAction(e->{
 			mediaPlayer.stop();
 			root.getChildren().clear();
 			root.getChildren().addAll(mensaje,botonJugar,botonReglas,botonPonerSonido,botonSalir,mediaView);
 		});
 		
-		botonPonerSonido = new Button();
-		botonPonerSonido.setText("Sonido"); 
-		botonPonerSonido.getStyleClass().add("botonPonerSonido");
-		botonPonerSonido.setPrefSize(300, 70);
+		botonPonerSonido = this.crearBotonInicio("Sonido", "botonPonerSonido");
 		botonPonerSonido.setOnAction(e->{
 			mediaPlayer.play();
 			root.getChildren().clear();
 			root.getChildren().addAll(mensaje,botonJugar,botonReglas,botonSacarSonido,botonSalir,mediaView);
 		});
 		
-		botonSalir = new Button();
-		botonSalir.setText("Salir");
-		botonSalir.getStyleClass().add("botonSalir");
+		botonSalir = this.crearBotonInicio("Salir", "botonSalir");
 		botonSalir.setOnAction(e-> stagePrincipal.close());
-		botonSalir.setPrefSize(300, 70);
 		
 		root = new VBox(30);
 		root.setAlignment(Pos.CENTER_LEFT);
 		root.getChildren().addAll(mensaje,botonJugar,botonReglas,botonSacarSonido,botonSalir,mediaView);
 		root.getStyleClass().add("root");
 		
-		Scene scene = new Scene(root,1100,600);
+		scene = new Scene(root,1100,600);
 		scene.getStylesheets().add("file:src/fiuba/algo3/fiuba/algo3/vista/vista.css");
 		
 		stagePrincipal.setTitle("TP2 - AlgoMon");
 		stagePrincipal.setScene(scene);
 		stagePrincipal.show();
-		stagePrincipal.setMaximized(true);
-		
-		botonJugar.setOnAction(e-> {
-			PantallaJugadores segunda = new PantallaJugadores(stagePrincipal,scene);
-			segunda.cambiarVista();
-		});		
-		
-		botonReglas.setOnAction(e->{
-			PantallaReglas pantallaReglas = new PantallaReglas(stagePrincipal,scene);
-			pantallaReglas.cambiarVista();
-		});
+		stagePrincipal.setMaximized(true);	
+	}
+	
+	public Button crearBotonInicio(String titulo, String estilo){
+		Button boton = new Button(titulo);
+		boton.getStyleClass().add(estilo);
+		boton.setPrefSize(300, 70);
+		return boton;
 	}
 }
