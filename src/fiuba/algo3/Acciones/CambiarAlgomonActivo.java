@@ -9,6 +9,9 @@ public class CambiarAlgomonActivo extends AccionDeJugador {
 	Algomon algomonEntrante;
 	
 	public CambiarAlgomonActivo(Jugador jugadorActivo, Algomon algomonEntrante) {
+		if (jugadorActivo.getAlgomonActivo() == algomonEntrante) {
+			throw new AlgomonNoPuedeCambiarsePorSiMismoExcepcion();
+		}
 		this.jugadorActivo = jugadorActivo;
 		this.algomonEntrante = algomonEntrante;
 	}

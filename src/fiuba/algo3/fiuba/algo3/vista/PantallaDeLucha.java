@@ -235,22 +235,26 @@ public class PantallaDeLucha {
 				Algomon algomon = algomones.get(x);
 				Button botonAlgomon = crearBoton(algomon.nombre());
 				botonAlgomon.setDisable(true);
-				if (algomon.estaVivo()){
+				if (algomon.estaVivo() || algomon != jugador.getAlgomonActivo()){
 					botonAlgomon.setOnAction(event->{
-						turno.jugar(new CambiarAlgomonActivo(turno.jugadorActivo(),algomon));
-						if (botonCambiar.isDisabled()) {
-							turno.cambiarJugador();
-						}
-						this.actualizarStats();
-						this.mostrarImagenAlgomonesJugadores(jugador1, jugador2);
-						this.habilitarAlgomones(algomonesJugador, botonAtacar, botonElemento, volverOpciones);
-						this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
-						botonCambiar.setDisable(false);
-						this.modificarFocus();
+						try {
+							turno.jugar(new CambiarAlgomonActivo(turno.jugadorActivo(),algomon));
+							if (botonCambiar.isDisabled()) {
+								turno.cambiarJugador();
+							}
+							this.actualizarStats();
+							this.mostrarImagenAlgomonesJugadores(jugador1, jugador2);
+							this.habilitarAlgomones(algomonesJugador, botonAtacar, botonElemento, volverOpciones);
+							this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
+							botonCambiar.setDisable(false);
+							this.modificarFocus();
 
+						} catch (AlgomonNoPuedeCambiarsePorSiMismoExcepcion e) {
+							new Alerta(turno.jugadorActivo().getAlgomonActivo().nombre()+" ya es tu algomon activo!", stage);
+						}
 					});
 				}
-				else{ botonAlgomon.setId("muerto");} //SI EL ALGOMON ESTA MUERTO, LE SETEO UN ID QUE DESPUES USO EN cambiarDeAlgomon()
+				else { botonAlgomon.setId("muerto");} //SI EL ALGOMON ESTA MUERTO, LE SETEO UN ID QUE DESPUES USO EN cambiarDeAlgomon()
 				algomonesJugador.getChildren().add(botonAlgomon);
 		 }
 		
