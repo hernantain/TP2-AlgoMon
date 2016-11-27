@@ -7,7 +7,7 @@ jdk:
     - oraclejdk8
 
 addons:
-    apt:
-    packages:
+apt:
+packages:
     - oracle-java8-installer
 
