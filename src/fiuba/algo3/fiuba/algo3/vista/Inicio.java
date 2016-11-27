@@ -32,15 +32,10 @@ public class Inicio extends Application {
 		//PANTALLA INICIAL
 		Label mensaje = new Label();
 		mensaje.setText("TP2 - AlgoMon");
-		mensaje.setStyle("-fx-font: 45 arial;"
-						+"-fx-text-fill: #ff0000;"
-						+"-fx-opacity: 1000;"
-						+"-fx-vpos: top;");
+		mensaje.getStyleClass().add("mensaje");
 		
 		String mediaFile = "src/sonidos/Pokemon.mp3";
-		
 		Media media = new Media(new File(mediaFile).toURI().toString());
-		
 		MediaPlayer mediaPlayer = new MediaPlayer(media);
 		mediaPlayer.play();
 		mediaPlayer.setVolume(0.1);
@@ -49,21 +44,18 @@ public class Inicio extends Application {
 		
 		Button botonJugar = new Button();
 		botonJugar.setText("Jugar");
-		botonJugar.setStyle("-fx-font: 22 arial; -fx-base: #0014f4;"
-						+   "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
+		botonJugar.getStyleClass().add("botonJugar");
 		botonJugar.setPrefSize(300, 70);
 		
 		Button botonReglas = new Button();
 		botonReglas.setText("Ver Reglamento");
-		botonReglas.setStyle("-fx-font: 22 arial; -fx-base: #0014f4;"
-						+   "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
+		botonReglas.getStyleClass().add("botonReglas");
 		botonReglas.setPrefSize(300, 70);
 			
 		
 		botonSacarSonido = new Button();
-		botonSacarSonido.setText("Silenciar Musica"); //ME TIENE LOS HUEVOS LLENOS LA CANCIONSITA
-		botonSacarSonido.setStyle("-fx-font: 22 arial; -fx-base: #0014f4;"
-						+   "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
+		botonSacarSonido.setText("Silenciar Musica");
+		botonSacarSonido.getStyleClass().add("botonSacarSonido");
 		botonSacarSonido.setPrefSize(300, 70);
 		botonSacarSonido.setOnAction(e->{
 			mediaPlayer.stop();
@@ -72,9 +64,8 @@ public class Inicio extends Application {
 		});
 		
 		botonPonerSonido = new Button();
-		botonPonerSonido.setText("Sonido"); //ME TIENE LOS HUEVOS LLENOS LA CANCIONSITA
-		botonPonerSonido.setStyle("-fx-font: 22 arial; -fx-base: #0014f4;"
-						+   "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
+		botonPonerSonido.setText("Sonido"); 
+		botonPonerSonido.getStyleClass().add("botonPonerSonido");
 		botonPonerSonido.setPrefSize(300, 70);
 		botonPonerSonido.setOnAction(e->{
 			mediaPlayer.play();
@@ -82,30 +73,24 @@ public class Inicio extends Application {
 			root.getChildren().addAll(mensaje,botonJugar,botonReglas,botonSacarSonido,botonSalir,mediaView);
 		});
 		
-		
 		botonSalir = new Button();
 		botonSalir.setText("Salir");
-		botonSalir.setStyle("-fx-font: 22 arial; -fx-base: #ff0000;"
-						   +"-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
+		botonSalir.getStyleClass().add("botonSalir");
 		botonSalir.setOnAction(e-> stagePrincipal.close());
 		botonSalir.setPrefSize(300, 70);
 		
 		root = new VBox(30);
 		root.setAlignment(Pos.CENTER_LEFT);
 		root.getChildren().addAll(mensaje,botonJugar,botonReglas,botonSacarSonido,botonSalir,mediaView);
-		
-		
-		root.setStyle("-fx-background-image: url('file:src/imagenes/fondo10.jpg');"
-					+ "-fx-background-position: 50% 50%;"
-					+ "-fx-background-size: cover;");
+		root.getStyleClass().add("root");
 		
 		Scene scene = new Scene(root,1100,600);
+		scene.getStylesheets().add("file:src/fiuba/algo3/fiuba/algo3/vista/vista.css");
 		
 		stagePrincipal.setTitle("TP2 - AlgoMon");
 		stagePrincipal.setScene(scene);
 		stagePrincipal.show();
 		stagePrincipal.setMaximized(true);
-		
 		
 		botonJugar.setOnAction(e-> {
 			PantallaJugadores segunda = new PantallaJugadores(stagePrincipal,scene);

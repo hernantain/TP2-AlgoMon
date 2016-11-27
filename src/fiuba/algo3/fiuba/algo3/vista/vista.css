@@ -1,0 +1,91 @@
+.root{
+	-fx-background-image: url('file:src/imagenes/fondo10.jpg');
+	-fx-background-position: 50% 50%;
+	-fx-background-size: cover;
+}
+
+.mensaje{
+	-fx-font: 45 arial;
+	-fx-text-fill: #ff0000;
+	-fx-opacity: 1000;
+	-fx-vpos: top;
+}
+
+.botonJugar {
+	-fx-font: 22 arial; 
+	-fx-base: #0014f4;
+	-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+}
+
+.botonReglas {
+	-fx-font: 22 arial; 
+	-fx-base: #0014f4;
+	-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+}
+
+.botonSacarSonido {
+	-fx-font: 22 arial; -fx-base: #0014f4;
+	-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+}
+
+.botonPonerSonido {
+	-fx-font: 22 arial; -fx-base: #0014f4;
+	-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+}
+
+.botonSalir{
+	-fx-font: 22 arial; 
+	-fx-base: #ff0000;
+	-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+}
+
+.ingreseNombreLabel {
+	-fx-text-fill: #16a0fc;
+	-fx-font: 30 arial;
+	-fx-effect: innershadow( two-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+}
+
+.casilla {
+	-fx-background-color: #00ffcb;
+	-fx-text-fill: #1306c9;
+}
+
+.botonIngresarNombre{
+	-fx-font: 22 arial; 
+	-fx-base: #0014f4;
+	-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+}
+
+.boton{
+	-fx-font: 22 arial;
+	-fx-base: #ff0000;
+	-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+}
+
+.pantallaJugadores {
+	-fx-background-image: url('file:src/imagenes/fondo8.jpg'); 
+	-fx-background-repeat: no-repeat;
+	-fx-background-position: 50% 50%;
+	-fx-background-size: cover;
+}
+
+.ingreseNombreLabel2{
+	-fx-text-fill: #ff0000;
+	-fx-font: 30 arial;
+	-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+}
+
+.casilla2{
+	-fx-background-color: #ffb5cd;
+	-fx-text-fill: #440117;
+}
+
+.nombrejugador1{
+	-fx-font: 24 arial;
+	-fx-text-fill: blue;
+}
+
+.nombrejugador2{
+	-fx-font: 24 arial; 
+	-fx-text-fill: #ff0000;
+}
