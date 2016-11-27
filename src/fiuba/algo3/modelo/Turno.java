@@ -14,13 +14,17 @@ public class Turno {
 	private Jugador jugadorGanador;
 	
 	public Turno(Jugador player1, Jugador player2) {
-		Random randomGenerator = new Random();
-		if( randomGenerator.nextInt(2) == 0) jugadorActivo = player1;
-		else jugadorActivo = player2;
+		jugadorActivo = player1;
 		jugador1 = player1;
 		jugador2 = player2;
 		jugador1.setOponente(jugador2);
 		jugador2.setOponente(jugador1);
+	}
+	
+	public void activarJugabilidad(){
+		Random randomGenerator = new Random();
+		if( randomGenerator.nextInt(2) == 0) jugadorActivo = jugador1;
+		else jugadorActivo = jugador2;
 	}
 	
 	public boolean jugar(AccionDeJugador accion){ //Al jugador que le corresponde jugar se le pasa la accion correspondiente

@@ -46,6 +46,7 @@ public class PantallaDeSeleccionDeAlgomones {
 		jugador2 = j2;
 		stage = stagePrincipal;
 		turno = new Turno(j1,j2);
+		turno.activarJugabilidad();
 	}
 	
 	public MenuBar agregarMenuBar(String url){

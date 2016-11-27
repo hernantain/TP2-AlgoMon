@@ -58,13 +58,12 @@ public class PantallaDeLucha {
 		opciones = new HBox(40);
 		opciones.setPrefSize(700, 150);
 		opciones.setAlignment(Pos.CENTER);
+		opciones.setStyle("-fx-background-image: url('file:src/imagenes/fondo2.jpg');");
 		
 		jugador1Algomones = new VBox(10);
-		jugador1Algomones.setPrefWidth(150);
 		jugador1Algomones.setAlignment(Pos.TOP_CENTER);
 		
 		jugador2Algomones = new VBox(10);
-		jugador2Algomones.setPrefWidth(150);
 		jugador2Algomones.setAlignment(Pos.TOP_CENTER);	
 		
 		jugador1Algomones.setPrefWidth(130);
@@ -81,8 +80,13 @@ public class PantallaDeLucha {
 		
 		VBox contenedorJ1 = new VBox(70);
 		contenedorJ1.getChildren().addAll(nombrejugador1, jugador1Algomones);
+		contenedorJ1.setStyle("-fx-background-color: #0000ff; -fx-border-color: #000859;-fx-border-width: 3;");
+		contenedorJ1.setPrefWidth(150);
 		VBox contenedorJ2 = new VBox(70);
 		contenedorJ2.getChildren().addAll(nombrejugador2, jugador2Algomones);
+		contenedorJ2.setStyle("-fx-background-color: #ff0000; -fx-border-color: #630000;-fx-border-width: 3;");
+		contenedorJ2.setPrefWidth(150);
+		
 		
 		volverAtacar = crearBoton("Volver");
 			volverAtacar.setOnAction(e->{
