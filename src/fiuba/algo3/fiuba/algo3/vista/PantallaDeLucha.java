@@ -73,18 +73,20 @@ public class PantallaDeLucha {
 		nombrejugador1.setStyle("-fx-font: 24 arial; -fx-text-fill: #00ffff;");
 		
 		Label nombrejugador2 = new Label(jugador2.getNombre());
-		nombrejugador2.setStyle("-fx-font: 24 arial; -fx-text-fill: #ff0000;");
+		nombrejugador2.setStyle("-fx-font: 24 arial; -fx-text-fill: #820000;");
 		
 		//AGREGUE ESTOS CONTENEDORES, TIENEN LOS LABELS CON LOS NOMBRES
 		//Y LA VBOX DE LO ALGOMONES
 		
 		VBox contenedorJ1 = new VBox(70);
+		contenedorJ1.setAlignment(Pos.TOP_CENTER);
 		contenedorJ1.getChildren().addAll(nombrejugador1, jugador1Algomones);
-		contenedorJ1.setStyle("-fx-background-color: #0000ff; -fx-border-color: #000859;-fx-border-width: 3;");
+		contenedorJ1.setStyle("-fx-background-color: #00b2ff; -fx-border-color: black;-fx-border-width: 7;");
 		contenedorJ1.setPrefWidth(150);
 		VBox contenedorJ2 = new VBox(70);
+		contenedorJ2.setAlignment(Pos.TOP_CENTER);
 		contenedorJ2.getChildren().addAll(nombrejugador2, jugador2Algomones);
-		contenedorJ2.setStyle("-fx-background-color: #ff0000; -fx-border-color: #630000;-fx-border-width: 3;");
+		contenedorJ2.setStyle("-fx-background-color: #ff0000; -fx-border-color: black;-fx-border-width: 7;");
 		contenedorJ2.setPrefWidth(150);
 		
 		
@@ -108,7 +110,9 @@ public class PantallaDeLucha {
 		barraDeVida2.setPrefSize(200, 20);
 		
 		algomonNombreJ1 = new Label(jugador1.getAlgomonActivo().nombre()+" "+ jugador1.getAlgomonActivo().vida() + "/" + jugador1.getAlgomonActivo().getVidaMax()); 
+		algomonNombreJ1.setStyle("-fx-font: 20 arial;");
 		algomonNombreJ2 = new Label(jugador2.getAlgomonActivo().nombre()+" "+ jugador2.getAlgomonActivo().vida() + "/" + jugador2.getAlgomonActivo().getVidaMax()); 		
+		algomonNombreJ2.setStyle("-fx-font: 20 arial;");
 		
 		algomonJ1Stats = new VBox(20);
 		algomonJ1Stats.setAlignment(Pos.CENTER);
@@ -137,8 +141,6 @@ public class PantallaDeLucha {
 		
 		pantallaDeStats = new HBox(200);
 		pantallaDeStats.setPrefSize(800, 100);
-		//pantallaDePelea.setStyle("-fx-background-image: url('file:src/imagenes/fondoPelea.jpg');"
-		//						+"-fx-background-size: cover;");
 		pantallaDeStats.setAlignment(Pos.CENTER);
 		pantallaDeStats.getChildren().addAll(algomonJ1Stats, algomonJ2Stats);
 		
@@ -148,17 +150,20 @@ public class PantallaDeLucha {
 		pantallaDeAlgomones.getChildren().addAll(algomonJ1,algomonJ2);
 		
 		pantallaDePelea = new BorderPane();
-		pantallaDePelea.setStyle("-fx-background-image: url('file:src/imagenes/fondoPelea.jpg'); -fx-background-size: cover;");
+		pantallaDePelea.setStyle("-fx-background-image: url('file:src/imagenes/fondoPelea.jpg'); -fx-background-size: cover;"
+				+ "-fx-border-color: black;-fx-border-width: 7;");
 		pantallaDePelea.setTop(pantallaDeStats);
 		pantallaDePelea.setCenter(pantallaDeAlgomones);
 		
 		ataques = new HBox(40);
 		ataques.setPrefSize(700, 150);
 		ataques.setAlignment(Pos.CENTER);
+		ataques.setStyle("-fx-background-image: url('file:src/imagenes/fondo2.jpg');");
 		
 		elementos = new HBox(40);
 		elementos.setPrefSize(700, 150);
 		elementos.setAlignment(Pos.CENTER);
+		elementos.setStyle("-fx-background-image: url('file:src/imagenes/fondo2.jpg');");
 		
 		this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volverAtacar);
 		
@@ -290,7 +295,7 @@ public class PantallaDeLucha {
 	
 	private void cambiarPanelAtaques(Ataque ataque) {
 		HBox infoAtaques = new HBox(20);
-		infoAtaques.setStyle("-fx-background-color: blue;");
+		infoAtaques.setStyle("-fx-background-color: black;");
 		infoAtaques.setAlignment(Pos.CENTER);
 		Label cantidad = crearLabel("Cantidad restante " + ataque.getCantidad());
 		Label danioARealizar = crearLabel("Danio a Realizar: " + ataque.danioRealizado(turno.jugadorNoActivo().getAlgomonActivo()));
@@ -328,7 +333,7 @@ public class PantallaDeLucha {
 	
 	private void cambiarPanelElementos(Elemento elemento) {
 		HBox infoElementos = new HBox();
-		infoElementos.setStyle("-fx-background-color: blue;");
+		infoElementos.setStyle("-fx-background-color: black;");
 		infoElementos.setAlignment(Pos.CENTER);
 		Label cantidad = crearLabel("Cantidad restante " + turno.jugadorActivo().getCantidadElemento(elemento));
 		infoElementos.getChildren().addAll(cantidad);
