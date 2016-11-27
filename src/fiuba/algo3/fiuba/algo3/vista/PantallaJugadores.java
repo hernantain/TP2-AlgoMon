@@ -16,6 +16,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modelo.*;
 
@@ -104,8 +106,17 @@ public class PantallaJugadores {
 				   stage.setMaximized(false);
 				   stage.setMaximized(true);
 			   }catch (NombreVacioExcepcion ex){
-				   Alert alert = new Alert(AlertType.NONE, "Ingrese un nombre", ButtonType.OK);
-				   alert.showAndWait();
+				   //Alert alert = new Alert(AlertType.NONE, "Ingrese un nombre", ButtonType.OK);
+				   //alert.showAndWait();
+				   final Stage dialog = new Stage();
+	                dialog.initModality(Modality.APPLICATION_MODAL);
+	                dialog.initOwner(stage);
+	                VBox dialogVbox = new VBox(20);
+	                dialogVbox.getChildren().add(new Text("This is a Dialog"));
+	                Scene dialogScene = new Scene(dialogVbox, 300, 200);
+	                dialog.setScene(dialogScene);
+	                dialog.show();
+				   
 			   }
 			});
 			botonIngresarNombre.setStyle("-fx-font: 22 arial; -fx-base: #0014f4;"
