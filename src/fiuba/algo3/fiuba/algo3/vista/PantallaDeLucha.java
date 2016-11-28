@@ -2,7 +2,6 @@ package fiuba.algo3.vista;
 
 import java.util.ArrayList;
 
-import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -400,18 +399,28 @@ public class PantallaDeLucha {
 	
 	private void moverAlgomonAtacante() {
 		if(turno.jugadorActivo() == jugador2){
-			TranslateTransition trans = new TranslateTransition(Duration.millis(300), imgAlgomonActivo1);
-			trans.setToX(100);
+			TranslateTransition trans = new TranslateTransition(Duration.millis(35), imgAlgomonActivo2);
+			trans.setToY(20);
+			trans.setCycleCount(10);
+			trans.setAutoReverse(true);
+			trans.play();
+			TranslateTransition trans2 = new TranslateTransition(Duration.millis(35), imgAlgomonActivo1);
+			trans2.setToX(70);
+			trans2.setCycleCount(2);
+			trans2.setAutoReverse(true);
+			trans2.play();
+		} else {
+			TranslateTransition trans2 = new TranslateTransition(Duration.millis(35), imgAlgomonActivo1);
+			trans2.setToY(20);
+			trans2.setCycleCount(10);
+			trans2.setAutoReverse(true);
+			trans2.play();
+			TranslateTransition trans = new TranslateTransition(Duration.millis(35), imgAlgomonActivo2);
+			trans.setToX(-70);
 			trans.setCycleCount(2);
 			trans.setAutoReverse(true);
 			trans.play();
-		 } else {
-			 TranslateTransition trans2 = new TranslateTransition(Duration.millis(300), imgAlgomonActivo2);
-			 trans2.setToX(-100);
-			 trans2.setCycleCount(2);
-			 trans2.setAutoReverse(true);
-			 trans2.play();
-		 }
+		}
 	}
 	
 	public ImageView crearImagen(String url, int height, int width){
