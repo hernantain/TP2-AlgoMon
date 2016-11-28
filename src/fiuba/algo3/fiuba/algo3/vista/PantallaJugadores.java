@@ -37,7 +37,20 @@ public class PantallaJugadores implements Pantalla{
 		MenuBar menuBar = new MenuBar();
 		Menu archivo = new Menu("Archivo");
 		MenuItem salir = new MenuItem("Salir");
-		archivo.getItems().addAll(salir);
+		MenuItem maximizar = new MenuItem("Maximizar");
+		MenuItem minimizar = new MenuItem("Minimizar");
+		maximizar.setDisable(true);
+		maximizar.setOnAction(e->{
+			stage.setFullScreen(true);
+			minimizar.setDisable(false);
+			maximizar.setDisable(true);
+		});
+		minimizar.setOnAction(e->{
+			stage.setFullScreen(false);
+			maximizar.setDisable(false);
+			minimizar.setDisable(true);
+		});
+		archivo.getItems().addAll(maximizar,minimizar,salir);
 		salir.setOnAction(e->stage.close());
 		menuBar.getMenus().addAll(archivo);
 		menuBar.setStyle(url);

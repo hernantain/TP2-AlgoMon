@@ -281,7 +281,6 @@ public class PantallaDeLucha implements Pantalla{
 					this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
 					this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
 					pantalla.setBottom(opciones);
-					System.out.println("Vida de " + turno.jugadorActivo().getAlgomonActivo().nombre() + " ---> " + turno.jugadorActivo().getAlgomonActivo().vida());
 					}
 					this.modificarFocus();
 			});

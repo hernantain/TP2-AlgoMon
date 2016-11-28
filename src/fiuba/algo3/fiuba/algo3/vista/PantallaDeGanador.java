@@ -19,7 +19,7 @@ public class PantallaDeGanador implements Pantalla {
 	}
 	
 	public void setearVista(){
-		Label labelGanador = new Label("¡" + jugador.getNombre() + " ha ganado el juego!");
+		Label labelGanador = new Label(jugador.getNombre() + " ha ganado el juego!");
 		labelGanador.setStyle("-fx-font: 45 arial; -fx-text-fill: #ff0000;");
 		
 		Button finalizarJuego = new Button("Finalizar Juego");
