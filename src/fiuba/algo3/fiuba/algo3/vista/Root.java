@@ -48,8 +48,6 @@ public class Root extends VBox{
 		botonSalir = this.crearBotonInicio("Salir", "botonSalir");
 		botonSalir.setOnAction(e-> stage.close());
 		
-		//MUTEO PORQUE NO PUEDO SABER QUE BOTON DE SONIDO PONER, NO HAY UN ISSTOPPED();
-		
 		if (!mediaView.getMediaPlayer().isMute()){
 			this.getChildren().addAll(mensaje,botonJugar,botonReglas,botonSacarSonido,botonSalir,mediaView);
 		}

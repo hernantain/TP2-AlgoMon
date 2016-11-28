@@ -121,11 +121,7 @@ public class PantallaDeSeleccionDeAlgomones implements Pantalla {
 						+ "-fx-font: 22 arial;");
 		comenzar.setOnAction(e->{
 			PantallaDeLucha pantallaLucha = new PantallaDeLucha(stage, turno, jugador1, jugador2);
-			pantallaLucha.cambiarVista();
-			/*  ACA SERIA
-			 *  comenzar.setOnAction(new BotonComenzarBatalla(this, stage, turno, jugador1, jugador2));
-			 *  NO TOCO NADA DE PANTALLA DE LUCHA TODAVIA
-			 */
+			this.cambiarVista(pantallaLucha);
 		});
 		comenzarBatalla = new VBox();
 		comenzarBatalla.setAlignment(Pos.CENTER);

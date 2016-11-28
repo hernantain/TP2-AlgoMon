@@ -68,11 +68,10 @@ public abstract class Algomon {
 	public void curarse(int cantidadACurarse) {
 		if (this.estaVivo()){
 			vida.aumentar(cantidadACurarse);
-		}//VER EL MANEJO DE ALGUNA EXCPECION PARA NO UTILIZAR EL ELEMENTO
+		}
 	}
 	
-	public double vida(){//ESTE METODO LO CREE PARA LOS TEST BASICAMENTE
-						//DESPUES VEMOS DE SACARLO O NO PORQUE CAPAZ SIRVE PARA LA INTERFAZ GRAFICA
+	public double vida(){
 		return vida.actual();
 	}
 	

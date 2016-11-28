@@ -35,7 +35,6 @@ public class PantallaJugadores implements Pantalla{
 	
 	public MenuBar agregarMenuBar(String url){
 		MenuBar menuBar = new MenuBar();
-		//menuBar.setStyle("-fx-position: top");
 		Menu archivo = new Menu("Archivo");
 		MenuItem salir = new MenuItem("Salir");
 		archivo.getItems().addAll(salir);

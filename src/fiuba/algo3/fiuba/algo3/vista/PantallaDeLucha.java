@@ -23,7 +23,7 @@ import Ataques.*;
 import Acciones.*;
 import Algomones.Algomon;
 
-public class PantallaDeLucha {
+public class PantallaDeLucha implements Pantalla{
 
 	Stage stage;
 	Jugador jugador1, jugador2;
@@ -53,7 +53,7 @@ public class PantallaDeLucha {
 		return boton;		
 	}
 	
-	public void cambiarVista(){
+	public void setearVista(){
 		
 		pantalla = new BorderPane();
 		
@@ -76,9 +76,6 @@ public class PantallaDeLucha {
 		
 		nombrejugador2 = new Label(jugador2.getNombre());
 		nombrejugador2.setStyle("-fx-font: 24 arial; -fx-text-fill: #820000;");
-		
-		//AGREGUE ESTOS CONTENEDORES, TIENEN LOS LABELS CON LOS NOMBRES
-		//Y LA VBOX DE LO ALGOMONES
 		
 		circulo = new Circle(10);
 		circulo2 = new Circle(10);
@@ -117,7 +114,7 @@ public class PantallaDeLucha {
 		});
 		
 		
-		barraDeVida1 = new ProgressBar(); //ESTA ES LA IDEA DE LAS BARRAS DE VIDA
+		barraDeVida1 = new ProgressBar();
 		barraDeVida1.setProgress(1.0);	
 		barraDeVida1.setPrefSize(200, 20);
 	
@@ -301,7 +298,7 @@ public class PantallaDeLucha {
 		}
 		if (turno.hayGanador()){
 			PantallaDeGanador pantallaDeGanador = new PantallaDeGanador(stage, turno.jugadorGanador());
-			pantallaDeGanador.cambiarVista();
+			this.cambiarVista(pantallaDeGanador);
 		}
 		else{
 			this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
@@ -456,6 +453,12 @@ public class PantallaDeLucha {
 			nombrejugador1.setDisable(false);
 			nombrejugador2.setDisable(true);
 		}
+	}
+
+	@Override
+	public void cambiarVista(Pantalla pantalla) {
+		pantalla.setearVista();
+		stage.setFullScreen(true);
 	}
 
 }

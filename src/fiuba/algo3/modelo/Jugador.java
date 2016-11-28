@@ -52,13 +52,13 @@ public class Jugador {
 		oponente = contrincante;
 	}
 	
-	public void setAlgomonActivo(Algomon unAlgomon){				//Por el momento no la usamos, pero mas adelante, cuando querramos cambiar el algomon 
+	public void setAlgomonActivo(Algomon unAlgomon){
 		algomonActivo = unAlgomon;
 	}
 	
 	public Algomon getAlgomonActivo(){
-		return algomonActivo;			//Por el momento solo hacemos las pruebas con un algomon
-	}										//y nos devuelve el unico en la lista
+		return algomonActivo;
+	}
 	
 	public boolean realizarAccion(AccionDeJugador accion){
 		return accion.accionar();			//Se pasa la accion(atacar,cambiar o usar elemento)a realizar y se ejecuta el metodo accionar

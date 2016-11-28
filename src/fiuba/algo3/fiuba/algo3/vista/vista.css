@@ -39,6 +39,12 @@
 	-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
 }
 
+.botonVolverAJugar{
+	-fx-font: 22 arial; 
+	-fx-base: #0014f4;
+	-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+}
+
 .ingreseNombreLabel {
 	-fx-text-fill: #16a0fc;
 	-fx-font: 30 arial;
