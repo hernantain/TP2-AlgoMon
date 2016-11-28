@@ -235,7 +235,7 @@ public class PantallaDeLucha {
 				Algomon algomon = algomones.get(x);
 				Button botonAlgomon = crearBoton(algomon.nombre());
 				botonAlgomon.setDisable(true);
-				if (algomon.estaVivo() || algomon != jugador.getAlgomonActivo()){
+				if (algomon.estaVivo()){
 					botonAlgomon.setOnAction(event->{
 						try {
 							turno.jugar(new CambiarAlgomonActivo(turno.jugadorActivo(),algomon));
