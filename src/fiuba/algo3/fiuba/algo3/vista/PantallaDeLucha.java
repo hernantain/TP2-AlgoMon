@@ -3,6 +3,7 @@ package fiuba.algo3.vista;
 import java.util.ArrayList;
 
 import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -35,6 +36,7 @@ public class PantallaDeLucha {
 	ProgressBar barraDeVida1, barraDeVida2;
 	Label algomonNombreJ1, algomonNombreJ2, nombrejugador1, nombrejugador2;
 	Circle circulo, circulo2;
+	ImageView imgAlgomonActivo1,imgAlgomonActivo2;
 	
 	public PantallaDeLucha(Stage stagePrincipal, Turno t, Jugador player1, Jugador player2){
 		stage = stagePrincipal;
@@ -129,13 +131,13 @@ public class PantallaDeLucha {
 		
 		algomonJ1Stats = new VBox(20);
 		algomonJ1Stats.setAlignment(Pos.CENTER);
-		ImageView imgAlgomonActivo1 = this.crearImagen("file:src/imagenes/" + jugador1.getAlgomonActivo().nombre().toLowerCase()+".png", 200, 200);
+		imgAlgomonActivo1 = this.crearImagen("file:src/imagenes/" + jugador1.getAlgomonActivo().nombre().toLowerCase()+".png", 200, 200);
 		imgAlgomonActivo1.setScaleX(-1);
 		algomonJ1Stats.getChildren().addAll(algomonNombreJ1,barraDeVida1);
 		algomonJ2Stats = new VBox(20);
 		algomonJ2Stats.setPrefWidth(350);
 		algomonJ2Stats.setAlignment(Pos.CENTER);
-		ImageView imgAlgomonActivo2 = this.crearImagen("file:src/imagenes/" + jugador2.getAlgomonActivo().nombre().toLowerCase()+".png", 200, 200);
+		imgAlgomonActivo2 = this.crearImagen("file:src/imagenes/" + jugador2.getAlgomonActivo().nombre().toLowerCase()+".png", 200, 200);
 		algomonJ2Stats.getChildren().addAll(algomonNombreJ2,barraDeVida2);
 		
 		algomonJ1 = new VBox();
@@ -275,6 +277,7 @@ public class PantallaDeLucha {
 						&& !turno.jugadorActivo().getAlgomonActivo().estaVivo()) { // Caso de ataque que provoca debilitacion de algomon.
 						manejoDeAlgomonDebilitado(volver);
 					} else { // Caso normal.
+					this.moverAlgomonAtacante();
 					this.actualizarStats();
 					this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
 					this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
@@ -319,7 +322,7 @@ public class PantallaDeLucha {
 		HBox infoAtaques = new HBox(20);
 		infoAtaques.setStyle("-fx-background-color: black;");
 		infoAtaques.setAlignment(Pos.CENTER);
-		Label cantidad = crearLabel("Cantidad restante " + ataque.getCantidad());
+		Label cantidad = crearLabel("Cantidad restante: " + ataque.getCantidad());
 		Label danioARealizar = crearLabel("Danio a Realizar: " + ataque.danioRealizado(turno.jugadorNoActivo().getAlgomonActivo()));
 		infoAtaques.getChildren().addAll(cantidad,danioARealizar);
 		pantallaDePelea.setBottom(infoAtaques);
@@ -362,7 +365,7 @@ public class PantallaDeLucha {
 		HBox infoElementos = new HBox();
 		infoElementos.setStyle("-fx-background-color: black;");
 		infoElementos.setAlignment(Pos.CENTER);
-		Label cantidad = crearLabel("Cantidad restante " + turno.jugadorActivo().getCantidadElemento(elemento));
+		Label cantidad = crearLabel("Cantidad restante: " + turno.jugadorActivo().getCantidadElemento(elemento));
 		infoElementos.getChildren().addAll(cantidad);
 		pantallaDePelea.setBottom(infoElementos);
 	}
@@ -399,10 +402,26 @@ public class PantallaDeLucha {
 		return imgView;
 	}
 	
+	private void moverAlgomonAtacante() {
+		if(turno.jugadorActivo() == jugador2){
+			TranslateTransition trans = new TranslateTransition(Duration.millis(300), imgAlgomonActivo1);
+			trans.setToX(100);
+			trans.setCycleCount(2);
+			trans.setAutoReverse(true);
+			trans.play();
+		} else {
+			TranslateTransition trans2 = new TranslateTransition(Duration.millis(300), imgAlgomonActivo2);
+			trans2.setToX(-100);
+			trans2.setCycleCount(2);
+			trans2.setAutoReverse(true);
+			trans2.play();
+		}
+	}
+	
 	public void mostrarImagenAlgomonesJugadores(Jugador j1, Jugador j2){
-		ImageView imgAlgomonActivo1 = this.crearImagen("file:src/imagenes/" + j1.getAlgomonActivo().nombre().toLowerCase()+".png", 200, 200);
+		imgAlgomonActivo1 = this.crearImagen("file:src/imagenes/" + j1.getAlgomonActivo().nombre().toLowerCase()+".png", 200, 200);
 		imgAlgomonActivo1.setScaleX(-1);
-		ImageView imgAlgomonActivo2 = this.crearImagen("file:src/imagenes/" + j2.getAlgomonActivo().nombre().toLowerCase()+".png", 200, 200);
+		imgAlgomonActivo2 = this.crearImagen("file:src/imagenes/" + j2.getAlgomonActivo().nombre().toLowerCase()+".png", 200, 200);
 		algomonNombreJ1.setText(jugador1.getAlgomonActivo().nombre()+" "+ jugador1.getAlgomonActivo().vida() + "/" + jugador1.getAlgomonActivo().getVidaMax());
 		algomonNombreJ2.setText(jugador2.getAlgomonActivo().nombre()+" "+ jugador2.getAlgomonActivo().vida() + "/" + jugador2.getAlgomonActivo().getVidaMax());
 		algomonJ1.getChildren().clear();
