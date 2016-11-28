@@ -1,7 +1,5 @@
 package fiuba.algo3.vista;
 
-import Controlador.BotonIngresoNombreCambiaPantallaHandle;
-import Controlador.BotonIngresoNombreHandle;
 import Controlador.BotonVolverAInicioHandle;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -77,8 +75,7 @@ public class PantallaJugadores implements Pantalla{
 			   if(event.getCode() == KeyCode.ENTER){
 				   try{
 					   jugador1 = new Jugador(casillaIngresoNombre.getText());
-					   stage.setScene(tercerPantalla);
-					   stage.setFullScreen(true);
+					   cambiarEscena(tercerPantalla);
 				   }catch (NombreVacioExcepcion e){
 					   new Alerta("Ingrese un nombre", stage);
 				   }
@@ -91,7 +88,15 @@ public class PantallaJugadores implements Pantalla{
 		
 		Button botonAceptarNombre = this.crearBoton("Aceptar", "#0014f4");
 		
-		botonAceptarNombre.setOnAction(new BotonIngresoNombreHandle(stage, tercerPantalla, casillaIngresoNombre, jugador1));
+		botonAceptarNombre.setOnAction(e->{
+			try{
+				   jugador1 = new Jugador(casillaIngresoNombre.getText());
+				   cambiarEscena(tercerPantalla);
+			   }catch (NombreVacioExcepcion ex){
+				   new Alerta("Ingrese un nombre", stage);
+			   }
+		   
+		});
 			
 			segundoLayout.setOnMouseClicked(e->botonAceptarNombre.requestFocus());
 			
@@ -150,7 +155,14 @@ public class PantallaJugadores implements Pantalla{
 				
 				
 				Button botonAceptarNombre2 = this.crearBoton("Aceptar", "#0014f4");
-				botonAceptarNombre2.setOnAction(new BotonIngresoNombreCambiaPantallaHandle(this, stage, jugador1, casillaIngresoNombre2));
+				botonAceptarNombre2.setOnAction(e->{
+					try{
+						   jugador2 = new Jugador(casillaIngresoNombre2.getText());
+						   PantallaDeSeleccionDeAlgomones seleccion = new PantallaDeSeleccionDeAlgomones(stage,jugador1,jugador2);
+						   this.cambiarVista(seleccion);
+					   }catch (NombreVacioExcepcion ex){
+						   new Alerta("Ingrese un nombre", stage);}
+				});
 
 				tercerLayout.setOnMouseClicked(e->botonAceptarNombre2.requestFocus());
 				
@@ -192,6 +204,11 @@ public class PantallaJugadores implements Pantalla{
 		casilla.setPromptText("Ingrese su nombre aqui");
 		casilla.setOnMouseClicked(e->casilla.requestFocus());
 		return casilla;
+	}
+	
+	public void cambiarEscena(Scene escena){
+		stage.setScene(escena);
+		stage.setFullScreen(true);
 	}
 
 
