@@ -7,6 +7,7 @@ import Algomones.Charmander;
 import Algomones.Jigglypuff;
 import Algomones.Rattata;
 import Algomones.Squirtle;
+import Controlador.BotonElegirAlgomonHandle;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,7 +17,6 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -43,7 +43,7 @@ public class PantallaDeSeleccionDeAlgomones implements Pantalla {
 		jugador2 = j2;
 		stage = stagePrincipal;
 		turno = new Turno(j1,j2);
-		turno.activarJugabilidad();
+		turno.activarJugabilidad(); //ACTIVA EL RANDOM
 	}
 	
 	public MenuBar agregarMenuBar(String url){
@@ -58,38 +58,6 @@ public class PantallaDeSeleccionDeAlgomones implements Pantalla {
 		menuBar.setOpacity(0.75);
 		
 		return menuBar;
-	}
-	
-	public ImageView crearImagen(String url, int height, int width){
-		Image img = new Image(url);
-		ImageView imgView = new ImageView(img);	
-		imgView.setFitHeight(height);
-		imgView.setFitWidth(width);
-		return imgView;
-	}
-	
-	public Button crearBotonDeAlgomon(String url){
-		Button boton = new Button();
-		boton.setPrefSize(75, 75);
-		boton.setStyle(url
-				+"-fx-background-color: #38acff;"
-				+"-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );"
-				+"-fx-opacity: 0.95;");
-		return boton;
-	}
-	
-	public Label crearLabelDeAlgomon(String nombre, String url){
-		
-		Label label = new Label(nombre);
-		label.setStyle(url + "-fx-font: 32 arial;" );
-		return label;
-	}
-	
-	public Button crearBotonDeEleccion(){
-		Button boton = new Button("Elegir");
-		boton.setStyle("-fx-font: 18 arial; -fx-base: #ff0000;"
-					+  "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
-		return boton;
 	}
 
 	public void setearVista(){
@@ -154,47 +122,32 @@ public class PantallaDeSeleccionDeAlgomones implements Pantalla {
 		comenzar.setOnAction(e->{
 			PantallaDeLucha pantallaLucha = new PantallaDeLucha(stage, turno, jugador1, jugador2);
 			pantallaLucha.cambiarVista();
+			/*  ACA SERIA
+			 *  comenzar.setOnAction(new BotonComenzarBatalla(this, stage, turno, jugador1, jugador2));
+			 *  NO TOCO NADA DE PANTALLA DE LUCHA TODAVIA
+			 */
 		});
 		comenzarBatalla = new VBox();
 		comenzarBatalla.setAlignment(Pos.CENTER);
 		comenzarBatalla.getChildren().addAll(comenzar);
 		
 		Button botonElegirCharmander = crearBotonDeEleccion();
-		botonElegirCharmander.setOnAction(e-> {
-			this.agregarImagenDeAlgomonAJugador(new Charmander(), "file:src/imagenes/charmander.png");
-			this.modificarFocus();
-		});	
+		botonElegirCharmander.setOnAction(new BotonElegirAlgomonHandle(this, new Charmander(), "file:src/imagenes/charmander.png"));
 		
 		Button botonElegirSquirtle = crearBotonDeEleccion();
-		botonElegirSquirtle.setOnAction(e-> {
-			this.agregarImagenDeAlgomonAJugador(new Squirtle(), "file:src/imagenes/squirtle.png");
-			this.modificarFocus();
-		});
+		botonElegirSquirtle.setOnAction(new BotonElegirAlgomonHandle(this, new Squirtle(), "file:src/imagenes/squirtle.png"));
 		
 		Button botonElegirBulbasaur = crearBotonDeEleccion();
-		botonElegirBulbasaur.setOnAction(e->{ 
-			this.agregarImagenDeAlgomonAJugador(new Bulbasaur(), "file:src/imagenes/bulbasaur.png");
-			this.modificarFocus();
-		});
+		botonElegirBulbasaur.setOnAction(new BotonElegirAlgomonHandle(this, new Bulbasaur(), "file:src/imagenes/bulbasaur.png"));
 		
 		Button botonElegirJigglypuff = crearBotonDeEleccion();
-		botonElegirJigglypuff.setOnAction(e->{
-			this.agregarImagenDeAlgomonAJugador(new Jigglypuff(), "file:src/imagenes/jigglypuff.png");
-			this.modificarFocus();
-		});
-		
+		botonElegirJigglypuff.setOnAction(new BotonElegirAlgomonHandle(this, new Jigglypuff(), "file:src/imagenes/jigglypuff.png"));
 		
 		Button botonElegirRattata = crearBotonDeEleccion();
-		botonElegirRattata.setOnAction(e->{
-			this.agregarImagenDeAlgomonAJugador(new Rattata(), "file:src/imagenes/rattata.png");
-			this.modificarFocus();
-		});
+		botonElegirRattata.setOnAction(new BotonElegirAlgomonHandle(this, new Rattata(), "file:src/imagenes/rattata.png"));
 		
 		Button botonElegirChansey = crearBotonDeEleccion();
-		botonElegirChansey.setOnAction(e->{
-			this.agregarImagenDeAlgomonAJugador(new Chansey(), "file:src/imagenes/chansey.png");
-			this.modificarFocus();
-		});
+		botonElegirChansey.setOnAction(new BotonElegirAlgomonHandle(this, new Chansey(), "file:src/imagenes/chansey.png"));
 
 		contenedorDeAlgomon.getChildren().addAll(botonCharmander,botonSquirtle,botonBulbasaur,botonJigglypuff,botonRattata,botonChansey);
 		
@@ -232,8 +185,6 @@ public class PantallaDeSeleccionDeAlgomones implements Pantalla {
 		Scene cuartaPantalla = new Scene(seleccionDeAlgomon,1100,600);
 		
 		stage.setScene(cuartaPantalla);
-		stage.setMaximized(false);
-		stage.setMaximized(true);
 
 		botonCharmander.setOnMouseEntered(e->this.mostrarVistaDeAlgomonEnElCentro(vistaCharmander));
 		botonSquirtle.setOnMouseEntered(e->this.mostrarVistaDeAlgomonEnElCentro(vistaSquirtle));
@@ -243,8 +194,40 @@ public class PantallaDeSeleccionDeAlgomones implements Pantalla {
 		botonChansey.setOnMouseEntered(e->this.mostrarVistaDeAlgomonEnElCentro(vistaChansey));
 	}
 	
+	public ImageView crearImagen(String url, int height, int width){
+		Image img = new Image(url);
+		ImageView imgView = new ImageView(img);	
+		imgView.setFitHeight(height);
+		imgView.setFitWidth(width);
+		return imgView;
+	}
+	
+	public Button crearBotonDeAlgomon(String url){
+		Button boton = new Button();
+		boton.setPrefSize(75, 75);
+		boton.setStyle(url
+				+"-fx-background-color: #38acff;"
+				+"-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );"
+				+"-fx-opacity: 0.95;");
+		return boton;
+	}
+	
+	public Label crearLabelDeAlgomon(String nombre, String url){
+		
+		Label label = new Label(nombre);
+		label.setStyle(url + "-fx-font: 32 arial;" );
+		return label;
+	}
+	
+	public Button crearBotonDeEleccion(){
+		Button boton = new Button("Elegir");
+		boton.setStyle("-fx-font: 18 arial; -fx-base: #ff0000;"
+					+  "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
+		return boton;
+	}
+	
 
-	private void modificarFocus() {
+	public void modificarFocus() {
 		if (turno.jugadorActivo() == jugador2){
 			circulo2.setOpacity(1);
 			circulo.setOpacity(0);
@@ -271,8 +254,6 @@ public class PantallaDeSeleccionDeAlgomones implements Pantalla {
 				} 
 				if (contador > 5) seleccionDeAlgomon.setCenter(comenzarBatalla);
 			} catch (AlgomonRepetidoExcepcion e) {
-				//Alert alert = new Alert(AlertType.NONE, "No puedes volver a elegir a "+algomon.nombre(), ButtonType.OK);
-				//alert.showAndWait();
 				new Alerta("No puedes volver a elegir a "+algomon.nombre(), stage);
 			}
 	}
@@ -289,7 +270,7 @@ public class PantallaDeSeleccionDeAlgomones implements Pantalla {
 
 	@Override
 	public void cambiarVista(Pantalla pantalla) {
-		// TODO Auto-generated method stub
-		
+		pantalla.setearVista();
+		stage.setFullScreen(true);
 	}
 }

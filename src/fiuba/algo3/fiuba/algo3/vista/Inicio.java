@@ -23,6 +23,7 @@ public class Inicio extends Application {
 		musica.play();
 		
 		stagePrincipal.setFullScreen(true);
+		stagePrincipal.setFullScreenExitHint("");
 		
 		PantallaInicio pantallaInicio = new PantallaInicio(stagePrincipal, musica);
 		pantallaInicio.setearVista();

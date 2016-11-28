@@ -142,7 +142,7 @@ public class PantallaJugadores implements Pantalla{
 						   try{
 							   jugador2 = new Jugador(casillaIngresoNombre2.getText());
 							   PantallaDeSeleccionDeAlgomones seleccion = new PantallaDeSeleccionDeAlgomones(stage,jugador1,jugador2);
-							   seleccion.setearVista();
+							   this.cambiarVista(seleccion);
 						   }catch (NombreVacioExcepcion e){
 							   new Alerta("Ingrese un nombre", stage);
 						   }
