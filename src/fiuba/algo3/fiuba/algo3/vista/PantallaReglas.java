@@ -1,6 +1,7 @@
 package fiuba.algo3.vista;
 
 
+import Controlador.BotonVolverAInicioHandle;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -8,18 +9,17 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class PantallaReglas {
+public class PantallaReglas implements Pantalla{
 	
 	Stage stage;
-	Scene scene;
+	PantallaInicio pantallaInicio;
 	
-	public PantallaReglas(Stage stagePrincipal, Scene sceneInicial){
+	public PantallaReglas(Stage stagePrincipal, PantallaInicio pantallaInicial){
 		stage = stagePrincipal;
-		scene = sceneInicial;
-		stage.setMaximized(false);
+		pantallaInicio = pantallaInicial;
 	}
 
-	public void cambiarVista() {
+	public void setearVista() {
 		
 		Button botonVolver = new Button("Volver");
 		botonVolver.setStyle("-fx-font: 22 arial; -fx-base: #0014f4;"
@@ -46,11 +46,7 @@ public class PantallaReglas {
 						  + "-fx-font: 22 arial;"
 						  + "-fx-font-weight: bold;");
 		
-		botonVolver.setOnAction(e-> {
-			stage.setScene(scene); 
-			stage.setMaximized(false);
-			stage.setMaximized(true);
-		});
+		botonVolver.setOnMouseClicked(new BotonVolverAInicioHandle(this, pantallaInicio));
 		
 		
 		VBox layoutReglas = new VBox(10);
@@ -62,8 +58,14 @@ public class PantallaReglas {
 		
 		Scene sceneReglas = new Scene(layoutReglas,1100,600);
 		stage.setScene(sceneReglas);
-		stage.setMaximized(true);
-		
+		stage.setFullScreen(true);		
+	}
+
+
+	@Override
+	public void cambiarVista(Pantalla pantalla) {
+		pantalla.setearVista();
+		stage.setFullScreen(true);
 	}
 	
 	

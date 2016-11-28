@@ -25,7 +25,7 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import modelo.*;
 
-public class PantallaDeSeleccionDeAlgomones {
+public class PantallaDeSeleccionDeAlgomones implements Pantalla {
 
 	Jugador jugador1,jugador2;
 	Turno turno;
@@ -92,7 +92,7 @@ public class PantallaDeSeleccionDeAlgomones {
 		return boton;
 	}
 
-	public void cambiarVista(){
+	public void setearVista(){
 		
 		//CUARTA PANTALLA
 		seleccionDeAlgomon = new BorderPane();
@@ -284,5 +284,12 @@ public class PantallaDeSeleccionDeAlgomones {
 		else{
 			seleccionDeAlgomon.setCenter(vistaAlgomon);
 		}
+	}
+
+
+	@Override
+	public void cambiarVista(Pantalla pantalla) {
+		// TODO Auto-generated method stub
+		
 	}
 }

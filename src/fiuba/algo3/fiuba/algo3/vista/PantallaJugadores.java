@@ -1,5 +1,8 @@
 package fiuba.algo3.vista;
 
+import Controlador.BotonIngresoNombreCambiaPantallaHandle;
+import Controlador.BotonIngresoNombreHandle;
+import Controlador.BotonVolverAInicioHandle;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -17,15 +20,16 @@ import javafx.stage.Stage;
 import modelo.*;
 
 
-public class PantallaJugadores {
+public class PantallaJugadores implements Pantalla{
 	
 	Jugador jugador1,jugador2;
 	Stage stage;
-	Scene pantallaInicio,tercerPantalla;
+	PantallaInicio pantallaInicio;
+	Scene tercerPantalla;
 	MenuBar menuBarJugador1,menuBarJugador2;
 	
 	
-	public PantallaJugadores (Stage stagePrincipal, Scene pantallaPrincipal){
+	public PantallaJugadores (Stage stagePrincipal, PantallaInicio pantallaPrincipal){
 		stage = stagePrincipal;
 		pantallaInicio = pantallaPrincipal;
 	}
@@ -45,7 +49,7 @@ public class PantallaJugadores {
 		return menuBar;
 	}
 	
-	public void cambiarVista(){
+	public void setearVista(){
 		
 		//PANTALLA JUGAR/PRIMER JUGADOR
 		BorderPane pantallaJugadores = new BorderPane();
@@ -66,65 +70,36 @@ public class PantallaJugadores {
 								 +"-fx-effect: innershadow( two-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
 						
 				
-				
-		TextField casilla = new TextField();
-		casilla.setAlignment(Pos.CENTER);
-		casilla.setStyle("-fx-background-color: #00ffcb;"
-				+ "-fx-text-fill: #1306c9;");
-		casilla.setMaxWidth(300);
-		casilla.setPromptText("Ingrese su nombre aqui");
-		casilla.setOnKeyPressed(event -> {
+		
+		TextField casillaIngresoNombre = this.crearCasillaNombre("#00ffcb");
+		
+		casillaIngresoNombre.setOnKeyPressed(event -> {
 			   if(event.getCode() == KeyCode.ENTER){
 				   try{
-					   jugador1 = new Jugador(casilla.getText());
+					   jugador1 = new Jugador(casillaIngresoNombre.getText());
 					   stage.setScene(tercerPantalla);
-					   stage.setMaximized(false);
-					   stage.setMaximized(true);
+					   stage.setFullScreen(true);
 				   }catch (NombreVacioExcepcion e){
-					   //Alert alert = new Alert(AlertType.NONE, "Ingrese un nombre", ButtonType.OK);
-					   //alert.showAndWait();
 					   new Alerta("Ingrese un nombre", stage);
 				   }
 			   }});
-		casilla.setOnMouseClicked(e->casilla.requestFocus());
 		
 		
 		menuBarJugador1 = agregarMenuBar("-fx-font: 14 arial; -fx-base: #0014f4;"
 				+ "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 )");
 		
 		
-		Button botonIngresarNombre = new Button("Aceptar");
-		botonIngresarNombre.setPrefSize(300, 70);
-		botonIngresarNombre.setOnAction(e-> {
-			try{
-				   jugador1 = new Jugador(casilla.getText());
-				   stage.setScene(tercerPantalla);
-				   stage.setMaximized(false);
-				   stage.setMaximized(true);
-			   }catch (NombreVacioExcepcion ex){
-				   //Alert alert = new Alert(AlertType.NONE, "Ingrese un nombre", ButtonType.OK);
-				   //alert.showAndWait();
-				   new Alerta("Ingrese un nombre", stage);			   
-			   }
-			});
-			botonIngresarNombre.setStyle("-fx-font: 22 arial; -fx-base: #0014f4;"
-					+   "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
+		Button botonAceptarNombre = this.crearBoton("Aceptar", "#0014f4");
+		
+		botonAceptarNombre.setOnAction(new BotonIngresoNombreHandle(stage, tercerPantalla, casillaIngresoNombre, jugador1));
 			
-			segundoLayout.setOnMouseClicked(e->botonIngresarNombre.requestFocus());
+			segundoLayout.setOnMouseClicked(e->botonAceptarNombre.requestFocus());
 			
-			Button boton = new Button();
-			boton.setText("Volver al Inicio");
-			boton.setPrefSize(300, 70);
-			boton.setStyle("-fx-font: 22 arial; -fx-base: #ff0000;"
-					+   "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
-			
+			Button botonVolverInicio = this.crearBoton("Volver a Inicio", "#ff0000");
 				
-			boton.setOnAction(e-> {
-				stage.setScene(pantallaInicio); 
-				stage.setMaximized(false);
-				stage.setMaximized(true);
-			});
-			segundoLayout.getChildren().addAll(ingreseNombreLabel,casilla,botonIngresarNombre,boton);
+			botonVolverInicio.setOnMouseClicked(new BotonVolverAInicioHandle(this, pantallaInicio));
+			
+			segundoLayout.getChildren().addAll(ingreseNombreLabel,casillaIngresoNombre,botonAceptarNombre,botonVolverInicio);
 			pantallaJugadores.setStyle("-fx-background-image: url('file:src/imagenes/fondo8.jpg');" 
 								+"-fx-background-repeat: no-repeat;"
 								+"-fx-background-position: 50% 50%; "
@@ -136,11 +111,10 @@ public class PantallaJugadores {
 			BorderPane.setAlignment(imgView, Pos.CENTER);
 			Scene segundaPantalla = new Scene(pantallaJugadores,1100,600);
 			stage.setScene(segundaPantalla);
-			stage.setMaximized(false);
-			stage.setMaximized(true);
+			stage.setFullScreen(true);;
 
 				
-				
+				////////////////////////////////////////////////////////
 				
 			BorderPane pantallaJugadores2 = new BorderPane();
 			
@@ -161,61 +135,34 @@ public class PantallaJugadores {
 								 			+"-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
 				
 				
-				TextField casilla2 = new TextField();
-				casilla2.setAlignment(Pos.CENTER);
-				casilla2.setStyle("-fx-background-color: #ffb5cd;"
-						+ "-fx-text-fill: #440117;");
-				casilla2.setMaxWidth(300);
-				casilla2.setPromptText("Ingrese su nombre aqui");
-				casilla2.setOnKeyPressed(event -> {
+				TextField casillaIngresoNombre2 = this.crearCasillaNombre("#ffb5cd");
+				
+				casillaIngresoNombre2.setOnKeyPressed(event -> {
 					   if(event.getCode() == KeyCode.ENTER){
 						   try{
-							   jugador2 = new Jugador(casilla2.getText());
+							   jugador2 = new Jugador(casillaIngresoNombre2.getText());
 							   PantallaDeSeleccionDeAlgomones seleccion = new PantallaDeSeleccionDeAlgomones(stage,jugador1,jugador2);
-							   seleccion.cambiarVista();
+							   seleccion.setearVista();
 						   }catch (NombreVacioExcepcion e){
-							   //Alert alert = new Alert(AlertType.NONE, "Ingrese un nombre", ButtonType.OK);
-							   //alert.showAndWait();
 							   new Alerta("Ingrese un nombre", stage);
 						   }
 					   }});
-				casilla2.setOnMouseClicked(e->casilla.requestFocus());
 				
 				
-				Button botonIngresarNombre2 = new Button("Aceptar");
-				botonIngresarNombre2.setPrefSize(300, 70);
-				botonIngresarNombre2.setOnAction(e-> {
-						try{
-						   jugador2 = new Jugador(casilla2.getText());
-						   PantallaDeSeleccionDeAlgomones seleccion = new PantallaDeSeleccionDeAlgomones(stage,jugador1,jugador2);
-						   seleccion.cambiarVista();
-					   }catch (NombreVacioExcepcion ex){
-						   //Alert alert = new Alert(AlertType.NONE, "Ingrese un nombre", ButtonType.OK);
-						   //alert.showAndWait();
-						   new Alerta("Ingrese un nombre", stage);
-					   }
-				});
-				botonIngresarNombre2.setOnMouseMoved(e->botonIngresarNombre2.requestFocus());
-				botonIngresarNombre2.setStyle("-fx-font: 22 arial; -fx-base: #0014f4;"
-						+   "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
-				tercerLayout.setOnMouseClicked(e->botonIngresarNombre2.requestFocus());
+				Button botonAceptarNombre2 = this.crearBoton("Aceptar", "#0014f4");
+				botonAceptarNombre2.setOnAction(new BotonIngresoNombreCambiaPantallaHandle(this, stage, jugador1, casillaIngresoNombre2));
+
+				tercerLayout.setOnMouseClicked(e->botonAceptarNombre2.requestFocus());
 				
 				menuBarJugador2 = agregarMenuBar("-fx-base: #ff0000;"
 			 			+"-fx-font: 14 arial;"
 			 			+"-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
 						
-				Button boton2 = new Button();
-				boton2.setText("Volver al Inicio");
-				boton2.setPrefSize(300, 70);
-				boton2.setStyle("-fx-font: 22 arial; -fx-base: #ff0000;"
-						+   "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
+				Button botonVolverInicio2 = this.crearBoton("Volver a Inicio", "#ff0000");
 							
-				boton2.setOnAction(e-> {
-					stage.setScene(pantallaInicio); 
-					stage.setMaximized(false);
-					stage.setMaximized(true);
-				});
-				tercerLayout.getChildren().addAll(ingreseNombreLabel2,casilla2,botonIngresarNombre2,boton2);
+				botonVolverInicio2.setOnMouseClicked(new BotonVolverAInicioHandle(this, pantallaInicio));
+				
+				tercerLayout.getChildren().addAll(ingreseNombreLabel2,casillaIngresoNombre2,botonAceptarNombre2,botonVolverInicio2);
 				
 				pantallaJugadores2.setStyle("-fx-background-image: url('file:src/imagenes/fondo9.jpg');"
 									 +"-fx-background-size: cover;");
@@ -228,4 +175,29 @@ public class PantallaJugadores {
 				tercerPantalla = new Scene(pantallaJugadores2,1100,600);
 	}
 
+	private Button crearBoton(String texto, String color) {
+		Button boton = new Button(texto);
+		boton.setPrefSize(300, 70);
+		boton.setStyle("-fx-font: 22 arial; -fx-base: "+ color+
+				";"+   "-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );");
+		return boton;
+	}
+
+
+	private TextField crearCasillaNombre(String color) {
+		TextField casilla = new TextField();
+		casilla.setAlignment(Pos.CENTER);
+		casilla.setStyle("-fx-background-color: "+ color+";"+ "-fx-text-fill: #1306c9;");
+		casilla.setMaxWidth(300);
+		casilla.setPromptText("Ingrese su nombre aqui");
+		casilla.setOnMouseClicked(e->casilla.requestFocus());
+		return casilla;
+	}
+
+
+	@Override
+	public void cambiarVista(Pantalla pantalla) {
+		pantalla.setearVista();
+		stage.setFullScreen(true);
+	}
 }
