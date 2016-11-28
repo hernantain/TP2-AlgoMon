@@ -34,9 +34,11 @@ public class PantallaDeLucha {
 	HBox opciones, ataques, elementos, pantallaDeStats;
 	VBox algomonJ1Stats, algomonJ2Stats,algomonJ1,algomonJ2,jugador1Algomones, jugador2Algomones;
 	ProgressBar barraDeVida1, barraDeVida2;
+	boolean algomonDebilitadoEraAtacante;
 	Label algomonNombreJ1, algomonNombreJ2, nombrejugador1, nombrejugador2;
 	Circle circulo, circulo2;
 	ImageView imgAlgomonActivo1,imgAlgomonActivo2;
+
 	
 	public PantallaDeLucha(Stage stagePrincipal, Turno t, Jugador player1, Jugador player2){
 		stage = stagePrincipal;
@@ -137,8 +139,7 @@ public class PantallaDeLucha {
 		algomonJ2Stats = new VBox(20);
 		algomonJ2Stats.setPrefWidth(350);
 		algomonJ2Stats.setAlignment(Pos.CENTER);
-		imgAlgomonActivo2 = this.crearImagen("file:src/imagenes/" + jugador2.getAlgomonActivo().nombre().toLowerCase()+".png", 200, 200);
-		algomonJ2Stats.getChildren().addAll(algomonNombreJ2,barraDeVida2);
+		imgAlgomonActivo2 = this.crearImagen("file:src/imagenes/" + jugador2.getAlgomonActivo().nombre().toLowerCase()+".png", 200, 200);		algomonJ2Stats.getChildren().addAll(algomonNombreJ2,barraDeVida2);
 		
 		algomonJ1 = new VBox();
 		algomonJ1.getChildren().add(imgAlgomonActivo1);
@@ -198,6 +199,7 @@ public class PantallaDeLucha {
 		});
 		botonCambiar = this.crearBoton("Cambiar Algomon");
 		botonCambiar.setOnAction(e->{
+			algomonDebilitadoEraAtacante = true;
 			if (turno.jugadorActivo() == jugador1){
 				this.cambiarDeAlgomon(jugador1Algomones);
 			}
@@ -241,7 +243,7 @@ public class PantallaDeLucha {
 					botonAlgomon.setOnAction(event->{
 						try {
 							turno.jugar(new CambiarAlgomonActivo(turno.jugadorActivo(),algomon));
-							if (botonCambiar.isDisabled()) {
+							if (!algomonDebilitadoEraAtacante) {
 								turno.cambiarJugador();
 							}
 							this.actualizarStats();
@@ -273,20 +275,17 @@ public class PantallaDeLucha {
 			}
 			botonAtaque.setOnMouseEntered(e->cambiarPanelAtaques(ataque));
 			botonAtaque.setOnAction(event->{
-					if (!turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), ataque, turno.jugadorNoActivo().getAlgomonActivo()))
-						&& !turno.jugadorActivo().getAlgomonActivo().estaVivo()) { // Caso de ataque que provoca debilitacion de algomon.
-						manejoDeAlgomonDebilitado(volver);
-					} else { // Caso normal.
+					turno.jugar(new Atacar(turno.jugadorActivo().getAlgomonActivo(), ataque, turno.jugadorNoActivo().getAlgomonActivo()));
+					if (!turno.jugadorActivo().getAlgomonActivo().estaVivo()
+							|| !turno.jugadorNoActivo().getAlgomonActivo().estaVivo()) {
+						manejoDeAlgomonDebilitado(volver);	
+					} else {
 					this.moverAlgomonAtacante();
 					this.actualizarStats();
 					this.cambiarBotonAtaque(turno.jugadorActivo(), ataques, volver);
 					this.usarElementosBotones(turno.jugadorActivo(), elementos, volverElementos);
 					pantalla.setBottom(opciones);
 					System.out.println("Vida de " + turno.jugadorActivo().getAlgomonActivo().nombre() + " ---> " + turno.jugadorActivo().getAlgomonActivo().vida());
-					}
-					if (!turno.jugadorNoActivo().getAlgomonActivo().estaVivo()) { // Caso de debilitacion de algomon atacante.
-						turno.cambiarJugador();
-						manejoDeAlgomonDebilitado(volver);
 					}
 					this.modificarFocus();
 			});
@@ -296,6 +295,11 @@ public class PantallaDeLucha {
 	}
 	
 	private void manejoDeAlgomonDebilitado(Button volver) {
+		algomonDebilitadoEraAtacante = false;
+		if (!turno.jugadorNoActivo().getAlgomonActivo().estaVivo()) {
+			turno.cambiarJugador();
+			algomonDebilitadoEraAtacante = true;
+		}
 		if (turno.hayGanador()){
 			PantallaDeGanador pantallaDeGanador = new PantallaDeGanador(stage, turno.jugadorGanador());
 			pantallaDeGanador.cambiarVista();
@@ -310,9 +314,9 @@ public class PantallaDeLucha {
 			this.actualizarStats();
 			new Alerta(turno.jugadorActivo().getAlgomonActivo().nombre()+" se ha debilitado, Elija un reemplazo.",stage);
 			if (turno.jugadorActivo() == jugador1){
-				this.cambiarDeAlgomon(jugador1Algomones);
+				this.cambiarDeAlgomonPorDebilitamiento(jugador1Algomones);
 			} else {
-				this.cambiarDeAlgomon(jugador2Algomones);
+				this.cambiarDeAlgomonPorDebilitamiento(jugador2Algomones);
 			}
 		}
 		pantalla.setBottom(opciones);	
@@ -377,11 +381,11 @@ public class PantallaDeLucha {
 		barraDeVida2.setProgress(jugador2.getAlgomonActivo().vida()/(1.0*jugador2.getAlgomonActivo().getVidaMax()));
 	}
 	
-	public void elegirSuplenteDeAlgomonDebilitado(VBox jugadorAlgomones) {
-		this.cambiarDeAlgomon(jugadorAlgomones);
-		botonCambiar.setDisable(true);
+	public void cambiarDeAlgomonPorDebilitamiento(VBox jugadorAlgomones) {
+		cambiarDeAlgomon(jugadorAlgomones);
 		volverOpciones.setDisable(true);
-		}
+		botonCambiar.setDisable(true);
+	}
 	
 	public void cambiarDeAlgomon(VBox jugadorAlgomones){
 		for (int x=0; x < jugadorAlgomones.getChildren().size();x++){
@@ -394,38 +398,28 @@ public class PantallaDeLucha {
 		volverOpciones.setDisable(false);
 	}
 	
+	private void moverAlgomonAtacante() {
+		if(turno.jugadorActivo() == jugador2){
+			TranslateTransition trans = new TranslateTransition(Duration.millis(300), imgAlgomonActivo1);
+			trans.setToX(100);
+			trans.setCycleCount(2);
+			trans.setAutoReverse(true);
+			trans.play();
+		 } else {
+			 TranslateTransition trans2 = new TranslateTransition(Duration.millis(300), imgAlgomonActivo2);
+			 trans2.setToX(-100);
+			 trans2.setCycleCount(2);
+			 trans2.setAutoReverse(true);
+			 trans2.play();
+		 }
+	}
+	
 	public ImageView crearImagen(String url, int height, int width){
 		Image img = new Image(url);
 		ImageView imgView = new ImageView(img);	
 		imgView.setFitHeight(height);
 		imgView.setFitWidth(width);
 		return imgView;
-	}
-	
-	private void moverAlgomonAtacante() {
-		if(turno.jugadorActivo() == jugador2){
-			TranslateTransition trans = new TranslateTransition(Duration.millis(35), imgAlgomonActivo2);
-			trans.setToY(20);
-			trans.setCycleCount(10);
-			trans.setAutoReverse(true);
-			trans.play();
-			TranslateTransition trans2 = new TranslateTransition(Duration.millis(35), imgAlgomonActivo1);
-			trans2.setToX(70);
-			trans2.setCycleCount(2);
-			trans2.setAutoReverse(true);
-			trans2.play();
-		} else {
-			TranslateTransition trans2 = new TranslateTransition(Duration.millis(35), imgAlgomonActivo1);
-			trans2.setToY(20);
-			trans2.setCycleCount(10);
-			trans2.setAutoReverse(true);
-			trans2.play();
-			TranslateTransition trans = new TranslateTransition(Duration.millis(35), imgAlgomonActivo2);
-			trans.setToX(-70);
-			trans.setCycleCount(2);
-			trans.setAutoReverse(true);
-			trans.play();
-		}
 	}
 	
 	public void mostrarImagenAlgomonesJugadores(Jugador j1, Jugador j2){
